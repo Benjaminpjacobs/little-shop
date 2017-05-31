@@ -4,7 +4,7 @@ RSpec.feature "When a visitor" do
   it "visits the items page" do
     item1, item2, item3 = create_list(:item, 3)
 
-    visit "/items"
+    visit items_path
     expect(page).to have_content(item1.title)
     expect(page).to have_content(item1.description)
     expect(page).to have_content(item1.price)
