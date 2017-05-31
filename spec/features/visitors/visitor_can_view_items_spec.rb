@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "When a visitor" do
-  context "visits the items page" do
-    item1, item2, item3 = create_list(:item)
+  it "visits the items page" do
+    item1, item2, item3 = create_list(:item, 3)
 
     visit "/items"
     expect(page).to have_content(item1.title)
