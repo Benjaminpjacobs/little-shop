@@ -3,7 +3,9 @@ FactoryGirl.define do
     name
     description
     price
-    image  { File.new(Rails.root.join('spec', 'fixtures', 'images', 'gear.png')) }
+    image_file_name { 'test.png' }
+    image_content_type { 'image/png' }
+    image_file_size { 1024 }
   end
 
   sequence :name do |n|
