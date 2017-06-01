@@ -13,17 +13,17 @@ RSpec.feature "When a visitor" do
 
       visit category_path(category1)
       expect(find('.page-heading')).to have_content(category1.title)
-      expect(page).to have_content(item1.title)
-      expect(page).to have_content(item2.title)
-      expect(page).to_not have_content(item3.title)
-      expect(page).to_not have_content(item4.title)
+      expect(page).to have_content(item1.name)
+      expect(page).to have_content(item2.name)
+      expect(page).to_not have_content(item3.name)
+      expect(page).to_not have_content(item4.name)
 
       visit category_path(category2)
       expect(find('.page-heading')).to have_content(category2.title)
-      expect(page).to have_content(item3.title)
-      expect(page).to have_content(item4.title)
-      expect(page).to_not have_content(item1.title)
-      expect(page).to_not have_content(item2.title)
+      expect(page).to have_content(item3.name)
+      expect(page).to have_content(item4.name)
+      expect(page).to_not have_content(item1.name)
+      expect(page).to_not have_content(item2.name)
     end
   end
 end
