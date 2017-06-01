@@ -7,3 +7,4 @@
       %h3=item.name
       %p=item.description
       %p=item.price
+      =button_to "Add to Cart", carts_path(item_id: item.id)
