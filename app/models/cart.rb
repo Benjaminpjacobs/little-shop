@@ -23,4 +23,9 @@ class Cart
       sum += item.price*quantity
     end
   end
+
+  def remove_item(item_id)
+    @contents.delete(item_id.to_s)
+    contents
+  end
 end
