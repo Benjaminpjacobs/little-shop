@@ -9,16 +9,16 @@ RSpec.feature "When a visitor" do
       category2 = create(:category_with_items, item_count: 2)
       item3 = category2.items.first
       item4 = category2.items.last
-      
 
-      visit "/#{category1.title}"
+
+      visit category_path(category1)
       expect(find('.page-heading')).to have_content(category1.title)
       expect(page).to have_content(item1.title)
       expect(page).to have_content(item2.title)
       expect(page).to_not have_content(item3.title)
       expect(page).to_not have_content(item4.title)
 
-      visit "/#{category2.title}"
+      visit category_path(category2)
       expect(find('.page-heading')).to have_content(category2.title)
       expect(page).to have_content(item3.title)
       expect(page).to have_content(item4.title)
@@ -27,4 +27,3 @@ RSpec.feature "When a visitor" do
     end
   end
 end
-
