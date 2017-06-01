@@ -8,7 +8,16 @@
     = javascript_include_tag 'application'
   %body
     %nav
+
+      -if current_user
+        =render partial: "/layouts/#{current_user.role}"
+      -else
+        =link_to "Login", login_path(:current_path => request.path)
       %ul
         %li Login
         %li=link_to "View Cart", carts_path
+
+    -flash.each do |name, message|
+      =message
+
     = yield

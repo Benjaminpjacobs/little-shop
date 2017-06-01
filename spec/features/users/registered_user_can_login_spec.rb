@@ -10,7 +10,7 @@ RSpec.feature "As registered user" do
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
 
-    click_on "Login"
+    click_button "Login"
     expect(page).to have_content("Logged in as #{user.first_name}")
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Logout")
