@@ -49,14 +49,14 @@ RSpec.feature "When a visitor" do
     end
   end
 
-  context "visits the category page and clicks add to cart" do
-    xit "the items are in the cart" do
+  context "visits the item page and clicks add to cart" do
+    it "the items are in the cart" do
       item1 = create(:item)
 
       visit item_path(item1)
       click_on "Add to Cart"
       click_on "View Cart"
-      expect(current_path).to eq('/cart')
+      expect(current_path).to eq(carts_path)
       expect(page).to have_content(item1.name)
       expect(page).to have_content(item1.description)
       expect(page).to have_content(item1.price)
