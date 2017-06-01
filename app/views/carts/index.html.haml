@@ -1,12 +1,13 @@
 %h1 Shopping Cart
-
--session[:cart].each do |item_id, quantity|
-  -item = Item.find_by(id: item_id)
-  .cart-item
-    %div=image_tag(item.image)
-    %p=item.name
-    %p=item.price
-    %p=item.description
-    %p=quantity
-    %p=item.price*quantity
-=@cart.total_price
+.cart
+  -session[:cart].each do |item_id, quantity|
+    -item = Item.find_by(id: item_id)
+    .cart-item
+      %div=image_tag(item.image)
+      %p=item.name
+      %p=item.price
+      %p=item.description
+      %p=quantity
+      %p=item.price*quantity
+      =button_to "Remove", carts_path(item_id: item.id), method: :delete
+  =@cart.total_price
