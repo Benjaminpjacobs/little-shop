@@ -1,5 +1,6 @@
 .login-box
   =form_for(:session, url: login_path) do |f|
+    =f.hidden_field :return_path, value: @return_path
     =f.label :email
     =f.text_field :email
     =f.label :password
