@@ -10,6 +10,6 @@
       %p=quantity
       %p=item.price*quantity
       -# -button_to 'Remove', carts_path(item_id:, item.id)
-      =form_for[:carts, item] do |f|
-        =f.submit "Remove"
+    =form_tag carts_items_path(item_id: item.id) do
+      =button_tag "Remove", type: :submit
   =@cart.total_price

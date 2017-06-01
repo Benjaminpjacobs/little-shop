@@ -1,6 +1,5 @@
 class Carts::ItemsController < ApplicationController
-  def update
-    binding.pry
+  def create
     item_id = params[:item_id]
     @cart.remove_item(item_id)
     redirect_to carts_path

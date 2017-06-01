@@ -6,14 +6,14 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: carts_path)
   end
 
+  # def update
+  #   binding.pry
+
+  #   @cart.remove_item(params[:item_id])
+  #   redirect_to carts_path
+  # end
+
   def update
-    binding.pry
-
-    @cart.remove_item(params[:item_id])
-    redirect_to carts_path
-  end
-
-  def destroy
     binding.pry
     item_id = params[:item_id]
     @cart.remove_item(item_id)
@@ -21,9 +21,9 @@ class CartsController < ApplicationController
   end
 
 
-  def show
-    @cart
-  end
+  # def show
+  #   @cart
+  # end
 end
 
 # def destroy

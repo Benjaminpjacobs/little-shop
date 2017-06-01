@@ -13,6 +13,7 @@ RSpec.feature "When a visitor" do
       click_on "Add to Cart"
 
       click_on "View Cart"
+      save_and_open_page
       expect(current_path).to eq(carts_path)
       expect(page).to have_content(item1.name)
       expect(page).to have_content(item1.description)
