@@ -26,18 +26,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -51,10 +44,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'haml'
 gem 'erb2haml', group: :development
+gem 'faker'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'pry-rails'
+  gem 'pry-state'
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
+  gem 'nyan-cat-formatter'
 end

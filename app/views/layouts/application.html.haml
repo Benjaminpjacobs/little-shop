@@ -7,4 +7,12 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    %nav
+      %ul
+        %li=link_to "View Cart", carts_path
+        %li=render partial: "/layouts/#{current_guest}"
+            
+    -flash.each do |name, message|
+      =message
+
     = yield
