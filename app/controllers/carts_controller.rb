@@ -6,6 +6,9 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: carts_path)
   end
 
+  def delete
+  end
+  
   def index
   end
 end
