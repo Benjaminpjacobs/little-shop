@@ -1,22 +1,20 @@
 class Cart::ItemController < ApplicationController
-  # before_action :set_item
-  # before_action :set_action
-  # before_action :set_quantity
-
-  # def create
-  #   binding.pry
-  #   item_id = params[:item_id]
-  #   @cart.send(@action, @item_id, @quantity)
-  #   redirect_to carts_path
-  # end
-
-  def edit
-    @cart.contents[params[:item_id]] = params[:quantity].to_i
+  before_action :set_item
+  def update
+    
+    @cart.contents[@item.id.to_s] = params[:quantity].to_i
+    flash[:updated_cart] = "Successfully updated #{view_context.link_to(@item.name, item_path(@item))} quantity in your cart."
     redirect_to carts_path
   end
 
   def destroy
-     @cart.remove_item(params[:item_id])
-     redirect_to carts_path
+    @cart.remove_item(@item.id)
+    flash[:remove_item_from_cart] = "Successfully removed #{view_context.link_to(@item.name, item_path(@item))} from your cart."
+    redirect_to carts_path
   end
+
+  private
+    def set_item
+      @item = Item.find(params[:item_id])
+    end
 end
