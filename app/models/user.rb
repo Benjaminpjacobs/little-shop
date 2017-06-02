@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :email, :first_name, :last_name, :role, presence: true
   enum role: [:user, :admin]
   has_many :addresses
+  has_many :orders
 
   def full_name
     "#{first_name}" + ' ' + "#{last_name}"
