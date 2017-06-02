@@ -1,8 +1,9 @@
 %h1 All Items
-.item-preview
+.all-items
   -@items.each do |item|
-    %div=image_tag(item.image)
-    %h3=item.name
-    %p=item.description
-    %p=item.price
-    =button_to "Add to Cart", carts_path(item_id: item.id)
+    .item-preview
+      .item-thumb=image_tag(item.image)
+      %p=item.name
+      %p=item.description
+      %p=item.price
+      =button_to "Add to Cart", carts_path(item_id: item.id)
