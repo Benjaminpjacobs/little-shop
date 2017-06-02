@@ -52,9 +52,39 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #ED1C39;
 }
 
 .nav-link a:hover {
     background-color: #111;
+}
+
+h1 {
+  text-align: center;
+  color: #ED1C39;
+}
+
+.btn-cart-add{
+  padding: 8%;
+  background-color: #fdc835;
+  border: 10px;
+  color: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  transition: all 0.3s;
+  border-radius: 12%;
+}
+
+.btn-cart-add:hover {
+  background: #ED1C39;
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  background-color:#fedc81;
 }
