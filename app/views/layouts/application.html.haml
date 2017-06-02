@@ -11,6 +11,7 @@
       %ul.nav-ul
         %li.nav-link=link_to "View Cart", carts_path
         %li.nav-link=render partial: "/layouts/#{current_guest}"
+        %li.nav-link=link_to "Gear", items_path
 
     -flash.each do |name, message|
       =message
