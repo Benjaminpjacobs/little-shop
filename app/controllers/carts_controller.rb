@@ -6,6 +6,29 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: carts_path)
   end
 
-  def index
+  # def update
+  #   binding.pry
+
+  #   @cart.remove_item(params[:item_id])
+  #   redirect_to carts_path
+  # end
+
+  def update
+    binding.pry
+    item_id = params[:item_id]
+    @cart.remove_item(item_id)
+    redirect_to carts_path
   end
+
+
+  # def show
+  #   @cart
+  # end
 end
+
+# def destroy
+#    item_id = params[:item_id]
+#    flash[:notice] = “Successfully removed #{view_context.link_to(Item.find(item_id).title, item_path(item_id))} from cart!”
+#    @cart.delete(item_id)
+#    redirect_to cart_path
+#  end
