@@ -8,12 +8,12 @@
       %p=item.price
       %p=item.description
       
-    =form_tag carts_items_path(item_id: item.id, perform: "update_quantity") do
+    =form_tag(cart_item_path, {method: :put}) do
       =label_tag "Qty: "
       =number_field_tag :quantity, value = "#{quantity}"
       =button_tag "Update Quantity", type: :submit
       %p=item.price*quantity
 
-    =form_tag carts_items_path(item_id: item.id, perform: "remove_item") do
+    =form_tag(cart_item_path, {method: :delete}) do
       =button_tag "Remove", type: :submit
   =@cart.total_price
