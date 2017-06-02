@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:index, :create]
 
-  resources :users, only: [:new, :create] do
-    resources :addresses, only: [:new]
+  namespace :users do
+    resources :addresses, only: [:new, :create]
   end
+
+  resources :users, only: [:new, :create]
 
 end
