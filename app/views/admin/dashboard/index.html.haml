@@ -1,0 +1,6 @@
+.user-dashboard
+  %h2 Welcome Admin
+
+  %h3
+    =current_user.full_address unless current_user.addresses.empty?
+    =current_user.email
