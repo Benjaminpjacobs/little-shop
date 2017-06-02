@@ -8,11 +8,16 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  
-
   resources :items, only: [:index, :show]
 
   resources :categories, only: [:show]
 
   resources :carts, only: [:index, :create]
+
+  namespace :users do
+    resources :addresses, only: [:new, :create]
+  end
+
+  resources :users, only: [:new, :create]
+
 end
