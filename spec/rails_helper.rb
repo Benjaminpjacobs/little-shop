@@ -37,7 +37,10 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+include ActionDispatch::TestProcess
+
 RSpec.configure do |config|
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -65,4 +68,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
+  config.after(:all) do
+    if Rails.env.test?
+      test_uploads = Dir["#{Rails.root}/test_uploads"]
+      FileUtils.rm_rf(test_uploads)
+    end
+  end
 end

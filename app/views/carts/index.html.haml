@@ -1,0 +1,17 @@
+%h1 Shopping Cart
+.cart
+  -@cart.contents.each do |item_id, quantity|
+    -item = Item.find_by(id: item_id)
+    .cart-item
+      %div=image_tag(item.image)
+      %p=item.name
+      %p=item.price
+      %p=item.description
+    =form_tag carts_items_path(item_id: item.id, perform: "update_quantity") do
+      =label_tag "Qty: "
+      =number_field_tag :quantity, value = "#{quantity}"
+      =button_tag "Update Quantity", type: :submit
+      %p=item.price*quantity
+    =form_tag carts_items_path(item_id: item.id, perform: "remove") do
+      =button_tag "Remove", type: :submit
+  =@cart.total_price
