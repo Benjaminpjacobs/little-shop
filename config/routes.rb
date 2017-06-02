@@ -14,15 +14,9 @@ Rails.application.routes.draw do
 
   resources :carts
 
-  # namespace :carts do
-  #   resource :items
-  # end
-
   namespace :users do
     resources :addresses, only: [:new, :create]
   end
-
-
 
   resources :users, only: [:new, :create]
 
