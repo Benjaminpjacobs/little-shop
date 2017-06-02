@@ -6,8 +6,8 @@ RSpec.feature "An existing user" do
       @user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
-    
-    xit "can see that completed order" do
+
+    it "can see that completed order" do
       order = @user.orders.push(create(:order_with_items, status: 4))
 
       visit orders_index_path
