@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "An existing user" do
   context "with multiple orders" do
-    it "can see them on the orders page" do
+    xit "can see them on the orders page" do
       user = User.create(:user_with_orders, order_count: 3)
       order1 = user.orders[0]
       order2 = user.orders[1]
