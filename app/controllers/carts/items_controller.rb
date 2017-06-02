@@ -7,6 +7,7 @@ class Carts::ItemsController < ApplicationController
       flash[:remove_item_from_cart] = "Successfully removed #{view_context.link_to(item.name, item_path(item))} from your cart."
     else
       @cart.contents[item_id] = params[:quantity].to_i
+      flash[:updated_cart] = "Successfully updated #{view_context.link_to(item.name, item_path(item))} quantity in your cart."
     end
     redirect_to carts_path
   end
