@@ -34,8 +34,8 @@ RSpec.feature "As a user" do
     end
   end
 
-  context "without an address on file"
-    it "can fill out address, then checkout"
+  context "without an address on file" do
+    it "can fill out address, then checkout" do
       user = create(:user)
       address = build(:address)
       item = create(:item)
