@@ -8,10 +8,10 @@
     = javascript_include_tag 'application'
   %body
     %nav
-      %ul
-        %li=link_to "View Cart", carts_path
-        %li=render partial: "/layouts/#{current_guest}"
-            
+      %ul.nav-ul
+        %li.nav-link=link_to "View Cart", carts_path
+        %li.nav-link=render partial: "/layouts/#{current_guest}"
+
     -flash.each do |name, message|
       =message
 
