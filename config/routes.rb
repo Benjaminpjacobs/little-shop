@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
 
-  resources :carts, only: [:index, :create]
+  resources :carts
+
+  namespace :carts do
+    resources :items, only: [:create, :destroy]
+  end
 
   namespace :users do
     resources :addresses, only: [:new, :create]
