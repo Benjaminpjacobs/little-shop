@@ -13,6 +13,6 @@
         %li=render partial: "/layouts/#{current_guest}"
             
     -flash.each do |name, message|
-      =message
+      %div.flash=sanitize(message)
 
     = yield

@@ -3,6 +3,7 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.update_quantity(item.id)
     session[:cart]= @cart.contents
+    flash[:add_item_to_cart] = "Successfully added #{view_context.link_to(item.name, item_path(item))} to your cart."
     redirect_back(fallback_location: carts_path)
   end
 
