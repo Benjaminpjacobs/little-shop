@@ -1,4 +1,4 @@
-class Admin::PrivateController < ApplicationController
+class Admin::PrivateController < ApplicationController 
   before_action :require_admin
 
   def require_admin

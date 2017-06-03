@@ -27,15 +27,16 @@ RSpec.feature "As an authenticated user" do
 
   it "cannot view the admin screens or perform admin functions" do
     user = create(:user)
+    item = create(:item)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit admin_dashboard_index_path
     expect(page).to have_content("The page you were looking for doesn't exist")
-    visit admin_orders_path
+    visit admin_order_index_path
     expect(page).to have_content("The page you were looking for doesn't exist")
-    visit edit_admin_item_path
+    visit edit_admin_item_path(item)
     expect(page).to have_content("The page you were looking for doesn't exist")
-    visit edit_admin_users_path
+    visit admin_user_index_path
     expect(page).to have_content("The page you were looking for doesn't exist")
   end
 end
