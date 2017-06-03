@@ -25,7 +25,7 @@ RSpec.feature "As an authenticated user" do
     expect(page).to have_content(user1.last_name)
   end
 
-  xit "cannot view the admin screens or perform admin functions" do
+  it "cannot view the admin screens or perform admin functions" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
