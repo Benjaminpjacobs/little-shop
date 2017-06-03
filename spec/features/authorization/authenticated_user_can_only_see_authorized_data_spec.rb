@@ -32,8 +32,6 @@ RSpec.feature "As an authenticated user" do
 
     visit admin_dashboard_index_path
     expect(page).to have_content("The page you were looking for doesn't exist")
-    visit admin_order_index_path
-    expect(page).to have_content("The page you were looking for doesn't exist")
     visit edit_admin_item_path(item)
     expect(page).to have_content("The page you were looking for doesn't exist")
     visit admin_user_index_path
