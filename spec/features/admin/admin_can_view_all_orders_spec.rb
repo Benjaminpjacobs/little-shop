@@ -14,7 +14,7 @@ RSpec.feature "As an admin" do
 
     within('.ordered') do
       page.should have_content("Ordered")
-      page.should have_content(order1.user)
+      page.should have_content(order1.user.email)
       page.should have_content("Cancel")
       page.should have_content("Paid")
     end
