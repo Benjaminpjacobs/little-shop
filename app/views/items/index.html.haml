@@ -6,4 +6,4 @@
       %p=item.name
       %p=item.description
       %p=item.price
-      .btn-cart-add=link_to "Add to Cart", carts_path(item_id: item.id)
+      .btn-cart-add=link_to "Add to Cart", carts_path(item_id: item.id), {method: :post}
