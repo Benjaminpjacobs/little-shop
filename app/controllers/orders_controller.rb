@@ -14,4 +14,7 @@ class OrdersController < PrivateController
     flash[:order_success] = "Order was successfully placed."
     redirect_to user_order_path(current_user, @order)
   end
+
+  def destroy
+  end
 end

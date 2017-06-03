@@ -6,20 +6,25 @@
     =current_user.email
     =link_to "Edit", edit_admin_user_path(current_user)
 
-  .ordered
-    %p Ordered
-    -@orders.each do |order|
-      =order if order.status == 0
-      =order.user.email if order.status == 0
-      
-  .paid
-    -@orders.each do |order|
-      order if order.status == 1
-
-  .cancelled
-    -@orders.each do |order|
-      order if order.status == 2
-
-  .completed
-    -@orders.each do |order|
-      order if order.status == 3
+    =admin_dashboard[:ordered]
+  -# .ordered
+  -#   %p Ordered
+  -#   -@orders.each do |order|
+  -#     =order.user.email if order.status == 0
+  -#     =button_to "Cancel"
+  -#     =button_to "Paid"
+  -#
+  -# .paid
+  -#   %p Paid
+  -#   -@orders.each do |order|
+  -#     order if order.status == 1
+  -#
+  -# .cancelled
+  -#   %p Cancelled
+  -#   -@orders.each do |order|
+  -#     order if order.status == 2
+  -#
+  -# .completed
+  -#   %p Completed
+  -#   -@orders.each do |order|
+  -#     order if order.status == 3
