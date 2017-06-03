@@ -31,7 +31,7 @@ RSpec.feature "As a user" do
   end
 
   context "without an address on file" do
-    xit "can fill out address, then checkout" do
+    it "can fill out address, then checkout" do
       user = create(:user)
       address = build(:address)
       item = create(:item)
@@ -44,17 +44,17 @@ RSpec.feature "As a user" do
       visit carts_path
       click_on "Checkout"
 
-      expect(current_path).to eq(new_address_path)
-      expect(page).to have_content("Please add an address to complete you're order")
-
+      expect(current_path).to eq(new_users_address_path)
+      expect(page).to have_content("Please add an address to complete your order.")
+      
       fill_in "Street address", with: address.street_address
       fill_in "City", with: address.city
       fill_in "State", with: address.state
-      fill_in "zip", with: address.zip
+      fill_in "Zipcode", with: address.zipcode
 
       click_on "Save Address"
 
-      expect(current_path).to eq(orders_path)
+      expect(current_path).to eq(user_order_path(user, user.orders.last))
       expect(page).to have_content("Order was successfully placed")
       expect(page).to have_content(item.name)
       expect(page).to have_content(item.price * 3)
@@ -62,4 +62,3 @@ RSpec.feature "As a user" do
     end
   end
 end
-
