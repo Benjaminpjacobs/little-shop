@@ -3,15 +3,21 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title LittleShop
+    -# %link{href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet" type="text/css"}
     = csrf_meta_tags
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:700'
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     %nav
+      .site-id=image_tag("ready-player-one-featured.jpg")
       %ul.nav-ul
         %li.nav-link=link_to "View Cart", carts_path
-        %li.nav-link=render partial: "/layouts/#{current_guest}"
-        %li.nav-link=link_to "Gear", items_path
+        =render partial: "/layouts/#{current_guest}"
+      .nav-categories
+        %ul
+          %li.nav-link=link_to "Gear", items_path
+
 
     -flash.each do |name, message|
       %div.flash=sanitize(message)
