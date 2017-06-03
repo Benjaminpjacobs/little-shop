@@ -1,8 +1,8 @@
--# =@order.status
+=@order.status
 
 %table
   -@order.items.each do |item|
-    -binding.pry
+    -# -binding.pry
     %tr
       %th
         Item Name
@@ -18,6 +18,6 @@
       %td
         =@order.line_item_subtotal(item.id)
 
--# =render partial: "#{@order.status}"
+=render partial: "#{@order.status}"
 
 

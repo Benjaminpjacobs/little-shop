@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit] do
     resources :orders, only: [:index, :show, :create]
   end
+  
   put    '/cart/item', to: "cart/item#update"
   delete '/cart/item', to: "cart/item#destroy"
 
