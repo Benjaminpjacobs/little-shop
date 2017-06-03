@@ -13,5 +13,13 @@ FactoryGirl.define do
         create(:address, user: user)
       end
     end
+
+    factory :user_with_orders do
+      after(:create) do |user|
+        create(:order_with_items, user: user)
+        create(:order_with_items, user: user)
+        create(:order_with_items, user: user)
+      end
+    end
   end
 end
