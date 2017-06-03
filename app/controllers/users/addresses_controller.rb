@@ -1,8 +1,11 @@
 class Users::AddressesController < ApplicationController
   def create
-
-    binding.pry
-    redirect_to current_path
+    @address = Address.create(address_params)
+    @address.user_id = current_user.id
+    if @address.save
+      redirect_path
+    else
+    end
   end
 
   def new
@@ -13,19 +16,19 @@ class Users::AddressesController < ApplicationController
 private
 
   def address_params
-    params.require(:address).permit(:street_address)
+    params.require(:address).permit(:street_address, city_attributes: [:name], state_attributes: [:name], zipcode_attributes:[:number])
   end
 
-  def city_params
-    params.require(:city).permit(:name)
+  def current_path
+    params.require(:address).permit(:current_path)[:current_path]
   end
 
-  def state_params
-    params.require(:state).permit(:name)
-  end
-
-  def zipcode_params
-    params.require(:zipcode).permit(:number)
+  def redirect_path
+    if current_path == carts_path
+      redirect_to user_orders_path(current_user.id), :method => :post
+    else
+      redirect_to dashboard_index
+    end
   end
 
 end
