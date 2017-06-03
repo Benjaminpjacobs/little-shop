@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user.admin?
+    current_user.admin? if current_user 
   end
 
   def current_guest
