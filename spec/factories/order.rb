@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :order do
+    status 0
     user
 
     factory :order_with_items do

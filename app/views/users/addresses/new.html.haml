@@ -8,18 +8,16 @@
   =f.label :street_address
   =f.text_field :street_address
 
-  =f.fields_for :city, @address.city.build do |c|
+  =fields_for :city do |c|
+    =c.name.label :name, "City"
+    =c.name.text_field :name
+
+  =fields_for :state do |c|
+    =c.label :name, "State"
     =c.text_field :name
-  -# =fields_for :city do |c|
-  -#   =c.name.label :name, "City"
-  -#   =c.name.text_field :name
-  -#
-  -# =fields_for :state do |c|
-  -#   =c.label :name, "State"
-  -#   =c.text_field :name
-  -#
-  -# =fields_for :zipcode do |c|
-  -#   =c.label :number, "Zipcode"
-  -#   =c.text_field :number
+
+  =fields_for :zipcode do |c|
+    =c.label :number, "Zipcode"
+    =c.text_field :number
 
   =f.submit "Save Address"
