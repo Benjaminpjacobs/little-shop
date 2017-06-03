@@ -4,3 +4,4 @@
   %h3
     =current_user.full_address unless current_user.addresses.empty?
     =current_user.email
+    =link_to "Edit", edit_admin_user_path(current_user)

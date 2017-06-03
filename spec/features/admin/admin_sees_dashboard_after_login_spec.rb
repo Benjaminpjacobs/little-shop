@@ -5,7 +5,7 @@ RSpec.feature "as admin" do
     reset_session!
   end
   context "it can log in" do
-    xit "and can see admin dashboard" do
+    it "and can see admin dashboard" do
       admin = create(:user, role: 1)
       visit root_path
       click_on "Login"
