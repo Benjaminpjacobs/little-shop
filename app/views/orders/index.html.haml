@@ -1,0 +1,5 @@
+-@orders.each do |order|
+  =order.total
+  =order.created_at
+  =order.status
+  =link_to "View Order", user_order_path(order.user, order)
