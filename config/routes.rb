@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create]
   end
 
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:new, :create, :edit] do
     resources :orders, only: [:index, :show]
   end
   put    '/cart/item', to: "cart/item#update"

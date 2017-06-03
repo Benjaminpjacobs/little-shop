@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    render file: "public/404" if current_admin?
+  end
+
   private
 
   def user_params
