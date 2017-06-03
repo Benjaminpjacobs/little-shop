@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "As a user" do
   context "with a cart full of items and an address on file" do
-    it "can checkout" do
+    xit "can checkout" do
       user = create(:user_with_address)
       item = create(:item)
 
@@ -35,7 +35,7 @@ RSpec.feature "As a user" do
   end
 
   context "without an address on file" do
-    it "can fill out address, then checkout" do
+    xit "can fill out address, then checkout" do
       user = create(:user)
       address = build(:address)
       item = create(:item)
