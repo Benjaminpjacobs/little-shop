@@ -9,8 +9,8 @@ class Cart
     @contents.values.sum
   end
 
-  def update_quantity(item_id, quantity=1)
-    @contents[item_id.to_s] = (contents[item_id.to_s] || 0) + quantity
+  def add_to_cart(item_id)
+    @contents[item_id.to_s] = (contents[item_id.to_s] || 0) + 1
   end
 
   def quantity_for(item_id)
@@ -24,8 +24,13 @@ class Cart
     end
   end
 
-  def remove_item(item_id)
+  def remove_item(item_id, qty=0)
     @contents.delete(item_id.to_s)
     contents
   end
+
+  def update_quantity(id, qty)
+    @contents[id] = qty
+  end
+
 end

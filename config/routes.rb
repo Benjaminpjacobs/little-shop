@@ -14,14 +14,14 @@ Rails.application.routes.draw do
 
   resources :carts
 
-  namespace :carts do
-    resources :items, only: [:create, :destroy]
-  end
-
   namespace :users do
     resources :addresses, only: [:new, :create]
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :orders, only: [:index, :show, :create]
+  end
+  put    '/cart/item', to: "cart/item#update"
+  delete '/cart/item', to: "cart/item#destroy"
 
 end

@@ -1,0 +1,20 @@
+=@order.status
+%table
+  -@order.items.each do |item|
+    %tr
+      %th
+        Item Name
+      %th
+        Item Qty
+      %th
+        Subtotal
+    %tr
+      %td
+        =link_to item.name, item_path(item)
+      %td#qty
+        =@order.order_items.find_by(item_id: item.id).qty
+      %td
+        =@order.line_item_subtotal(item.id)
+
+=render partial: "#{@order.status}"
+

@@ -10,4 +10,16 @@ RSpec.describe Item do
     it {should have_many(:category_items)}
     it {should have_many(:categories).through(:category_items)}
   end
+
+  it "knows if it's available" do
+    item = create(:item)
+    expect(item).to be_available
+  end
+
+
+  it "knows if it's retired" do
+    item = create(:item, status: 1)
+    expect(item).to be_retired
+  end
+  
 end
