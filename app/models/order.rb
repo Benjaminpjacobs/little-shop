@@ -13,4 +13,10 @@ class Order < ApplicationRecord
     item.price * self.order_items.find_by(item_id: item.id).qty
   end
 
+  def add_items(cart)
+    cart.contents.each do |item_id, item_qty|
+      self.order_items.create(item_id: item_id, qty: item_qty)
+    end
+  end
+
 end
