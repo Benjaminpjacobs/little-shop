@@ -16,7 +16,6 @@ RSpec.describe Item do
     expect(item).to be_available
   end
 
-
   it "knows if it's retired" do
     item = create(:item, status: 1)
     expect(item).to be_retired
