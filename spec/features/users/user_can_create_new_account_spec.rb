@@ -22,7 +22,7 @@ RSpec.feature "A visitor" do
     expect(page).to have_content(user.email)
   end
 
-  it "shows errors if fields invalid" do
+  it "shows errors if email is invalid" do
     user = build(:user)
 
     visit root_path
@@ -37,7 +37,20 @@ RSpec.feature "A visitor" do
     click_button "Create Account"
 
     expect(page).to have_content("Email is invalid")
-
   end
-  
+
+  it "shows errors if fields missing" do
+    user = build(:user)
+
+    visit root_path
+    click_on "Login"
+    expect(current_path).to eq(login_path)
+    click_on "Create Account"
+    click_button "Create Account"
+
+    expect(page).to have_content("Email can't be blank")
+    expect(page).to have_content("Password can't be blank")
+    expect(page).to have_content("First name can't be blank")
+    expect(page).to have_content("Last name can't be blank")
+  end
 end
