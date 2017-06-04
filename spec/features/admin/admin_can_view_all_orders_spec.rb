@@ -9,33 +9,41 @@ RSpec.feature "As an admin" do
     order2 = create(:order, status: 1)
     order3 = create(:order, status: 2)
     order4 = create(:order, status: 3)
+    order5 = create(:order, status: 3)
 
     visit admin_dashboard_index_path
 
     within('.ordered') do
-      
-
+      page.should have_content("Ordered : 1")
       page.should have_content("Ordered")
-      page.should have_content(order1.user)
+      page.should have_link("View Order", href:user_order(order1))
       page.should have_content("Cancel")
       page.should have_content("Paid")
     end
 
     within('.paid') do
+      page.should have_content("Paid : 1")
       page.should have_content("Ordered")
-      page.should have_content(order2.user)
+      page.should have_link("View Order", href:user_order(order2))
       page.should have_content("Cancel")
       page.should have_content("Completed")
     end
 
     within('.cancelled') do
+      page.should have_content("Cancelled : 1")
       page.should have_content("Ordered")
-      page.should have_content(order3.user)
+      page.should have_link("View Order", href:user_order(order3))
     end
 
     within('.completed') do
+      page.should have_content("Completed : 2")
       page.should have_content("Ordered")
-      page.should have_content(order4.user)
+      page.should have_link("View Order", href:user_order(order4))
+      page.should have_link("View Order", href:user_order(order5))
     end
+  end
+
+  it "can filter through all order statuses" do
+      
   end
 end

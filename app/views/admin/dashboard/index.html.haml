@@ -5,14 +5,14 @@
     =current_user.full_address unless current_user.addresses.empty?
     =current_user.email
     =link_to "Edit", edit_admin_user_path(current_user)
-    =admin_orders[:ordered]
-  -# .ordered
-  -#   %p Ordered
-  -#   -@orders.each do |order|
-  -#     =order.user.email if order.status == 0
-  -#     =button_to "Cancel"
-  -#     =button_to "Paid"
-  -#
+  .ordered
+    %p Ordered
+    =@orders[:ordered]
+    -# -@orders.each do |order|
+    -#   =order.user.email if order.status == 0
+    =button_to "Cancel"
+    =button_to "Paid"
+
   -# .paid
   -#   %p Paid
   -#   -@orders.each do |order|

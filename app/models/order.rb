@@ -19,7 +19,7 @@ class Order < ApplicationRecord
     end
   end
 
-  def admin_orders
+  def self.admin_orders
     {
     ordered: Order.where(status: 0),
     paid: Order.where(status: 1),
