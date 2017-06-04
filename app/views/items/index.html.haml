@@ -6,4 +6,4 @@
       %p=item.name
       %p=item.description
       %p=item.price
-      =render partial: "item_status_#{item.status}"
+      =render partial: "item_status_#{item.status}", :locals => {:item => item}
