@@ -17,14 +17,13 @@ RSpec.feature "An existing user" do
       expect(page).to have_content(order.created_at)
 
       click_on "View Order"
-      expect(page).to have_content(order.status)
       expect(page).to have_content(item1.name)
       expect(page).to have_content(order.order_items.find_by(item_id: item1.id).qty)
-      expect(page).to have_content(order.line_item_subtotal(item1.id))
+      expect(page).to have_content(order.order_items.first.line_item_subtotal)
       expect(page).to have_link("#{item1.name}", :href=>item_path(item1))
       expect(page).to have_content(item2.name)
       expect(page).to have_content(order.order_items.find_by(item_id: item2.id).qty)
-      expect(page).to have_content(order.line_item_subtotal(item2.id))
+      expect(page).to have_content(order.order_items.last.line_item_subtotal)
       expect(page).to have_link("#{item2.name}", :href=>item_path(item2))
       expect(page).to have_content("Order Completed on #{order.completed_date.to_date} at #{order.completed_date.time}")
     end
@@ -43,14 +42,13 @@ RSpec.feature "An existing user" do
       expect(page).to have_content(order.created_at)
 
       click_on "View Order"
-      expect(page).to have_content(order.status)
       expect(page).to have_content(item1.name)
       expect(page).to have_content(order.order_items.find_by(item_id: item1.id).qty)
-      expect(page).to have_content(order.line_item_subtotal(item1.id))
+      expect(page).to have_content(order.order_items.first.line_item_subtotal)
       expect(page).to have_link("#{item1.name}", :href=>item_path(item1))
       expect(page).to have_content(item2.name)
       expect(page).to have_content(order.order_items.find_by(item_id: item2.id).qty)
-      expect(page).to have_content(order.line_item_subtotal(item2.id))
+      expect(page).to have_content(order.order_items.last.line_item_subtotal)
       expect(page).to have_link("#{item2.name}", :href=>item_path(item2))
       expect(page).to have_content("Order Cancelled on #{order.cancelled_date.to_date} at #{order.cancelled_date.time}")
     end

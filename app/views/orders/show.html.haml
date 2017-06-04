@@ -1,7 +1,5 @@
-=@order.status
-
 %table
-  -@order.items.each do |item|
+  -@order.order_items.each do |order_item|
     -# -binding.pry
     %tr
       %th
@@ -12,11 +10,11 @@
         Subtotal
     %tr
       %td
-        =link_to item.name, item_path(item)
+        =link_to order_item.item.name, item_path(order_item.item)
       %td#qty
-        =@order.order_items.find_by(item_id: item.id).qty
+        =order_item.qty
       %td
-        =@order.line_item_subtotal(item.id)
+        =order_item.line_item_subtotal
 
 =render partial: "#{@order.status}"
 
