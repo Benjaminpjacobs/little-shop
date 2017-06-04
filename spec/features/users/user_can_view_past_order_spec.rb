@@ -52,5 +52,30 @@ RSpec.feature "An existing user" do
       expect(page).to have_link("#{item2.name}", :href=>item_path(item2))
       expect(page).to have_content("Order Cancelled on #{order.cancelled_date.to_date} at #{order.cancelled_date.time}")
     end
+
+    it "can see the original price if item price changes" do
+      item = create(:item, price: 10.00)
+      order = create(:order, status: 0)
+      user = order.user
+      order.order_items.create(item_id: item.id, qty: 3)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit user_order_path(user, order)
+      expect(page).to have_content(item.name)
+      expect(page).to have_content(30.00)
+
+      item.update(price: 12.00)
+      
+      visit user_order_path(user, order)
+
+      expect(page).to have_content(item.name)
+      expect(page).to have_content(30.00)
+      expect(page).to_not have_content(36.00)
+
+      visit item_path(item)
+
+      expect(page).to have_content(12)
+    end
   end
 end
