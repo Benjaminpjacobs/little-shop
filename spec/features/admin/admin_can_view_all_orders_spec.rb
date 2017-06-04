@@ -5,10 +5,11 @@ RSpec.feature "As an admin" do
     
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
-    order1 = create(:order, status 0)
-    order2 = create(:order, status 1)
-    order3 = create(:order, status 2)
-    order4 = create(:order, status 3)
+
+    order1 = create(:order, status: 0)
+    order2 = create(:order, status: 1)
+    order3 = create(:order, status: 2)
+    order4 = create(:order, status: 3)
 
     visit admin_dashboard_index_path
 

@@ -16,4 +16,12 @@ class User < ApplicationRecord
     "#{address.state.name}" + ' ' +
     "#{address.zipcode.number}"
   end
+
+  def address_status
+    if addresses.empty?
+      "user_without_address"
+    else
+      "user_with_address"
+    end
+  end
 end
