@@ -14,6 +14,7 @@ RSpec.feature "As an admin" do
     visit admin_dashboard_index_path
 
     within('.ordered') do
+      save_and_open_page
       page.should have_content("Ordered : 1")
       page.should have_content("Ordered")
       page.should have_link("View Order", href:user_order(order1))
@@ -44,6 +45,6 @@ RSpec.feature "As an admin" do
   end
 
   it "can filter through all order statuses" do
-      
+
   end
 end
