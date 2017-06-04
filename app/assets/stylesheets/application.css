@@ -113,3 +113,7 @@ h1 {
   font-family: helvetica;
   text-transform: uppercase;
 }
+
+#all-orders .hidden {
+  display: none;
+}
