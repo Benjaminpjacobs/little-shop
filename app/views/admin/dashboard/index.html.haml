@@ -5,8 +5,7 @@
     =current_user.full_address unless current_user.addresses.empty?
     =current_user.email
     =link_to "Edit", edit_admin_user_path(current_user)
-
-    =admin_dashboard[:ordered]
+    =admin_orders[:ordered]
   -# .ordered
   -#   %p Ordered
   -#   -@orders.each do |order|

@@ -1,4 +1,6 @@
 class OrdersController < PrivateController
+  include ApplicationHelper
+
   def index
     user = User.find(params[:user_id])
     @orders = user.orders
@@ -17,4 +19,5 @@ class OrdersController < PrivateController
 
   def destroy
   end
+
 end

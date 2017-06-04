@@ -13,8 +13,8 @@ RSpec.feature "As an admin" do
     visit admin_dashboard_index_path
 
     within('.ordered') do
-      save_and_open_page
       
+
       page.should have_content("Ordered")
       page.should have_content(order1.user)
       page.should have_content("Cancel")
