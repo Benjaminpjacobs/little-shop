@@ -14,7 +14,7 @@ RSpec.feature "When a visitor" do
       expect(page).to have_content("Successfully removed #{item1.name} from your cart")
       #capybara test color flash message or partial should be green
       expect(page).to have_link("#{item1.name}", :href=>item_path(item1))
-      expect(page.find(".cart")).to_not have_content(item1.name)
+      expect(page.find(".empty-cart")).to_not have_content(item1.name)
     end
   end
 end
