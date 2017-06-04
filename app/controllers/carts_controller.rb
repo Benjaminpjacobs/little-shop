@@ -12,4 +12,7 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: items_path)
   end
 
+  def index
+  end
+
 end

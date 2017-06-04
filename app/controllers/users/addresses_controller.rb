@@ -3,7 +3,8 @@ class Users::AddressesController < ApplicationController
     @address = Address.create(address_params)
     @address.user_id = current_user.id
     if @address.save
-      redirect_path
+      flash[:success] = "Address was successfully saved"
+      redirect_to current_path
     else
     end
   end
@@ -23,12 +24,13 @@ private
     params.require(:address).permit(:current_path)[:current_path]
   end
 
-  def redirect_path
-    if current_path == carts_path
-      redirect_to user_orders_path(current_user.id), :method => :post
-    else
-      redirect_to dashboard_index
-    end
-  end
+  # def redirect_path
+  #   if current_path == carts_path
+  #     binding.pry
+  #     redirect_to user_order_path(current_user.id, current_user.orders.new), :method => :post
+  #   else
+  #     redirect_to dashboard_index
+  #   end
+  # end
 
 end

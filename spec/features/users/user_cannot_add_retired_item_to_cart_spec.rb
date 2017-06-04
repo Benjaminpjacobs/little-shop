@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "As a user" do
   context "when viewing a retired item" do
-    xit "cannot add to cart" do
+    it "cannot add to cart" do
       user = user(:create)
       item = item(:create, status: 1)
 
