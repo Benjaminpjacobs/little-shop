@@ -21,11 +21,38 @@
       =@orders[:completed].count
 
 
-  .ordered
+  .orders-table.ordered
     %p Ordered
-    =@orders[:ordered]
-    =@orders[:ordered].count
+    -@orders[:ordered].each do |order|
+      .order-info
+        =link_to order.id, user_order_path(order.user, order)
+        =order.user.full_name
+        =order.created_at.to_date
+        =button_to "Cancel"
+        =button_to "Paid"
 
-    -#   =order.user.email if order.status == 0
-    =button_to "Cancel"
-    =button_to "Paid"
+  .orders-table.paid
+    %p Paid
+    -@orders[:paid].each do |order|
+      .order-info
+        =link_to order.id, user_order_path(order.user, order)
+        =order.user.full_name
+        =order.created_at.to_date
+        =button_to "Cancel"
+        =button_to "Completed"
+
+  .orders-table.cancelled
+    %p Cancelled
+    -@orders[:cancelled].each do |order|
+      .order-info
+        =link_to order.id, user_order_path(order.user, order)
+        =order.user.full_name
+        =order.created_at.to_date
+
+  .orders-table.completed
+    %p Completed
+    -@orders[:completed].each do |order|
+      .order-info
+        =link_to order.id, user_order_path(order.user, order)
+        =order.user.full_name
+        =order.created_at.to_date
