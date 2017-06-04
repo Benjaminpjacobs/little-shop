@@ -26,7 +26,6 @@ RSpec.feature "As registered user" do
 
     visit root_path
     click_on "Login"
-    fill_in "Email", with: user.email
     click_button "Login"
 
     expect(page).to have_content("The email or password you entered is invalid")
