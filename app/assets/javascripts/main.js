@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".filter-link").click(function(e){
-   $("." + e.currentTarget.id).toggle()
+  $(".order-filter a").click(function(){
+   $("#all-orders").find("." + this.id).toggle()
   }
 });

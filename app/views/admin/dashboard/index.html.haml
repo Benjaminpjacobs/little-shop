@@ -8,47 +8,47 @@
 
   %ul.order-filter
     %li
-      =link_to "Ordered: #{@orders[:ordered].count}" , class: "filter-link", id: "ordered"
+      =link_to "Ordered: #{@orders[:ordered].count}","#", class: "filter-link", id: "ordered"
     %li
-      =link_to "Paid: #{@orders[:paid].count}" , class: "filter-link", id: "paid"
+      =link_to "Paid: #{@orders[:paid].count}","#", class: "filter-link", id: "paid"
     %li
-      =link_to "Cancelled: #{@orders[:cancelled].count}" , class: "filter-link", id: "cancelled"
+      =link_to "Cancelled: #{@orders[:cancelled].count}","#", class: "filter-link", id: "cancelled"
     %li
-      =link_to "Completed: #{@orders[:completed].count}" , class: "filter-link", id: "completed"
+      =link_to "Completed: #{@orders[:completed].count}","#", class: "filter-link", id: "completed"
 
+  #all-orders
+    .orders-table.ordered
+      %p Ordered
+      -@orders[:ordered].each do |order|
+        .order-info
+          =link_to order.id, user_order_path(order.user, order)
+          =order.user.full_name
+          =order.created_at.to_date
+          =button_to "Cancel"
+          =button_to "Paid"
 
-  .orders-table.ordered
-    %p Ordered
-    -@orders[:ordered].each do |order|
-      .order-info
-        =link_to order.id, user_order_path(order.user, order)
-        =order.user.full_name
-        =order.created_at.to_date
-        =button_to "Cancel"
-        =button_to "Paid"
+    .orders-table.paid
+      %p Paid
+      -@orders[:paid].each do |order|
+        .order-info
+          =link_to order.id, user_order_path(order.user, order)
+          =order.user.full_name
+          =order.created_at.to_date
+          =button_to "Cancel"
+          =button_to "Completed"
 
-  .orders-table.paid
-    %p Paid
-    -@orders[:paid].each do |order|
-      .order-info
-        =link_to order.id, user_order_path(order.user, order)
-        =order.user.full_name
-        =order.created_at.to_date
-        =button_to "Cancel"
-        =button_to "Completed"
+    .orders-table.cancelled
+      %p Cancelled
+      -@orders[:cancelled].each do |order|
+        .order-info
+          =link_to order.id, user_order_path(order.user, order)
+          =order.user.full_name
+          =order.created_at.to_date
 
-  .orders-table.cancelled
-    %p Cancelled
-    -@orders[:cancelled].each do |order|
-      .order-info
-        =link_to order.id, user_order_path(order.user, order)
-        =order.user.full_name
-        =order.created_at.to_date
-
-  .orders-table.completed
-    %p Completed
-    -@orders[:completed].each do |order|
-      .order-info
-        =link_to order.id, user_order_path(order.user, order)
-        =order.user.full_name
-        =order.created_at.to_date
+    .orders-table.completed
+      %p Completed
+      -@orders[:completed].each do |order|
+        .order-info
+          =link_to order.id, user_order_path(order.user, order)
+          =order.user.full_name
+          =order.created_at.to_date
