@@ -18,10 +18,16 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create]
   end
 
+<<<<<<< HEAD
   resources :users, only: [:new, :create] do
     resources :orders, only: [:index, :show, :create, :destroy]
 
+=======
+  resources :users, only: [:new, :create, :edit] do
+    resources :orders, only: [:index, :show, :create]
+>>>>>>> 4ba9836d4be7aec76a2ceb80d76ee90043d1f5fc
   end
+  
   put    '/cart/item', to: "cart/item#update"
   delete '/cart/item', to: "cart/item#destroy"
 

@@ -26,6 +26,6 @@ RSpec.feature "As an admin" do
     expect(page).to have_content(item2.description)
     expect(page).to have_content(item2.price)
     expect(page).to have_content("Status: Retired")
-    expect(page.all("img".count).to eq(1)
+    expect(page.all("img".count)).to eq(1)
   end
 end

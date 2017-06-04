@@ -4,6 +4,7 @@ RSpec.feature "As an admin" do
   it "sees all orders separated by status" do
 
     admin = create(:user, role: 1)
+<<<<<<< HEAD
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     order1 = create(:order, status: 0)
     order6 = create(:order, status: 0)
@@ -11,6 +12,14 @@ RSpec.feature "As an admin" do
     order3 = create(:order, status: 2)
     order4 = create(:order, status: 3)
     order5 = create(:order, status: 3)
+=======
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
+
+    order1 = create(:order, status: 0)
+    order2 = create(:order, status: 1)
+    order3 = create(:order, status: 2)
+    order4 = create(:order, status: 3)
+>>>>>>> 4ba9836d4be7aec76a2ceb80d76ee90043d1f5fc
 
     visit admin_dashboard_index_path
 

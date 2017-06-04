@@ -13,7 +13,7 @@ RSpec.feature "As an admin" do
 
     expect(current_path).to eq(admin_item_index_path)
     expect(page.all("tr").count).to eq(2)
-    expect(page.all("img".count).to eq(2)
+    expect(page.all("img").count).to eq(2)
     expect(page).to have_link(item1.name, href: item_path(item1))
     expect(page).to have_content(item1.description)
     expect(page).to have_content(item1.price)
