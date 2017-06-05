@@ -11,11 +11,12 @@
   %body
     %nav
       .site-id=image_tag("ready-player-one-featured.jpg")
-      %ul.nav-ul
-        %li.nav-link=link_to "View Cart", carts_path
-        =render partial: "/layouts/#{current_guest}"
+      %ul.user-tools
+        %li.nav-link
+          =link_to "View Cart", carts_path
+          =render partial: "/layouts/#{current_guest}"
       .nav-categories
-        %ul
+        %ul.browse-links
           -Category.all.each do |c|
             %li.nav-link=link_to "#{c.title}", category_path(c)
           %li.nav-link=link_to "All Items", items_path
