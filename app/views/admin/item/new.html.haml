@@ -13,7 +13,7 @@
   =f.label :price
   =f.text_field :price
 
-  =f.label :category
+  =f.label :categories
   =f.collection_select :category_ids, Category.order(:title),:id,:title, include_blank: true
 
   =f.submit "Create Item"
