@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "As an admin" do
-  xit "can view individual order" do
+  it "can view individual order" do
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     user = create(:user_with_address)
@@ -9,13 +9,12 @@ RSpec.feature "As an admin" do
     order_item1 = order1.items.first
     order_item2 = order1.items.last
 
-
     visit admin_order_path(order1)
 
     expect(page).to have_content(order1.created_at)
     expect(page).to have_content(user.full_name)
     expect(page).to have_content(user.full_address)
-    expect(page).to have_content(order_item1.item.name)
+    expect(page).to have_link(item_path(order_item1))
     expect(page).to have_content(order_item1.item.price)
     expect(page).to have_link(item_path(order_item1.item))
     expect(page).to have_content(order_item1.qty)
@@ -29,3 +28,7 @@ RSpec.feature "As an admin" do
     expect(page).to have_content(order1.total)
   end
 end
+
+# And I can see, for each item on the order:
+# And I can see the total for the order.
+# And I can see the status for the order.

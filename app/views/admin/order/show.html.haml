@@ -1,0 +1,32 @@
+%table
+  -@order.order_items.each do |order_item|
+    %tr
+      %th
+        Date of Order
+      %th
+        Name
+      %th
+        Address
+      %th
+        Item Name
+      %th
+        Item Qty
+      %th
+        Item Price
+      %th
+        Subtotal
+    %tr
+      %td
+        =@order.created_at
+      %td
+        =@order.user.full_name
+      %td
+        =@order.user.full_address
+      %td
+        =link_to order_item.item.name, item_path(order_item.item)
+      %td#qty
+        =order_item.qty
+      %td
+        =order_item.item.price
+      %td
+        =order_item.line_item_subtotal

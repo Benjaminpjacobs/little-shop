@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   def total
     self.items.sum(:price)
   end
-  
+
   def add_items(cart)
     cart.contents.each do |item_id, item_qty|
       self.order_items.create(item_id: item_id, qty: item_qty)
@@ -22,6 +22,8 @@ class Order < ApplicationRecord
     completed: Order.where(status: 3)
   }
   end
+
+  
 
 
 end
