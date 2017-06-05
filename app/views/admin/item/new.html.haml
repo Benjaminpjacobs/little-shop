@@ -13,7 +13,9 @@
   =f.label :price
   =f.text_field :price
 
-  =f.label :category
+  =f.label :categories
   =f.collection_select :category_ids, Category.order(:title),:id,:title, include_blank: true
 
+  =f.label :upload_image
+  =f.file_field :image
   =f.submit "Create Item"

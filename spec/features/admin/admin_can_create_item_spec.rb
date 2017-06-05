@@ -1,4 +1,4 @@
-# require 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe "As an admin" do
   it "can create an item" do
@@ -8,11 +8,12 @@ RSpec.describe "As an admin" do
     item = build(:item)
 
     visit new_admin_item_path
+    save_and_open_page
     fill_in "Name", with: item.name
     fill_in "Description", with: item.description
     fill_in "Price", with: item.price
-    select cat1.title, from: "Categories"
-    select cat2.title, from: "Categories"
+    select cat1.title
+    select cat2.title
     attach_file("Upload Your File", Rails.root + "spec/fixtures/images/gear.png")
     click_on "Create Item"
 
