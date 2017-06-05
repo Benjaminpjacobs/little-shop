@@ -4,6 +4,7 @@ RSpec.feature "As an admin" do
   it "sees all orders separated by status" do
 
     admin = create(:user, role: 1)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     order1 = create(:order, status: 0)
     order6 = create(:order, status: 0)
@@ -47,6 +48,6 @@ RSpec.feature "As an admin" do
   end
 
   it "can filter through all order statuses" do
-    
+
   end
 end
