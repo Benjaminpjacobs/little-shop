@@ -20,4 +20,16 @@ RSpec.feature "As registered user" do
     expect(page).to have_content("Logout")
     expect(page).to_not have_content("Login")
   end
+
+  it "has sad path" do
+    user = create(:user)
+
+    visit root_path
+    click_on "Login"
+    click_button "Login"
+
+    expect(page).to have_content("The email or password you entered is invalid")
+    expect(current_path).to eq(login_path)
+  end
+
 end

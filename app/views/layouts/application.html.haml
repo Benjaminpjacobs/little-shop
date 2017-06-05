@@ -20,6 +20,10 @@
 
 
     -flash.each do |name, message|
-      %div.flash=sanitize(message)
+      -if !message.is_a?(Array)
+        %div.flash=sanitize(message)
+      -else
+        message.each do |message|
+        %div.flash=message
 
     = yield
