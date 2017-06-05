@@ -8,13 +8,12 @@ RSpec.describe "As an admin" do
     item = build(:item)
 
     visit new_admin_item_path
-    save_and_open_page
     fill_in "Name", with: item.name
     fill_in "Description", with: item.description
     fill_in "Price", with: item.price
     select cat1.title
     select cat2.title
-    attach_file("Upload Your File", Rails.root + "spec/fixtures/images/gear.png")
+    attach_file "item[image]", "spec/fixtures/images/gear.png"
     click_on "Create Item"
 
     expect(page).to have_content(item.name)
@@ -23,7 +22,7 @@ RSpec.describe "As an admin" do
     expect(page).to have_content(cat1.title)
     expect(page).to have_content(cat2.title)
     expect(page).to have_content(cat2.title)
-    expect(page.all("img").count).to eq(1)
+    expect(page.all("img").count).to eq(2)
   end
 
 #   xit "can creates an item with default photo" do

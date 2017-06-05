@@ -2,7 +2,7 @@
 
 %p Please complete the given fields for a new item
 
-=form_for(@item) do |f|
+=form_for([:admin, @item]) do |f|
 
   =f.label :name
   =f.text_field :name
@@ -16,6 +16,7 @@
   =f.label :categories
   =f.collection_select :category_ids, Category.order(:title),:id,:title, include_blank: true
 
-  =f.label :upload_image
+  =f.label :upload_your_file
   =f.file_field :image
+
   =f.submit "Create Item"
