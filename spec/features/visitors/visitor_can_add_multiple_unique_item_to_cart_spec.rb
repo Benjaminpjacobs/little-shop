@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "When a visitor" do
   context "visits the items page and clicks add to cart on two items" do
-    xit "the unique items are in the cart" do
+    it "the unique items are in the cart" do
       item1 = create(:item)
       item2 = create(:item)
       total = item1.price + item2.price

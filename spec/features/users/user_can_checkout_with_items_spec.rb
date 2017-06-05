@@ -35,7 +35,12 @@ RSpec.feature "As a user" do
       user = create(:user)
       address = build(:address)
       item = create(:item)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit login_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: "password"
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      click_button "Login"
+
       visit item_path(item)
 
       click_on "Add to Cart"
@@ -46,19 +51,19 @@ RSpec.feature "As a user" do
 
       expect(current_path).to eq(new_users_address_path)
       expect(page).to have_content("Please add an address to complete your order.")
-      
       fill_in "Street address", with: address.street_address
-      fill_in "City", with: address.city
-      fill_in "State", with: address.state
-      fill_in "Zipcode", with: address.zipcode
+      fill_in "address[city_attributes][name]", with: address.city.name
+      fill_in "address[state_attributes][name]", with: address.state.name
+      fill_in "address[zipcode_attributes][number]", with: address.zipcode.number
 
       click_on "Save Address"
+      expect(page).to have_content("Address was successfully saved")
+      click_on "Checkout"
 
-      expect(current_path).to eq(user_order_path(user, user.orders.last))
       expect(page).to have_content("Order was successfully placed")
       expect(page).to have_content(item.name)
       expect(page).to have_content(item.price * 3)
-      expect(page).to have_content("Qty: 3")
+      expect(page).to have_content(3)
     end
   end
 end
