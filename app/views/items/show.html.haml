@@ -2,5 +2,5 @@
 %h1=@item.name
 
 %p=@item.description
-%p=@item.price
+%p=number_to_currency(@item.price)
 =render partial: "item_status_#{@item.status}", :locals => {:item => @item}
