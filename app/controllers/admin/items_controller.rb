@@ -12,6 +12,7 @@ class Admin::ItemsController < Admin::PrivateController
     if @item.save
       redirect_to admin_item_path(@item)
     else
+      flash[:error] = @item.errors.full_messages
       render :new
     end
   end
