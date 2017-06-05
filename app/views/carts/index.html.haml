@@ -1,22 +1,6 @@
 %h1 Shopping Cart
 
-.cart
-  -@cart.contents.each do |item_id, quantity|
-    -item = Item.find_by(id: item_id)
-    .cart-item
-      .item_thumb=image_tag(item.image)
-      %p=item.name
-      %p=item.price
-      %p=item.description
-
-    =form_tag(cart_item_path(item_id: item.id), {method: :put}) do
-      =label_tag "Qty: "
-      =number_field_tag :quantity, value = "#{quantity}"
-      =button_tag "Update Quantity", type: :submit
-      %p=item.price*quantity
-
-    =form_tag(cart_item_path(item_id: item.id), {method: :delete}) do
-      =button_tag "Remove", type: :submit
-  =@cart.total_price
-
-=render partial: current_guest
+-if @cart.contents.empty?
+  =render partial: 'empty_cart' 
+-else
+  =render partial: 'cart'

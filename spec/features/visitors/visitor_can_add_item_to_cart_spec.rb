@@ -45,14 +45,12 @@ RSpec.feature "When a visitor" do
       click_on "Add to Cart"
       click_on "View Cart"
       expect(page).to have_content(item1.price * 2)
-
     end
   end
 
   context "visits the item page and clicks add to cart" do
     it "the items are in the cart" do
       item1 = create(:item)
-
       visit item_path(item1)
       click_on "Add to Cart"
       click_on "View Cart"
@@ -67,7 +65,6 @@ RSpec.feature "When a visitor" do
       click_on "Add to Cart"
       click_on "View Cart"
       expect(page).to have_content(item1.price * 2)
-
     end
   end
 end
