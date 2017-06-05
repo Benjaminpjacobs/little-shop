@@ -3,14 +3,14 @@ require "rails_helper"
 RSpec.feature "As an admin" do
   xit "can edit an item" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     cat1, cat2 = create_list(:category, 2)
     item = create(:item)
     item2 = build(:item)
 
     visit admin_item_index_path
     click_on "Edit"
-    
+
     expect(current_path).to eq(edit_admin_item_path(item))
 
     fill_in "Name", with: item2.name

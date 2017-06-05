@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "As an admin" do
   xit "can view all items" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     item1 = create(:item)
     item2 = create(:item, status: 1)
 
@@ -19,7 +19,7 @@ RSpec.feature "As an admin" do
     expect(page).to have_content(item1.price)
     expect(page).to have_content("Status: Available")
     expect(page).to have_link("Edit", href: edit_item_path(item1))
-  
+
     expect(page).to have_content(item2.description)
     expect(page).to have_content(item2.price)
     expect(page).to have_content("Status: Retired")

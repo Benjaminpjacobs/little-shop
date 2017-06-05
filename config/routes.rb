@@ -18,16 +18,18 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create]
   end
 
-  resources :users, only: [:new, :create, :edit] do
-    resources :orders, only: [:index, :show, :create]
+  resources :users, only: [:new, :create] do
+    resources :orders, only: [:index, :show, :create, :destroy, :update]
+
   end
-  
+
   put    '/cart/item', to: "cart/item#update"
   delete '/cart/item', to: "cart/item#destroy"
 
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :user, only: [:edit, :update, :index]
-    resources :item, only: [:edit]
+    resources :item, only: [:edit, :new]
+    resources :order, only: [:show]
   end
 end
