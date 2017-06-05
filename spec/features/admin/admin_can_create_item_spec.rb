@@ -1,7 +1,6 @@
 # require 'rails_helper'
 
-<<<<<<< HEAD
-RSpec.feature "As an admin" do
+RSpec.describe "As an admin" do
   it "can create an item" do
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
@@ -9,7 +8,6 @@ RSpec.feature "As an admin" do
     item = build(:item)
 
     visit new_admin_item_path
-    save_and_open_page
     fill_in "Name", with: item.name
     fill_in "Description", with: item.description
     fill_in "Price", with: item.price
@@ -27,11 +25,11 @@ RSpec.feature "As an admin" do
     expect(page.all("img").count).to eq(1)
   end
 
-  xit "can creates an item with default photo" do
-    admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
-    cat1, cat2 = create_list(:category, 2)
-    item = build(:item)
+#   xit "can creates an item with default photo" do
+#     admin = create(:user, role: 1)
+#     allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
+#     cat1, cat2 = create_list(:category, 2)
+#     item = build(:item)
 
 #     visit new_admin_item_path
 
@@ -67,6 +65,6 @@ RSpec.feature "As an admin" do
 #     expect(page).to have_content("Price can't be blank")
 #     expect(page).to have_content("Description can't be blank")
 #   end
-# end
+end
 
 # ## Ensure model test catches negative numbers for price

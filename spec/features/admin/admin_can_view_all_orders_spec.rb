@@ -25,7 +25,7 @@ RSpec.feature "As an admin" do
       page.should have_content("Ordered")
       page.should have_link("#{order1.id}", href:user_order_path(order1.user, order1))
       page.should have_link("#{order6.id}", href:user_order_path(order6.user, order6))
-      page.should have_button("Cancel")
+    page.should have_button("Cancel")
       page.should have_button("Paid")
     end
 

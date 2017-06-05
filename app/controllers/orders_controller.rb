@@ -1,5 +1,4 @@
 class OrdersController < PrivateController
-  include ApplicationHelper
 
   def index
     user = User.find(params[:user_id])
