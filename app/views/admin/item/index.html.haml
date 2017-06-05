@@ -1,0 +1,32 @@
+%h1 Admin: All Items
+
+%table
+  %tr
+    %th
+      Name
+    %th
+      Image
+    %th
+      Description
+    %th
+      Price
+    %th
+      Item Price
+    %th
+      Status
+    %th
+      Actions
+  -@items.each do |item|
+    %tr
+      %td
+        =link_to item.name, item_path(item)
+      %td
+        .item-thumb=image_tag(item.image)
+      %td
+        =item.description
+      %td
+        =number_to_currency(item.price)
+      %td
+        =item.status.capitalize
+      %td
+        =link_to "Edit", edit_admin_item_path(item)

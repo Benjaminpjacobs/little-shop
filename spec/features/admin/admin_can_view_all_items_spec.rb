@@ -11,18 +11,18 @@ RSpec.feature "As an admin" do
 
     click_on "View All Items"
 
-    expect(current_path).to eq(admin_items_path)
-    expect(page.all("tr").count).to eq(2)
-    expect(page.all("img").count).to eq(2)
+    expect(current_path).to eq(admin_item_index_path)
+    expect(page.all("tr").count).to eq(3)
+    expect(page.all("img").count).to eq(3)
     expect(page).to have_link(item1.name, href: item_path(item1))
     expect(page).to have_content(item1.description)
     expect(page).to have_content(item1.price)
-    expect(page).to have_content("Status: Available")
-    expect(page).to have_link("Edit", href: edit_item_path(item1))
+    expect(page).to have_content("Available")
+    expect(page).to have_link("Edit", href: edit_admin_item_path(item1))
 
     expect(page).to have_content(item2.description)
     expect(page).to have_content(item2.price)
-    expect(page).to have_content("Status: Retired")
-    expect(page).to have_link("Edit", href: edit_item_path(item2))
+    expect(page).to have_content("Retired")
+    expect(page).to have_link("Edit", href: edit_admin_item_path(item2))
   end
 end

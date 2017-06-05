@@ -1,4 +1,9 @@
 class Admin::ItemController < Admin::PrivateController
+
+  def index
+    @items = Item.all
+  end
+
   def edit
 
   end
