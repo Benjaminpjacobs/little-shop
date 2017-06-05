@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :user, only: [:edit, :update, :index]
-    resources :item, only: [:index, :edit, :new]
+    resources :items, only: [:index, :edit, :new]
     resources :order, only: [:show]
   end
 end

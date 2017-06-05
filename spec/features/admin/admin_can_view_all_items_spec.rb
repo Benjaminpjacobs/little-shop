@@ -11,7 +11,7 @@ RSpec.feature "As an admin" do
 
     click_on "View All Items"
 
-    expect(current_path).to eq(admin_item_index_path)
+    expect(current_path).to eq(admin_items_path)
     expect(page.all("tr").count).to eq(3)
     expect(page.all("img").count).to eq(3)
     expect(page).to have_link(item1.name, href: item_path(item1))

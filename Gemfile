@@ -58,4 +58,5 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'nyan-cat-formatter'
+  gem 'database_cleaner'
 end
