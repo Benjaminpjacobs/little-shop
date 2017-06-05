@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "As an admin" do
-  xit "can view all items" do
+  it "can view all items" do
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     item1 = create(:item)
@@ -11,7 +11,7 @@ RSpec.feature "As an admin" do
 
     click_on "View All Items"
 
-    expect(current_path).to eq(admin_item_index_path)
+    expect(current_path).to eq(admin_items_path)
     expect(page.all("tr").count).to eq(2)
     expect(page.all("img").count).to eq(2)
     expect(page).to have_link(item1.name, href: item_path(item1))
