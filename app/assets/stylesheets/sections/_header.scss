@@ -1,0 +1,45 @@
+nav {
+  display:flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ED1C39;
+}
+
+.site-id {
+  width: 35%;
+  float: left;
+}
+
+.nav-ul{
+    width: 65%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ED1C39;
+}
+
+.nav-link {
+    float: right;
+  }
+
+.nav-link a {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+.nav-link a:hover {
+    background-color:  #FDCB44;
+    color: #ED1C39;
+}
+
+.nav-categories {
+  clear:both;
+}
