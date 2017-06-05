@@ -14,16 +14,17 @@ RSpec.feature "As an admin" do
     expect(page).to have_content(order1.created_at)
     expect(page).to have_content(user.full_name)
     expect(page).to have_content(user.full_address)
-    expect(page).to have_link(item_path(order_item1))
-    expect(page).to have_content(order_item1.item.price)
-    expect(page).to have_link(item_path(order_item1.item))
-    expect(page).to have_content(order_item1.qty)
-    expect(page).to have_content(order_item1.line_item_subtotal)
-    expect(page).to have_content(order_item2.item.name)
-    expect(page).to have_content(order_item2.item.price)
-    expect(page).to have_link(item_path(order_item2.item))
-    expect(page).to have_content(order_item2.qty)
-    expect(page).to have_content(order_item2.line_item_subtotal)
+
+    expect(page).to have_link(order_item1.name)
+    expect(page).to have_content(order_item1.price)
+    expect(page).to have_content(order1.order_items.first.qty)
+    expect(page).to have_content(order1.order_items.first.line_item_subtotal)
+
+    expect(page).to have_content(order_item2.price)
+    expect(page).to have_link(order_item2.name)
+    expect(page).to have_content(order1.order_items.last.qty)
+    expect(page).to have_content(order1.order_items.last.line_item_subtotal)
+  
     expect(page).to have_content("Status: Ordered")
     expect(page).to have_content(order1.total)
   end

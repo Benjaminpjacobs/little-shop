@@ -4,6 +4,8 @@
       %th
         Date of Order
       %th
+        Order Status
+      %th
         Name
       %th
         Address
@@ -15,18 +17,24 @@
         Item Price
       %th
         Subtotal
+      %th
+        Order Total
     %tr
       %td
         =@order.created_at
+      %td
+        Status: #{@order.status.capitalize}
       %td
         =@order.user.full_name
       %td
         =@order.user.full_address
       %td
-        =link_to order_item.item.name, item_path(order_item.item)
+        =link_to order_item.item.name, item_path(order_item)
       %td#qty
         =order_item.qty
       %td
         =order_item.item.price
       %td
         =order_item.line_item_subtotal
+      %td
+        =@order.total
