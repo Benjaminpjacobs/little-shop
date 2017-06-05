@@ -31,7 +31,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '~> 2.0'
 
 
 group :development do
