@@ -13,8 +13,6 @@ RSpec.feature "As an admin" do
     order4 = create(:order, status: 3)
     order5 = create(:order, status: 3)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_respond(admin)
-
     visit admin_dashboard_index_path
 
     page.should have_content("Ordered: 2")
