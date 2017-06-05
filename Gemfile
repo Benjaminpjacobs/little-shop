@@ -32,7 +32,7 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
 gem 'aws-sdk', '~> 2.0'
-
+gem 'paginate', '~> 4.0.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
