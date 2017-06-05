@@ -13,7 +13,7 @@ RSpec.feature "When a visitor" do
       expect(page).to have_content(item1.name)
       expect(page).to have_content(item1.description)
       expect(page).to have_content(item1.price)
-      expect(page.all("img").count).to eq(1)
+      expect(page.all("img").count).to eq(2)
       expect(page).to have_content(item1.price)
 
       visit items_path
@@ -38,7 +38,7 @@ RSpec.feature "When a visitor" do
       expect(page).to have_content(item1.name)
       expect(page).to have_content(item1.description)
       expect(page).to have_content(item1.price)
-      expect(page.all("img").count).to eq(1)
+      expect(page.all("img").count).to eq(2)
       expect(page).to have_content(item1.price)
 
       visit category_path(item1.categories.first)
@@ -58,7 +58,7 @@ RSpec.feature "When a visitor" do
       expect(page).to have_content(item1.name)
       expect(page).to have_content(item1.description)
       expect(page).to have_content(item1.price)
-      expect(page.all("img").count).to eq(1)
+      expect(page.all("img").count).to eq(2)
       expect(page).to have_content(item1.price)
 
       visit item_path(item1)
