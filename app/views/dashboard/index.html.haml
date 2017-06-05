@@ -2,6 +2,7 @@
   %h2
     =current_user.full_name
     's Dashboard
-  %h3
-    =current_user.full_address unless current_user.addresses.empty?
-    =current_user.email
+  %section
+    %p=current_user.email
+    %p=current_user.full_address unless current_user.addresses.empty?
+    %p=link_to "View Orders", user_orders_path(current_user)
