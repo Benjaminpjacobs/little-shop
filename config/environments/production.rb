@@ -81,7 +81,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   config.paperclip_defaults = {
-    default_url: => '/public/assets/gear.png'
+    default_url: '/public/assets/gear.png',
     storage: :s3,
     s3_credentials: {
       s3_host_name: "s3-us-west-2.amazonaws.com",
