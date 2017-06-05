@@ -14,7 +14,7 @@ RSpec.feature "When a visitor" do
     expect(page).to have_content(item3.name)
     expect(page).to have_content(item3.description)
     expect(page).to have_content(item3.price)
-    expect(page.all("img").count).to eq(3)
+    expect(page.all("img").count).to eq(4)
     expect(page).to have_content("Login")
   end
 end

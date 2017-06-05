@@ -22,6 +22,7 @@ RSpec.feature "As an admin" do
 
     expect(current_path).to eq(admin_item_index_path)
 
+
     expect(page).to have_content(item2.name)
     expect(page).to have_content(item2.description)
     expect(page).to have_content(item2.price)
