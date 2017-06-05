@@ -5,7 +5,7 @@
       .item-thumb=image_tag(item.image)
       %p=item.name
       %p=item.description
-      %p=item.price
+      %p=number_to_currency(item.price)
       =render partial: "item_status_#{item.status}", :locals => {:item => item}
       
 =will_paginate @users 
