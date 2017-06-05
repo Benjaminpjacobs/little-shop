@@ -20,4 +20,7 @@ class OrdersController < PrivateController
   def destroy
   end
 
+  def edit
+  end
+
 end
