@@ -18,6 +18,11 @@ class UsersController < ApplicationController
 
   def edit
     render file: "public/404" if current_admin?
+    @user = User.find(params[:id])
+  end
+
+  def update
+    redirect_to dashboard_index_path
   end
 
   private

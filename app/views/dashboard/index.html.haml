@@ -6,3 +6,4 @@
     %p=current_user.email
     %p=current_user.full_address unless current_user.addresses.empty?
     %p=link_to "View Orders", user_orders_path(current_user)
+    %p=link_to "Edit Profile", edit_user_path(current_user)
