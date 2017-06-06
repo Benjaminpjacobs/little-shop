@@ -58,7 +58,7 @@ RSpec.describe "As an admin" do
 #     visit new_admin_item_path
 
 #     select cat1.title, from: "Categories"
-#     select cat2.title, from: "Categories"
+    select cat2.title, from: "Categories"
 #     click_on "Create Item"
 
 #     expect(page).to have_content("Name can't be blank")

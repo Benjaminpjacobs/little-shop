@@ -5,6 +5,7 @@ nav {
     padding: 0;
     overflow: hidden;
     background-color: #ED1C39;
+    height: 5%;
 }
 
 nav img {
@@ -13,12 +14,12 @@ nav img {
 }
 
 .site-id {
-    width: 35%;
+    width: 20%;
     float: left;
 }
 
 .user-tools {
-    width: 65%;
+    width: 80%;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -29,8 +30,9 @@ nav img {
 }
 
 .browse-links {
-    width: 65%;
+    width: 80%;
     list-style-type: none;
+    clear: both;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -45,7 +47,7 @@ nav img {
 
 .nav-link a {
     display: flex;
-    color: white;
+    color: #FDCB44;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -57,6 +59,13 @@ nav img {
     color: #ED1C39;
 }
 
-.nav-categories {
-    clear: both;
+.cart {
+  background-image: url("/assets/images/glyphicons-203-shopping-cart.png")
+}
+
+.cart img {
+  padding: 0%;
+  width:20px;
+  height: 20px;
+  display: block;
 }
