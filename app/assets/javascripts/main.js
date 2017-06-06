@@ -16,7 +16,7 @@
 $(document).ready(function() {
 
     $(".order-filter a").click(function() {
-        $.get('/admin/dashboard?', this.id, callback, null, "script");
+        $.get('/admin/dashboard?retrieve', this.id, null, "script");
         return false;
     })
 });

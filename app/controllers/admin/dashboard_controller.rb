@@ -3,10 +3,11 @@ class Admin::DashboardController < Admin::PrivateController
 
   def index
     @orders = Order.admin_orders
-    @partial = "all"
-    if params[:retrieve]
+    # @partial = "all"
+    binding.pry
+    if params[retrieve]
       @orders = Order.admin_orders
-      @partial = params[:retrieve]
+      @partial = params.keys[1]
     end
     
   end

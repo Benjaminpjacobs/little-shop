@@ -11,19 +11,20 @@
 
   %ul.order-filter
     %li
-      =link_to "Ordered (#{@orders[:ordered].count})", admin_dashboard_index_path(retrieve: :ordered), id: "ordered"
+      =link_to "Ordered (#{@orders[:ordered].count})",'#', id: "ordered"
   
-    %li
-      =link_to "Paid (#{@orders[:paid].count})", admin_dashboard_index_path(retrieve: :paid), id: "paid"
+    -# admin_dashboard_index_path(retrieve: :ordered)
+    -# %li
+    -#   =link_to "Paid (#{@orders[:paid].count})", admin_dashboard_index_path(retrieve: :paid), id: "paid"
   
-    %li
-      =link_to "Cancelled (#{@orders[:cancelled].count})", admin_dashboard_index_path(retrieve: :cancelled), id: "cancelled"
+    -# %li
+    -#   =link_to "Cancelled (#{@orders[:cancelled].count})", admin_dashboard_index_path(retrieve: :cancelled), id: "cancelled"
   
-    %li
-      =link_to "Completed (#{@orders[:completed].count})", admin_dashboard_index_path(retrieve: :completed), id: "completed"
+    -# %li
+    -#   =link_to "Completed (#{@orders[:completed].count})", admin_dashboard_index_path(retrieve: :completed), id: "completed"
 
-    %li
-      =link_to "Show All", admin_dashboard_index_path(retrieve: :all), id: "all"
+    -# %li
+    -#   =link_to "Show All", admin_dashboard_index_path(retrieve: :all), id: "all"
 
   #all-orders
     =render partial: @partial if @partial
