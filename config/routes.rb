@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   resources :carts
 
   namespace :users do
-    resources :addresses, only: [:new, :create]
+    resources :addresses
   end
 
   resources :users, only: [:new, :create, :edit, :update] do
-    resources :orders, only: [:index, :show, :create, :destroy, :update]
+    resources :orders
   end
 
   put    '/cart/item', to: "cart/item#update"
