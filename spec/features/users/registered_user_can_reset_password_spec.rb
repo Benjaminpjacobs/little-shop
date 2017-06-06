@@ -15,7 +15,7 @@ RSpec.feature "As registered user" do
 
     click_on "Reset Password"
     expect(current_path).to eq(edit_user_password_path(user))
-
+    
     fill_in "Old password", with: "password"
     fill_in "New password", with: "pass"
     fill_in "Confirm new password", with: "pass"
