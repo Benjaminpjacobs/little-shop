@@ -23,13 +23,13 @@
           -Category.all.each do |c|
             %li.nav-link=link_to "#{c.title}", category_path(c)
           %li.nav-link=link_to "All Items", items_path
+    .main-wrapper
 
+      -flash.each do |name, message|
+        -if !message.is_a?(Array)
+          %div.flash=sanitize(message)
+        -else
+          message.each do |message|
+          %div.flash=message
 
-    -flash.each do |name, message|
-      -if !message.is_a?(Array)
-        %div.flash=sanitize(message)
-      -else
-        message.each do |message|
-        %div.flash=message
-
-    = yield
+      = yield
