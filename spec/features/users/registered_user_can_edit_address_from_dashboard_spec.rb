@@ -1,32 +1,37 @@
-# require "rails_helper"
+require "rails_helper"
 
-# RSpec.feature "As registered user" do
-#   it "can add address to profile" do
+RSpec.feature "As registered user" do
+  it "can edit address on profile" do
 
-#     user = create(:user_with_address)
-#     address = build(:address)
+    user = create(:user_with_address)
+    user_address = user.addresses.first
+    address = build(:address)
 
-#     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-#     visit dashboard_index_path
+    visit root_path
+    click_on "Login"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "password"
+    click_button "Login"
 
-#     click_on "Edit Address"
+    visit dashboard_index_path
+    click_on "Edit Address"
 
-#     expect(current_path).to eq(edit_users_address_path)
+    expect(current_path).to eq(edit_users_address_path(user_address))
 
-#     fill_in "Street Address", with: address.street_address
-#     fill_in "City", with: address.city
-#     fill_in "State", with: address.state
-#     fill_in "Zipcode", with: address.zipcode
-#     select "Home", from: "Address Type"
+    fill_in "Street address", with: address.street_address
+    fill_in "address[city_attributes][name]", with: address.city.name
+    fill_in "address[state_attributes][name]", with: address.state.name
+    fill_in "address[zipcode_attributes][number]", with: address.zipcode.number
+    select "Billing", from: "Address type"
 
-#     click_button "Edit Address"
+    click_button "Update Address"
+    expect(current_path).to eq(dashboard_index_path)
 
-#     expect(current_path).to eq(dashboard_index_path)
-
-#     expect(page).to have_content(address.street_address)
-#     expect(page).to have_content(address.city)
-#     expect(page).to have_content(address.state)
-#     expect(page).to have_content(address.zip)
-#   end
-# end
-
+    expect(page).to have_content(address.street_address)
+    expect(page).to have_content(address.city.name)
+    expect(page).to have_content(address.state.name)
+    expect(page).to have_content(address.zipcode.number)
+    expect(page).to_not have_content("Home")
+    expect(page).to have_content("Billing")
+  end
+end

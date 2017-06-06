@@ -4,7 +4,19 @@
     's Dashboard
   %section
     %p=current_user.email
-    %p=current_user.full_address unless current_user.addresses.empty?
+    .addresses
+      -unless current_user.addresses.empty?
+        -current_user.addresses.each do |address|
+          %p=address.street_address
+          %p
+            =address.city.name
+            =address.state.name
+          %p=address.zipcode.number
+          %p
+            Type:
+            =address.address_type.capitalize
+          =link_to "Edit Address", edit_users_address_path(address)
+
     %p=link_to "Add Address", new_users_address_path(current_path: request.path)
     %p=link_to "View Orders", user_orders_path(current_user)
     %p=link_to "Edit Profile", edit_user_path(current_user)
