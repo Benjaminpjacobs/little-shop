@@ -13,39 +13,39 @@ RSpec.feature "As an admin" do
     order5 = create(:order, status: 3)
 
     visit admin_dashboard_index_path
-    page.should have_content("Ordered: 2")
-    page.should have_content("Paid: 1")
-    page.should have_content("Cancelled: 1")
-    page.should have_content("Completed: 2")
+    expect(page).to have_content("Ordered: 2")
+    expect(page).to have_content("Paid: 1")
+    expect(page).to have_content("Cancelled: 1")
+    expect(page).to have_content("Completed: 2")
 
     click_on "Ordered: 2"
     within('.orders-table.ordered') do
-      page.should have_content("Ordered")
-      page.should have_content("#{order1.id}")
-      page.should have_content("#{order6.id}")
-      page.should have_link("Cancel")
-      page.should have_link("Paid")
+      expect(page).to have_content("Ordered")
+      expect(page).to have_content("#{order1.id}")
+      expect(page).to have_content("#{order6.id}")
+      expect(page).to have_link("Cancel")
+      expect(page).to have_link("Paid")
     end
 
     click_on "Paid: 1"
     within('.orders-table.paid') do
-      page.should have_content("Paid")
-      page.should have_link("#{order2.id}", href:admin_order_path(order2))
-      page.should have_link("Cancel")
-      page.should have_link("Completed")
+      expect(page).to have_content("Paid")
+      expect(page).to have_link("#{order2.id}", href:admin_order_path(order2))
+      expect(page).to have_link("Cancel")
+      expect(page).to have_link("Completed")
     end
 
     click_on "Cancelled: 1"
     within('.orders-table.cancelled') do
-      page.should have_content("Cancelled")
-      page.should have_link("#{order3.id}", href:admin_order_path(order3))
+      expect(page).to have_content("Cancelled")
+      expect(page).to have_link("#{order3.id}", href:admin_order_path(order3))
     end
 
     click_on "Completed: 2"
     within('.orders-table.completed') do
-      page.should have_content("Completed")
-      page.should have_link("#{order4.id}", href:admin_order_path(order4))
-      page.should have_link("#{order5.id}", href:admin_order_path(order5))
+      expect(page).to have_content("Completed")
+      expect(page).to have_link("#{order4.id}", href:admin_order_path(order4))
+      expect(page).to have_link("#{order5.id}", href:admin_order_path(order5))
     end
   end
 

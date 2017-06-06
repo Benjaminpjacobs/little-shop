@@ -26,9 +26,9 @@ RSpec.feature "as admin" do
 
     expect(page).to_not have_content("Edit")
     expect(page).to_not have_link(edit_admin_user_path(user))
-    #expect(page).to_not have_link(edit_user_path(user))
+    expect(page).to_not have_link(edit_user_path(user))
 
-    # visit edit_user_path(user)
-    # expect(page).to have_content("The page you were looking for doesn't exist")
+    visit edit_user_path(user)
+    expect(page).to have_content("The page you were looking for doesn't exist")
   end
 end
