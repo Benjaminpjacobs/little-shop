@@ -3,9 +3,11 @@
   -@items.each do |item|
     .item-preview
       .item-thumb=image_tag(item.image)
-      %p=item.name
-      %p=item.description
-      %p=number_to_currency(item.price)
-      =render partial: "item_status_#{item.status}", :locals => {:item => item}
-      
-=will_paginate @users 
+      .item-text
+        %h2
+          =item.name
+        %p=item.description
+        %p=number_to_currency(item.price)
+        =render partial: "item_status_#{item.status}", :locals => {:item => item}
+
+=will_paginate @users

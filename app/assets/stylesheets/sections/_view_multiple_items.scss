@@ -1,0 +1,33 @@
+// .all-items{
+//   display:flex;
+//   width:100%;
+//   flex-wrap:wrap;
+//   .item-preview{
+//    display:flex;
+//    text-align:center;
+//    width:25%;
+//    padding:20;
+//    .item-thumb{
+//      width:100%;
+//    }
+//  }
+// }
+.all-items {
+  width: 100%;
+}
+
+.item-preview {
+  display: block;
+  float: left;
+  width: 20%;
+  margin: 2.5%;
+  padding: 2%;
+  border: 2px solid #dcdcdc;
+  border-radius: 2%;
+  box-sizing: border-box;
+  .item-text {
+    text-align: left;
+    line-height: 1.5;
+    padding-top: 5%;
+  }
+}
