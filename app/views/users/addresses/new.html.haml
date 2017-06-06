@@ -2,7 +2,7 @@
   %h1 New Address
 
   %p Please add an address to complete your order.
-  =render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
+  .error-message=render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
 
   =form_for([:users, @address]) do |f|
     =f.hidden_field :current_path, value: @current_path
