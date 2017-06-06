@@ -1,24 +1,25 @@
 = render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
 
+
 =form_for([:users, @address]) do |f|
   =f.hidden_field :current_path, value: @current_path
-
+  %br
   =f.label :street_address
   =f.text_field :street_address
-
+  %br
   =f.fields_for :city, @address.build_city do |city_fields|
     =city_fields.label :city
     =city_fields.text_field :name
-
+  %br
   =f.fields_for :state, @address.build_state do |state_fields|
     =state_fields.label :state
     =state_fields.text_field :name
-
+  %br
   =f.fields_for :zipcode, @address.build_zipcode do |zipcode_fields|
     =zipcode_fields.label :zipcode
     =zipcode_fields.text_field :number
-
+  %br
   =f.label :address_type
   =f.select(:address_type, [["Home", 0], ["Billing", 1]], :selected => "Home")
-
+  %br
   =f.submit
