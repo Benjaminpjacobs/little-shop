@@ -1,4 +1,3 @@
 =form_for([current_user, current_user.orders.new]) do |f|
-  =f.hidden_field :current_path, value: request.path
   =f.hidden_field :cart, value: @cart
   =f.submit "Checkout"
