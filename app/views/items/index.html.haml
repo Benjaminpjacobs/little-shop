@@ -3,7 +3,12 @@
   -@items.each do |item|
     .item-preview
       .item-thumb=image_tag(item.image)
-      %p=item.name
-      %p=item.description
-      %p=item.price
-      =render partial: "item_status_#{item.status}", :locals => {:item => item}
+      .item-text
+        %h2
+          =link_to item.name, item_path(item)
+        %p="#{item.description[0..45]}..."
+        %p=number_to_currency(item.price)
+        .add-to-cart-button
+          =render partial: "item_status_#{item.status}", :locals => {:item => item}
+
+=will_paginate @users

@@ -1,0 +1,60 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: .9em;
+}
+
+h1 {
+  text-align: left;
+  color: #ED1C39;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 2.5%;
+  font-size: 1.5em;
+}
+
+h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .75em;
+}
+
+.main-wrapper {
+  margin: 3%;
+}
+
+.center-container {
+  border: 2px solid #dcdcdc;
+  margin-right: auto;
+  margin-left: auto;
+  width: 30%;
+  padding: 5%;
+  h1{
+    text-align: left;
+    padding-bottom: 2%;
+    margin-left: 0;
+    font-size: 1em;
+  }
+}
+
+input {
+  margin: 2%;
+}
+
+input[type=submit] {
+  float: right;
+}
+
+.hanging-link {
+  padding-top: 5%;
+  font-size: 10px;
+}
+
+.error-message li {
+  line-height: 1.5;
+  background-color: #ED1C39;
+  color: white;
+  text-transform: uppercase;
+  font-size: .5em;
+  padding-left: 2%;
+  vertical-align: middle;
+}

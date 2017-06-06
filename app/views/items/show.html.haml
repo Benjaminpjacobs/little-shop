@@ -1,6 +1,10 @@
-%div=image_tag(@item.image)
-%h1=@item.name
-
-%p=@item.description
-%p=@item.price
-=render partial: "item_status_#{@item.status}", :locals => {:item => @item}
+.item-show
+  %item-show-image=image_tag(@item.image)
+  .item-show-text
+    %h2
+      =@item.name
+    .item-description
+      %p=@item.description
+    %p=number_to_currency(@item.price)
+    .add-to-cart-button
+      =render partial: "item_status_#{@item.status}", :locals => {:item => @item}

@@ -1,10 +1,14 @@
-%h1.page-heading=@category.title
+%h1=@category.title
 
-.item-wrapper
-  -@category.items.each do |item|
+.all-items
+  -@items.each do |item|
     .item-preview
-      %div=image_tag(item.image)
-      %h3=item.name
-      %p=item.description
-      %p=item.price
-      =button_to "Add to Cart", carts_path(item_id: item.id)
+      .item-thumb=image_tag(item.image)
+      .item-text
+        %h2
+          =item.name
+        %p=item.description
+        %p=item.price
+        =button_to "Add to Cart", carts_path(item_id: item.id)
+
+=will_paginate @items

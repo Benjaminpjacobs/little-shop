@@ -1,0 +1,37 @@
+.all-items {
+  width: 100%;
+}
+
+.item-preview {
+  display: block;
+  float: left;
+  width: 20%;
+  margin: 2.5%;
+  padding: 2%;
+  border: 2px solid #dcdcdc;
+  border-radius: 2%;
+  box-sizing: border-box;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: #ED1C39;
+  }
+  .add-to-cart-button input {
+    background-color: #FDCB44;
+
+  }
+  .item-text {
+    text-align: left;
+    line-height: 1.5;
+    padding-top: 5%;
+  }
+}
+
+.item-thumb {
+  margin-right: auto;
+  margin-left: auto;
+  height: 188px;
+}

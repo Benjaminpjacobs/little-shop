@@ -15,19 +15,23 @@ Rails.application.routes.draw do
   resources :carts
 
   namespace :users do
-    resources :addresses, only: [:new, :create]
+    resources :addresses
   end
 
-  resources :users, only: [:new, :create, :edit] do
-    resources :orders, only: [:index, :show, :create]
+  resources :users, only: [:new, :create, :edit, :update] do
+    resources :orders
   end
-  
+
   put    '/cart/item', to: "cart/item#update"
   delete '/cart/item', to: "cart/item#destroy"
 
+  put '/users/:id/password', to: 'users/password#update', as: "user_password"
+  get '/users/:id/password', to: 'users/password#edit', as: "edit_user_password"
+
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index, :update]
     resources :user, only: [:edit, :update, :index]
-    resources :item, only: [:edit]
+    resources :items
+    resources :order, only: [:show, :create, :update]
   end
 end

@@ -1,0 +1,5 @@
+%h1 Make a New Item
+
+%p Please complete the given fields for a new item
+=render partial: 'shared/errors', locals: { target: @item.errors } if @item.errors.any?
+=render partial: "form"

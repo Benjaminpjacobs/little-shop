@@ -14,8 +14,10 @@
       %td#qty
         =order_item.qty
       %td
-        =order_item.line_item_subtotal
-
-=render partial: "#{@order.status}"
+        =number_to_currency(order_item.line_item_subtotal)
+%p
+  Total:
+  =number_to_currency(@order.total)
+%p=render partial: "#{@order.status}"
 
 
