@@ -1,6 +1,5 @@
 .center-container
   %h1 Sign In
-
   .login-box
     =form_for(:session, url: login_path) do |f|
       =f.hidden_field :return_path, value: @return_path

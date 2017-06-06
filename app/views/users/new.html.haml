@@ -1,4 +1,8 @@
-.center-container
+
+=render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
+
+
+.create-account-box.center-container
   %h1
     Create a New Account
   .create-account-box
