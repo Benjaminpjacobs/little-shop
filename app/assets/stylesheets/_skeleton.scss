@@ -48,3 +48,13 @@ input[type=submit] {
   padding-top: 5%;
   font-size: 10px;
 }
+
+.error-message li {
+  line-height: 1.5;
+  background-color: #ED1C39;
+  color: white;
+  text-transform: uppercase;
+  font-size: .5em;
+  padding-left: 2%;
+  vertical-align: middle;
+}
