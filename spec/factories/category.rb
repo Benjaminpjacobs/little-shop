@@ -1,6 +1,11 @@
 FactoryGirl.define do
+  sequence :title do |n|
+    "Category#{n}"
+  end
+
   factory :category do
-    title
+    # title {generate(:title)}
+    title {generate(:title)}
 
     factory :category_with_items do
       transient do
@@ -8,12 +13,16 @@ FactoryGirl.define do
       end
 
       after(:create) do |category, evaluator|
-        create_list(:item, evaluator.item_count, categories: [category])
+        category.items << create_list(:item, evaluator.item_count)
       end
     end
   end
 
-  sequence :title do |n|
-    "category#{n}"
-  end
+  # sequence :title do
+  #   gen = "category_#{rand(1000).to_s}"
+  #   while Category.where(title:gen).exists?
+  #     gen = "category_#{rand(1000).to_s}"
+  #   end
+  #   gen
+  # end
 end
