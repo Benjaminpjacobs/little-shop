@@ -5,7 +5,7 @@
       .item-thumb=image_tag(item.image)
       .item-text
         %h2
-          =item.name
+          =link_to item.name, item_path(item)
         %p=item.description
         %p=number_to_currency(item.price)
         .add-to-cart-button
