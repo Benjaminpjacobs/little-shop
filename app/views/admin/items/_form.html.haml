@@ -1,0 +1,21 @@
+=form_for([:admin, @item]) do |f|
+
+  =f.label :name
+  =f.text_field :name
+
+  =f.label :description
+  =f.text_field :description
+
+  =f.label :price
+  =f.text_field :price
+
+  =f.label :categories
+  =f.collection_select :category_ids, Category.order(:title),:id,:title, include_blank: true
+
+  =f.label :upload_your_file
+  =f.file_field :image
+
+  =f.label :status
+  =f.select(:status, [["Available", 0], ["Retired", 1]])
+  -# =render partial: "status"
+  =f.submit
