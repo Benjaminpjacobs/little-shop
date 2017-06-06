@@ -1,8 +1,4 @@
-%h1 Make a New Item
-
-%p Please complete the given fields for a new item
-
-=form_for(@item) do |f|
+=form_for([:admin, @item]) do |f|
 
   =f.label :name
   =f.text_field :name
@@ -13,7 +9,13 @@
   =f.label :price
   =f.text_field :price
 
-  =f.label :category
+  =f.label :categories
   =f.collection_select :category_ids, Category.order(:title),:id,:title, include_blank: true
 
-  =f.submit "Create Item"
+  =f.label :upload_your_file
+  =f.file_field :image
+
+  =f.label :status
+  =f.select(:status, [["Available", 0], ["Retired", 1]])
+  -# =render partial: "status"
+  =f.submit
