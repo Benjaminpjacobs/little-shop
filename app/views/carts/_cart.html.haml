@@ -1,12 +1,13 @@
-.cart
+.main-wrapper
   -@cart.contents.each do |item_id, quantity|
     -item = Item.find_by(id: item_id)
     .cart-item
       =image_tag(item.image)
+      %br
       .item-text
         %p=item.name
         %br
-        %p="Price: #{number_to_currency(item.price)}"
+        %p="Individual Price: #{number_to_currency(item.price)}"
         %br
         %p="Description: #{item.description}."
         %br
@@ -15,8 +16,9 @@
           %p=label_tag "Qty: "
           %p=number_field_tag :quantity, value = "#{quantity}"
           %p=button_tag "Update Quantity", type: :submit
-          %p=number_to_currency(item.price*quantity)
-
+          %br
+          %p="Price for quantity: #{number_to_currency(item.price*quantity)}"
+          %br
         =form_tag(cart_item_path(item_id: item.id), {method: :delete}) do
           =button_tag "Remove", type: :submit
         %br
