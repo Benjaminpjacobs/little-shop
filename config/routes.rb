@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   delete '/cart/item', to: "cart/item#destroy"
 
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index, :update]
     resources :user, only: [:edit, :update, :index]
     resources :items
-    resources :order, only: [:show]
+    resources :order, only: [:show, :create, :update]
   end
 end
