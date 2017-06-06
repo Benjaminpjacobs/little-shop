@@ -69,7 +69,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-
   config.after(:all) do
     if Rails.env.test?
       test_uploads = Dir["#{Rails.root}/test_uploads"]

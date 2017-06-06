@@ -5,7 +5,7 @@
     %title LittleShop
     -# %link{href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet" type="text/css"}
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:700'
+    -# = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:700'
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
@@ -16,7 +16,9 @@
         =render partial: "/layouts/#{current_guest}"
       .nav-categories
         %ul
-          %li.nav-link=link_to "Gear", items_path
+          -Category.all.each do |c|
+            %li.nav-link=link_to "#{c.title}", category_path(c)
+          %li.nav-link=link_to "All Items", items_path
 
 
     -flash.each do |name, message|
