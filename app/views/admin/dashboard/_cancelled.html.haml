@@ -1,0 +1,7 @@
+.orders-table.cancelled.show
+  %p Cancelled
+  -@orders[:cancelled].each do |order|
+    .order-info
+      =link_to order.id, admin_order_path(order)
+      =order.user.full_name
+      =order.created_at.to_date
