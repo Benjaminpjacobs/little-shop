@@ -21,22 +21,9 @@
 @import 'base';
 @import 'skeleton';
 @import 'sections/header';
-@import 'sections/login';
+@import 'sections/view_multiple_items';
 
- .all-items{
-   display:flex;
-   width:100%;
-   flex-wrap:wrap;
-   .item-preview{
-    display:flex;
-    text-align:center;
-    width:25%;
-    padding:20;
-    .item-thumb{
-      width:100%;
-    }
-  }
-}
+
 
 .cart-item{
   display:flex;

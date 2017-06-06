@@ -39,6 +39,9 @@ nav img {
     background-color: #ED1C39;
     display: block;
     float: right;
+    a {
+      text-transform: uppercase;
+    }
 }
 
 .nav-link {
@@ -51,7 +54,6 @@ nav img {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 .nav-link a:hover {

@@ -1,14 +1,22 @@
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: .9em;
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
   color: #ED1C39;
-  font-family: helvetica;
   text-transform: uppercase;
   font-weight: bold;
-  clear: left;
+  margin-left: 2.5%;
+  font-size: 1.5em;
+  font-family: ‘Press Start 2P’, cursive;
+}
+
+h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .75em;
 }
 
 .main-wrapper {
@@ -24,6 +32,8 @@ h1 {
   h1{
     text-align: left;
     padding-bottom: 2%;
+    margin-left: 0;
+    font-size: 1em;
   }
 }
 
