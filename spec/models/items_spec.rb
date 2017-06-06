@@ -21,4 +21,10 @@ RSpec.describe Item do
     expect(item).to be_retired
   end
   
+  # it "cannot save a negative price" do
+  #   item = build(:item, price: -10.00)
+  #   item.save
+  #   expect(Item.first.price).to eq(10.00)
+  # end
+
 end

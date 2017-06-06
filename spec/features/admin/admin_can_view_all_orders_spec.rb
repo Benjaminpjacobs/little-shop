@@ -69,7 +69,7 @@ RSpec.feature "As an admin" do
       expect(page).to have_content(order1.user.full_name)
     end
     
-
+  
     order2 = create(:order, status: 0)
     visit admin_dashboard_index_path
     
