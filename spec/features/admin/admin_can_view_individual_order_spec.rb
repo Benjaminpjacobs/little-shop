@@ -30,6 +30,4 @@ RSpec.feature "As an admin" do
   end
 end
 
-# And I can see, for each item on the order:
-# And I can see the total for the order.
-# And I can see the status for the order.
+
