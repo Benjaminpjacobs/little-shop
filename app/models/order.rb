@@ -1,8 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :user
+  
   has_many :order_items, dependent: :destroy
   has_many :items, through: :order_items
+  
   enum status: [:ordered, :paid, :cancelled, :completed]
+
   after_update :update_date
 
   def total
@@ -21,7 +24,7 @@ class Order < ApplicationRecord
     paid: Order.where(status: 1),
     cancelled: Order.where(status: 2),
     completed: Order.where(status: 3)
-  }
+    }
   end
 
   def update_date
@@ -33,7 +36,14 @@ class Order < ApplicationRecord
     when 'completed'
       self.update_attributes(:completed_date => updated_at) if completed_date.nil?
     end
-    
+  end
+
+  def self.status_code
+    {
+      paid: 1,
+      cancel: 2,
+      complete: 3,
+    }
   end
 
 

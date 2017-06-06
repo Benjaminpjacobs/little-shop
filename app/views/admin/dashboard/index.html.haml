@@ -40,7 +40,7 @@
           =order.user.full_name
           =order.created_at.to_date
           =button_to "Cancel", admin_dashboard_index_path(:id => order.id, :perform => 'cancel')
-          =button_to "Completed", admin_dashboard_index_path(:id => order.id, :perform => 'completed')
+          =button_to "Completed", admin_dashboard_index_path(:id => order.id, :perform => 'complete')
 
     .orders-table.cancelled.show
       %p Cancelled
