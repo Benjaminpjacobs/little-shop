@@ -1,0 +1,17 @@
+%h1 Reset Password
+
+=render partial: "errors" if @errors
+
+.reset-password-box
+  =form_tag user_password_path, method: :put do
+
+    =label_tag(:old, "Old password")
+    =password_field_tag(:old)
+
+    =label_tag(:new, "New password")
+    =password_field_tag(:new)
+
+    =label_tag(:confirm, "Confirm new password")
+    =password_field_tag(:confirm)
+
+    =submit_tag("Update Password")
