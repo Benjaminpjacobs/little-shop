@@ -15,5 +15,5 @@
     %br
     =f.submit "Update Profile"
 
-    .reset-password
-      =link_to "Reset Password", edit_admin_password_path(current_user)
+  .reset-password
+    =button_to "Reset Password", edit_admin_password_path(current_user), :method => :get

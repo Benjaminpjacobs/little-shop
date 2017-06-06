@@ -16,7 +16,7 @@ RSpec.feature 'As admin' do
     click_on 'Edit'
     expect(current_path).to eq(edit_admin_user_path(admin))
 
-    click_on 'Reset Password'
+    click_button 'Reset Password'
     expect(current_path).to eq(edit_admin_password_path(admin))
 
     fill_in 'Old password', with: 'password'
@@ -52,7 +52,7 @@ RSpec.feature 'As admin' do
     click_on 'Edit'
     expect(current_path).to eq(edit_admin_user_path(admin))
 
-    click_on 'Reset Password'
+    click_button 'Reset Password'
     expect(current_path).to eq(edit_admin_password_path(admin))
 
     fill_in 'New password', with: 'pass'
