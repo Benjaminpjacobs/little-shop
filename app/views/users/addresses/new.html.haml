@@ -21,4 +21,7 @@
     =zipcode_fields.label :zipcode
     =zipcode_fields.text_field :number
 
+  =f.label :address_type
+  =f.select(:address_type, [["Home", 0], ["Billing", 1]], :selected => "Home")
+
   =f.submit "Save Address"

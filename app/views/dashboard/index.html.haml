@@ -5,6 +5,7 @@
   %section
     %p=current_user.email
     %p=current_user.full_address unless current_user.addresses.empty?
+    %p=link_to "Add Address", new_users_address_path(current_path: request.path)
     %p=link_to "View Orders", user_orders_path(current_user)
     %p=link_to "Edit Profile", edit_user_path(current_user)
     %p=link_to "Reset Password", edit_user_password_path(current_user)

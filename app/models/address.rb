@@ -24,8 +24,12 @@ class Address < ApplicationRecord
 
   def zipcode_attributes=(zipcode_attributes)
     zipcode_attributes.values.each do |zipcode_attribute|
-      zipcode = Zipcode.find_or_create_by(number: zipcode_attribute.to_i)
-      self.zipcode = zipcode
+      if zipcode_attribute.empty?
+        return
+      else
+        zipcode = Zipcode.find_or_create_by(number: zipcode_attribute.to_i)
+        self.zipcode = zipcode
+      end
     end
   end
 end
