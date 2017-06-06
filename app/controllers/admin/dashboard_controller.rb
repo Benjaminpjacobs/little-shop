@@ -1,5 +1,5 @@
 class Admin::DashboardController < Admin::PrivateController
-  before_action :set_code , only: [:create]
+  before_action :set_code, only: [:create]
 
   def index
     @orders = Order.admin_orders
