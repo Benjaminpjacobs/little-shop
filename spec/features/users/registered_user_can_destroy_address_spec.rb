@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.feature "As registered user" do
   it "can delete address on profile" do
