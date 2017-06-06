@@ -1,22 +1,7 @@
 class Admin::ItemsController < Admin::PrivateController
-
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
   def index
     @items = Item.all
-  end
-
-  def edit
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    @item = Item.find(params[:id])
-    if @item.update(item_params)
-      flash[:success] = "Item updated!"
-      redirect_to admin_item_path(@item)
-    else
-      flash[:error] = @item.errors.full_messages
-      render :edit
-    end
   end
 
   def new
@@ -29,14 +14,25 @@ class Admin::ItemsController < Admin::PrivateController
       flash[:success] = "Item created!"
       redirect_to admin_item_path(@item)
     else
-      flash[:error] = @item.errors.full_messages
       render :new
     end
   end
 
   def show
-    @item= Item.find(params[:id])
   end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      flash[:success] = "Item updated!"
+      redirect_to admin_item_path(@item)
+    else
+      render :edit
+    end
+  end
+
 
   private
 
@@ -44,5 +40,9 @@ class Admin::ItemsController < Admin::PrivateController
     p = params.require(:item).permit(:status, :name, :description, :price, :image, :category_list)
     p[:status] = p[:status].to_i
     p
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
