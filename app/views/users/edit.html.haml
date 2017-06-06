@@ -3,15 +3,16 @@
 =render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
 
 .edit-profile
-  =form_for @user do |f|
+  -# =form_for @user do |f|
 
-    =f.label :email
-    =f.text_field :email
+  -#   =f.label :email
+  -#   =f.text_field :email
 
-    =f.label :first_name
-    =f.text_field :first_name
+  -#   =f.label :first_name
+  -#   =f.text_field :first_name
 
-    =f.label :last_name
-    =f.text_field :last_name
+  -#   =f.label :last_name
+  -#   =f.text_field :last_name
 
-    =f.submit "Update Profile"
+  -#   =f.submit "Update Profile"
+  =render partial: 'form'

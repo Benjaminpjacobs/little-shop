@@ -1,5 +1,4 @@
 =form_for @user do |f|
-
   =f.label :email
   =f.text_field :email
 
@@ -8,5 +7,5 @@
 
   =f.label :last_name
   =f.text_field :last_name
-
-  =f.submit
+  
+  =render partial: controller.action_name, locals: {f: f}
