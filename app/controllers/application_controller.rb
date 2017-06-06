@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery with: :exception
   before_action :load_cart
 
@@ -10,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user.admin? if current_user 
+    current_user.admin? if current_user
   end
 
   def current_guest

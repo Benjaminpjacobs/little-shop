@@ -19,8 +19,7 @@ RSpec.feature "As a user" do
       fill_in "Password", with: "password"
       click_button "Login"
       expect(current_path).to eq(carts_path)
-
-      click_on "Checkout"
+      click_button "Checkout"
 
       expect(current_path).to eq(user_order_path(user, user.orders.last))
       expect(page).to have_content("Order was successfully placed")

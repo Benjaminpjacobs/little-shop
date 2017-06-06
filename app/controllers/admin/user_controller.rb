@@ -1,15 +1,13 @@
 class Admin::UserController < Admin::PrivateController
-
+  before_action :set_user, only: [:edit, :update]
   def index
     @users = User.all
   end
   
   def edit
-    @user = User.find(current_user.id)
   end
 
   def update
-    @user = User.find(current_user.id)
     @user.update(user_params)
     if @user.save
       flash[:success] = "Admin profile updated!"
@@ -23,5 +21,9 @@ class Admin::UserController < Admin::PrivateController
 
     def user_params
       params.require(:user).permit(:email, :first_name, :last_name)
+    end
+    
+    def set_user
+      @user = User.find(current_user.id)
     end
 end

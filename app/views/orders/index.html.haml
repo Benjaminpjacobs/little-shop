@@ -2,7 +2,10 @@
   =render partial: 'no_orders'
 -else
   -@orders.each do |order|
-    =order.total
-    =order.created_at
-    =order.status
-    =link_to "View Order", user_order_path(order.user, order)
+    %p
+    Order ID#:
+    =order.id
+    %p=number_to_currency(order.total)
+    %p=order.created_at
+    %p=order.status
+    %p=link_to "View Order", user_order_path(order.user, order)

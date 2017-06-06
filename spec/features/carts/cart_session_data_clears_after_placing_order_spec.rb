@@ -23,7 +23,7 @@ RSpec.feature "As a user" do
       click_on "Checkout"
       click_on "View Cart"
 
-      expect(page).to have_content("You're cart is currently empty. Why don't you add some nifty accessories!")
+      expect(page).to have_content("Your cart is currently empty. Why don't you add some nifty accessories?")
       expect(page).to have_link("nifty accessories", href: items_path)
     end
   end

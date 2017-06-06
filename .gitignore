@@ -18,6 +18,7 @@
 
 .byebug_history
 /public/system
+/public/items
 
 # Ignore application configuration
 /config/application.yml

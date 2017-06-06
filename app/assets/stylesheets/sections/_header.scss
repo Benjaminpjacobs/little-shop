@@ -1,0 +1,71 @@
+nav {
+    // display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ED1C39;
+    height: 5%;
+}
+
+nav img {
+    height: 70px;
+    padding: 2%;
+}
+
+.site-id {
+    width: 20%;
+    float: left;
+}
+
+.user-tools {
+    width: 80%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ED1C39;
+    display: block;
+    float: right;
+}
+
+.browse-links {
+    width: 80%;
+    list-style-type: none;
+    clear: both;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ED1C39;
+    display: block;
+    float: right;
+}
+
+.nav-link {
+    float: right;
+}
+
+.nav-link a {
+    display: flex;
+    color: #FDCB44;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-link a:hover {
+    background-color: #FDCB44;
+    color: #ED1C39;
+}
+
+.cart {
+  background-image: url("/assets/images/glyphicons-203-shopping-cart.png")
+}
+
+.cart img {
+  padding: 0%;
+  width:20px;
+  height: 20px;
+  display: block;
+}

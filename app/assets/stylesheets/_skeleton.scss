@@ -1,0 +1,41 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #ED1C39;
+  font-family: helvetica;
+  text-transform: uppercase;
+  font-weight: bold;
+  clear: left;
+}
+
+.main-wrapper {
+  margin: 3%;
+}
+
+.center-container {
+  border: 2px solid #dcdcdc;
+  margin-right: auto;
+  margin-left: auto;
+  width: 30%;
+  padding: 5%;
+  h1{
+    text-align: left;
+    padding-bottom: 2%;
+  }
+}
+
+input {
+  margin: 2%;
+}
+
+input[type=submit] {
+  float: right;
+}
+
+.hanging-link {
+  padding-top: 5%;
+  font-size: 10px;
+}

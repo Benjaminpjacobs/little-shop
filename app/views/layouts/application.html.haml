@@ -5,25 +5,31 @@
     %title LittleShop
     -# %link{href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet" type="text/css"}
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:700'
+    -# = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:700'
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     %nav
       .site-id=image_tag("ready-player-one-featured.jpg")
-      %ul.nav-ul
-        %li.nav-link=link_to "View Cart", carts_path
-        =render partial: "/layouts/#{current_guest}"
-      .nav-categories
-        %ul
-          %li.nav-link=link_to "Gear", items_path
+      %ul.user-tools
+        %li.nav-link
+          .cart
+            =link_to "View Cart", carts_path
+            -# =image_tag("glyphicons-203-shopping-cart.png")
+            -# =link_to(image_tag("glyphicons-203-shopping-cart.png"), carts_path)
+        %li.nav-link
+          =render partial: "/layouts/#{current_guest}"
+        %ul.browse-links
+          -Category.all.each do |c|
+            %li.nav-link=link_to "#{c.title}", category_path(c)
+          %li.nav-link=link_to "All Items", items_path
+    .main-wrapper
 
+      -flash.each do |name, message|
+        -if !message.is_a?(Array)
+          %div.flash=sanitize(message)
+        -else
+          message.each do |message|
+          %div.flash=message
 
-    -flash.each do |name, message|
-      -if !message.is_a?(Array)
-        %div.flash=sanitize(message)
-      -else
-        message.each do |message|
-        %div.flash=message
-
-    = yield
+      = yield
