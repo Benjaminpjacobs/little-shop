@@ -26,7 +26,7 @@
       %p Ordered
       -@orders[:ordered].each do |order|
         .order-info
-          =link_to order.id, user_order_path(order.user, order)
+          =link_to order.id, admin_order_path(order.user, order)
           =order.user.full_name
           =order.created_at.to_date
           =button_to "Cancel", admin_dashboard_index_path(:id => order.id, :perform => 'cancel')
@@ -36,7 +36,7 @@
       %p Paid
       -@orders[:paid].each do |order|
         .order-info
-          =link_to order.id, user_order_path(order.user, order)
+          =link_to order.id, admin_order_path(order)
           =order.user.full_name
           =order.created_at.to_date
           =button_to "Cancel", admin_dashboard_index_path(:id => order.id, :perform => 'cancel')
@@ -46,7 +46,7 @@
       %p Cancelled
       -@orders[:cancelled].each do |order|
         .order-info
-          =link_to order.id, user_order_path(order.user, order)
+          =link_to order.id, admin_order_path(order)
           =order.user.full_name
           =order.created_at.to_date
 
@@ -54,6 +54,6 @@
       %p Completed
       -@orders[:completed].each do |order|
         .order-info
-          =link_to order.id, user_order_path(order.user, order)
+          =link_to order.id, admin_order_path(order)
           =order.user.full_name
           =order.created_at.to_date

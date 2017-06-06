@@ -30,6 +30,6 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index, :create]
     resources :user, only: [:edit, :update, :index]
     resources :items
-    resources :order, only: [:show]
+    resources :order, only: [:show, :create]
   end
 end
