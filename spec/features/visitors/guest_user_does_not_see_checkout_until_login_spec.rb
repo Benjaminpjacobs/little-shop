@@ -27,7 +27,7 @@ RSpec.feature "When a visitor" do
 
       visit carts_path
       expect(page).to have_content(item1.name)
-      expect(page).to have_content("Checkout")
+      expect(page).to have_button("Checkout")
     end
   end
 end

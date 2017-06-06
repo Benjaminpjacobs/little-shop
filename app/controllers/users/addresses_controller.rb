@@ -4,7 +4,7 @@ class Users::AddressesController < ApplicationController
     @address.user_id = current_user.id
     if @address.save
       flash[:success] = "Address was successfully saved"
-      redirect_to current_path
+      redirect_to carts_path
     else
     end
   end
