@@ -9,5 +9,19 @@ class Admin::OrderController < Admin::PrivateController
     @order.update(status: Order.status_code[@status])
     redirect_to admin_order_path(@order)
   end
+  
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to admin_order_path(@order)
+  end
+  
+  private
+  
+    def order_params
+      p = params.require(:order).permit(:status)
+      p[:status] = p[:status].to_i
+      p
+    end
 
 end

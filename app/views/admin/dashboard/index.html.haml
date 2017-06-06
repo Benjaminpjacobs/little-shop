@@ -29,8 +29,9 @@
           =link_to order.id, admin_order_path(order.user, order)
           =order.user.full_name
           =order.created_at.to_date
-          =button_to "Cancel", admin_dashboard_index_path(:id => order.id, :perform => 'cancel')
-          =button_to "Paid", admin_dashboard_index_path(:id => order.id, :perform => 'paid')
+          =link_to "Cancel", admin_dashboard_path(:id => order.id, :perform => 'cancel'), {method: :put}
+          =link_to "Paid", admin_dashboard_path(:id => order.id, :perform => 'paid'), {method: :put}
+          -# =button_to "Paid", admin_dashboard_index_path(:id => order.id, :perform => 'paid')
 
     .orders-table.paid.show
       %p Paid
@@ -39,8 +40,8 @@
           =link_to order.id, admin_order_path(order)
           =order.user.full_name
           =order.created_at.to_date
-          =button_to "Cancel", admin_dashboard_index_path(:id => order.id, :perform => 'cancel')
-          =button_to "Completed", admin_dashboard_index_path(:id => order.id, :perform => 'complete')
+          =link_to "Cancel", admin_dashboard_path(:id => order.id, :perform => 'cancel'), {method: :put}
+          =link_to "Completed", admin_dashboard_path(:id => order.id, :perform => 'complete'), {method: :put}
 
     .orders-table.cancelled.show
       %p Cancelled

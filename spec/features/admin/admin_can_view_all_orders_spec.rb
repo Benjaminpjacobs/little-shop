@@ -21,31 +21,31 @@ RSpec.feature "As an admin" do
     click_on "Ordered: 2"
     within('.orders-table.ordered') do
       page.should have_content("Ordered")
-      page.should have_link("#{order1.id}", href:user_order_path(order1.user, order1))
-      page.should have_link("#{order6.id}", href:user_order_path(order6.user, order6))
-    page.should have_button("Cancel")
-      page.should have_button("Paid")
+      page.should have_content("#{order1.id}")
+      page.should have_content("#{order6.id}")
+      page.should have_link("Cancel")
+      page.should have_link("Paid")
     end
 
     click_on "Paid: 1"
     within('.orders-table.paid') do
       page.should have_content("Paid")
-      page.should have_link("#{order2.id}", href:user_order_path(order2.user, order2))
-      page.should have_button("Cancel")
-      page.should have_button("Completed")
+      page.should have_link("#{order2.id}", href:admin_order_path(order2))
+      page.should have_link("Cancel")
+      page.should have_link("Completed")
     end
 
     click_on "Cancelled: 1"
     within('.orders-table.cancelled') do
       page.should have_content("Cancelled")
-      page.should have_link("#{order3.id}", href:user_order_path(order3.user, order3))
+      page.should have_link("#{order3.id}", href:admin_order_path(order3))
     end
 
     click_on "Completed: 2"
     within('.orders-table.completed') do
       page.should have_content("Completed")
-      page.should have_link("#{order4.id}", href:user_order_path(order4.user, order4))
-      page.should have_link("#{order5.id}", href:user_order_path(order5.user, order5))
+      page.should have_link("#{order4.id}", href:admin_order_path(order4))
+      page.should have_link("#{order5.id}", href:admin_order_path(order5))
     end
   end
 

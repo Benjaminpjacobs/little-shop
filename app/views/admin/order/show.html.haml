@@ -4,6 +4,8 @@
       %th
         Date of Order
       %th
+        Status
+      %th
         Name
       %th
         Address
@@ -21,6 +23,8 @@
       %td
         =@order.created_at
       %td
+        =@order.status.capitalize
+      %td
         =@order.user.full_name
       %td
         =@order.user.full_address
@@ -34,7 +38,8 @@
         =order_item.line_item_subtotal
       %td
         =@order.total
-  -# %div
-  -#   =button_to "Cancel", admin_order_index_path(:id => @order.id, :perform => 'cancel')
-  -#   =button_to "Paid", admin_order_index_path(:id => @order.id, :perform => 'paid')
-  -#   =button_to "Completed", admin_order_index_path(:id => @order.id, :perform => 'complete')
+  
+=form_for([:admin, @order]) do |f|
+  =f.label :status
+  =f.select(:status, [["Ordered", 0], ["Paid", 1],["Canceled", 2],["Completed", 3]])
+  =f.submit 

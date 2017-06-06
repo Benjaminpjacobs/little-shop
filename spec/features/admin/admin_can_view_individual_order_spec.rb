@@ -25,7 +25,7 @@ RSpec.feature "As an admin" do
     expect(page).to have_content(order1.order_items.last.qty)
     expect(page).to have_content(order1.order_items.last.line_item_subtotal)
   
-    expect(page).to have_content("Status: Ordered")
+    expect(page).to have_content("Ordered")
     expect(page).to have_content(order1.total)
   end
 end
