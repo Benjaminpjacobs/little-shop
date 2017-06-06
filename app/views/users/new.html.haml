@@ -1,10 +1,8 @@
-
-
-
 .create-account-box.center-container
-  %h1
-    Create a New Account
-    =render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
+  %h1 Create a New Account
+
+    .error-message=render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
+
     =form_for @user do |f|
       =f.label :email
       =f.text_field :email
