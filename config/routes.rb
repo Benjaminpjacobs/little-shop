@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create]
   end
 
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:new, :create, :edit, :update] do
     resources :orders, only: [:index, :show, :create, :destroy, :update]
 
   end
