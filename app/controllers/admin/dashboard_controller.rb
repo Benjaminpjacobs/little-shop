@@ -2,6 +2,7 @@ class Admin::DashboardController < Admin::PrivateController
   before_action :set_code, only: [:update]
 
   def index
+    binding.pry
     @orders = Order.admin_orders
   end
 
