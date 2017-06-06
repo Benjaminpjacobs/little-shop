@@ -1,4 +1,4 @@
-= render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
+.error-message= render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
 
 
 =form_for([:users, @address]) do |f|
