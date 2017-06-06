@@ -8,6 +8,7 @@
           =item.name
         %p=item.description
         %p=number_to_currency(item.price)
-        =render partial: "item_status_#{item.status}", :locals => {:item => item}
+        .add-to-cart-button
+          =render partial: "item_status_#{item.status}", :locals => {:item => item}
 
 =will_paginate @users
