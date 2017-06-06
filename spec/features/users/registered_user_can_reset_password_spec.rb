@@ -15,7 +15,7 @@ RSpec.feature "As registered user" do
 
     click_on "Reset Password"
     expect(current_path).to eq(edit_user_password_path(user))
-    
+
     fill_in "Old password", with: "password"
     fill_in "New password", with: "pass"
     fill_in "Confirm new password", with: "pass"
@@ -30,12 +30,12 @@ RSpec.feature "As registered user" do
 
     fill_in "Email", with: user.email
     fill_in "Password", with: "pass"
-    click_on "Login"
+    click_button "Login"
 
     expect(page).to have_content(user.first_name)
   end
 
-  xit "needs old password to reset" do
+  it "needs old password to reset" do
     user = create(:user)
 
     visit login_path

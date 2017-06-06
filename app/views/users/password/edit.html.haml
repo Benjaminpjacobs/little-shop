@@ -1,6 +1,8 @@
 %h1 Reset Password
 
-.create-account-box
+=render partial: "errors" if @errors
+
+.reset-password-box
   =form_tag user_password_path, method: :put do
 
     =label_tag(:old, "Old password")

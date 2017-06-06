@@ -5,13 +5,14 @@ class Users::PasswordController < ApplicationController
   end
 
   def update
-    if Password.confirm_submission(password_params)
-      binding.pry
-      # current_user.update(password_digest: BCrypt::Password.create(password_params[:new]))
+    confirm = Password.confirm_submission(password_params)
+    if confirm === true
       current_user.update(password: password_params[:new])
-      binding.pry
       flash[:success] = "Password Successfully Updated"
       redirect_to dashboard_index_path
+    else
+      @errors = confirm
+      render :edit
     end
   end
 
