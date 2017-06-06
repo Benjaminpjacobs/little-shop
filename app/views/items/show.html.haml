@@ -3,7 +3,8 @@
   .item-show-text
     %h2
       =@item.name
-    %p=@item.description
+    .item-description
+      %p=@item.description
     %p=number_to_currency(@item.price)
     .add-to-cart-button
       =render partial: "item_status_#{@item.status}", :locals => {:item => @item}

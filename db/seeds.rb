@@ -9,6 +9,6 @@ admin = User.create(email: "d@d.com", first_name: "Don", last_name: "Quixote", p
 user = User.create(email: "s@p.com", first_name: "Sancho", last_name: "Panza", password: "password", role: 0)
 
 50.times do
-  item = Item.create!(name: Faker::Commerce.unique.product_name, price: Faker::Commerce.price, description: "Item description here.", image: File.new("#{Rails.root}/app/assets/images/gear.png"))
+  item = Item.create!(name: Faker::Commerce.unique.product_name, price: Faker::Commerce.price, description: Faker::Hipster.sentence(3), image: File.new("#{Rails.root}/app/assets/images/gear.png"))
   item.categories << Category.all.sample
 end

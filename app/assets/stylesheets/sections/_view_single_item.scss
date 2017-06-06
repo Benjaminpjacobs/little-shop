@@ -43,3 +43,10 @@
     padding: 1%;
   }
 }
+
+.item-description {
+  height: 140px;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
