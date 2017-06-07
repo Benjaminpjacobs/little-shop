@@ -27,6 +27,8 @@
     %p
       Total:
       %span.price=number_to_currency(@order.total)
-    %p=render partial: "#{@order.status}"
+      
+    %p #{@order.status.capitalize} on #{@order.send(@order.status.to_sym)}
+    -# %p=render partial: "#{@order.status}"
 
 
