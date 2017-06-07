@@ -2,7 +2,7 @@ class Users::AddressesController < ApplicationController
 
   def new
     @address = Address.new
-    @current_path = params[:current_path] if params[:current_path]
+    @return_path = params[:return]
   end
 
   def create
@@ -10,7 +10,7 @@ class Users::AddressesController < ApplicationController
     @address.user_id = current_user.id
     if @address.save
       flash[:success] = "Address was successfully saved"
-      redirect_to redirect_path
+      redirect_to return_path
     else
       render :new
     end
@@ -48,15 +48,12 @@ private
     p
   end
 
-  def current_path
-    params.require(:address).permit(:current_path)[:current_path]
+  def return_path
+    params.require(:address).permit(:return)[:return]
   end
 
-  def redirect_path
-    if current_path == dashboard_index_path
-      current_path
-    else
-      carts_path
-    end
-  end
+  # def redirect_path
+  #   if return_path == dashboard_index_path
+  #   end
+  # end
 end

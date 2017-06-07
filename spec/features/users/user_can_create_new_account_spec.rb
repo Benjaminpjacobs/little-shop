@@ -14,6 +14,7 @@ RSpec.feature "A visitor" do
     fill_in 'Last name', with: user.last_name
     fill_in 'Password', with: user.password
     click_button "Create Account"
+    click_on("Hello, #{user.first_name}")
 
     expect(current_path).to eq(dashboard_index_path)
     expect(page).to_not have_content("Login")
