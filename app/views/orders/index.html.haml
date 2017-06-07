@@ -10,7 +10,7 @@
             =order.id
           %p
             %span.title Total:
-            =number_to_currency(order.total)
+            %span.red=number_to_currency(order.total)
           %p.title Status: 
           %p
             =order.status.capitalize

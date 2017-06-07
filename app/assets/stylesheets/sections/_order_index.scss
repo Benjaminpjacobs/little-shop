@@ -8,6 +8,10 @@
     padding: 5px 0px;
 }
 
+.user-orders .red {
+    color: #ED1C39
+}
+
 .user-order {
     text-align: center;
     padding: 20px;
@@ -18,7 +22,7 @@
 }
 
 .user-order:hover {
-    color: lightgray;
+    background: #efefef;
 }
 
 .user-order .title {
