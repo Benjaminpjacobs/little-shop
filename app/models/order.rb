@@ -47,6 +47,16 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.status_code
+    {
+    paid: 1,
+    cancel: 2,
+    complete: 3,
+    }
+  end
+
+
+
   def ordered
     format_date_time(created_at)
   end
