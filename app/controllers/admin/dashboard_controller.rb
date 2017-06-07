@@ -2,7 +2,11 @@ class Admin::DashboardController < Admin::PrivateController
   before_action :set_code, only: [:update]
 
   def index
-    @orders = Order.admin_orders
+    @count = Order.status_count
+    if params[:filter]
+      @orders = Order.retrieve(params[:filter])
+      @count = Order.status_count
+    end
   end
 
   def update
@@ -10,7 +14,6 @@ class Admin::DashboardController < Admin::PrivateController
     @order.update(status: Order.status_code[@status])
     redirect_to admin_dashboard_index_path
   end
-  
 
   def set_code
     @status = params[:perform].to_sym

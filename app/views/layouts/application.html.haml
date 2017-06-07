@@ -10,15 +10,19 @@
     = javascript_include_tag 'application'
   %body
     %nav
-      .site-id=image_tag("ready-player-one-featured.jpg")
+      .site-id
+        =link_to image_tag("ready-player-one-featured.jpg"), root_path
       %ul.user-tools
         %li.nav-link
           .cart
             =link_to "View Cart", carts_path
-            -# =image_tag("glyphicons-203-shopping-cart.png")
-            -# =link_to(image_tag("glyphicons-203-shopping-cart.png"), carts_path)
         =render partial: "/layouts/#{current_guest}"
         %ul.browse-links
+          %li.nav-link.search
+            .search-container
+              =form_tag items_path, :method=>"get", :id=>"search-form" do
+                =text_field_tag :search, params[:search], placeholder: "Search items"
+                .btn=submit_tag "Search", :name=>nil
           -Category.all.each do |c|
             %li.nav-link=link_to "#{c.title}", category_path(c)
           %li.nav-link=link_to "All Items", items_path
@@ -32,3 +36,18 @@
           %div.flash=message
 
       = yield
+
+    %footer
+      %ul.user-tools
+        %li.foot-link
+          =link_to "Our Inspiration", "https://en.wikipedia.org/wiki/Ready_Player_One", target: "_blank"
+        %li.foot-link
+          =link_to "Get the Book", "http://www.tatteredcover.com/search/site/ready%20player%20one", target: "_blank"
+        %li.foot-link.project-names
+          =link_to "About Sarah", "http://www.linkedin.com/in/sarahelizabethkirk", target: "_blank"
+        %li.foot-link.project-names
+          =link_to "About Charlie", "https://www.linkedin.com/in/charliepscorrigan", target: "_blank"
+        %li.foot-link.project-names
+          =link_to "About Padraic", "https://www.linkedin.com/in/padraiconeill", target: "_blank"
+        %li.foot-link.project-names
+          =link_to "About Ben", "https://www.linkedin.com/in/benjaminpjacobs", target: "_blank"

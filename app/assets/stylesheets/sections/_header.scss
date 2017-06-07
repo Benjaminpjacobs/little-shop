@@ -1,5 +1,4 @@
 nav {
-    // display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -61,13 +60,13 @@ nav img {
     color: #ED1C39;
 }
 
-.cart {
-  background-image: url("/assets/images/glyphicons-203-shopping-cart.png")
+.tag-line {
+  float: left;
+  color: white;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  vertical-align: bottom;
+  line-height: 1.2;
+  text-align: left;
 }
 
-.cart img {
-  padding: 0%;
-  width:20px;
-  height: 20px;
-  display: block;
-}

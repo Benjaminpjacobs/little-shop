@@ -1,5 +1,5 @@
-%table
-  -@order.order_items.each do |order_item|
+%table.order-info.order-show
+  %thead
     %tr
       %th
         Date of Order
@@ -17,29 +17,31 @@
         Item Price
       %th
         Subtotal
-      %th
-        Order Total
-    %tr
-      %td
-        =@order.created_at
-      %td
-        =@order.status.capitalize
-      %td
-        =@order.user.full_name
-      %td
-        =@order.user.full_address
-      %td
-        =link_to order_item.item.name, item_path(order_item)
-      %td#qty
-        =order_item.qty
-      %td
-        =order_item.item.price
-      %td
-        =order_item.line_item_subtotal
-      %td
-        =@order.total
-  
-=form_for([:admin, @order]) do |f|
-  =f.label :status
-  =f.select(:status, [["Ordered", 0], ["Paid", 1],["Canceled", 2],["Completed", 3]], :selected => @order.status_before_type_cast)
-  =f.submit 
+  %tbody
+    -@order.order_items.each do |order_item|
+      %tr
+        %td
+          =@order.created_at
+        %td
+          =@order.status.capitalize
+        %td
+          =@order.user.full_name
+        %td
+          =@order.user.full_address
+        %td
+          =link_to order_item.item.name, item_path(order_item)
+        %td#qty
+          =order_item.qty
+        %td
+          =number_to_currency(order_item.item.price)
+        %td
+          =number_to_currency(order_item.line_item_subtotal)
+.total
+  Total:
+  =number_to_currency(@order.total)
+
+.status
+  =form_for([:admin, @order]) do |f|
+    =f.label :status
+    =f.select(:status, [["Ordered", 0], ["Paid", 1],["Canceled", 2],["Completed", 3]], :selected => @order.status_before_type_cast)
+    =f.submit

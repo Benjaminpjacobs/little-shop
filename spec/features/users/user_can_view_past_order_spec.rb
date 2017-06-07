@@ -13,10 +13,10 @@ RSpec.feature "An existing user" do
       visit user_orders_path(order.user)
 
       expect(page).to have_content(order.total)
-      expect(page).to have_content(order.status)
-      expect(page).to have_content(order.created_at)
+      expect(page).to have_content(order.status.capitalize)
+      expect(page).to have_content(order.completed)
 
-      click_on "View Order"
+      click_link(href: user_order_path(order.user, order))
       expect(page).to have_content(item1.name)
       expect(page).to have_content(order.order_items.find_by(item_id: item1.id).qty)
       expect(page).to have_content(order.order_items.first.line_item_subtotal)
@@ -25,7 +25,7 @@ RSpec.feature "An existing user" do
       expect(page).to have_content(order.order_items.find_by(item_id: item2.id).qty)
       expect(page).to have_content(order.order_items.last.line_item_subtotal)
       expect(page).to have_link("#{item2.name}", :href=>item_path(item2))
-      expect(page).to have_content("Order Completed on #{order.completed_date.to_date} at #{order.completed_date.time}")
+      expect(page).to have_content("Completed on #{order.completed}")
     end
 
     it "can see that cancelled order" do
@@ -38,10 +38,10 @@ RSpec.feature "An existing user" do
       visit user_orders_path(order.user)
 
       expect(page).to have_content(order.total)
-      expect(page).to have_content(order.status)
-      expect(page).to have_content(order.created_at)
+      expect(page).to have_content(order.status.capitalize)
+      expect(page).to have_content(order.ordered)
 
-      click_on "View Order"
+      click_link(href: user_order_path(order.user, order))
       expect(page).to have_content(item1.name)
       expect(page).to have_content(order.order_items.find_by(item_id: item1.id).qty)
       expect(page).to have_content(order.order_items.first.line_item_subtotal)
@@ -50,7 +50,7 @@ RSpec.feature "An existing user" do
       expect(page).to have_content(order.order_items.find_by(item_id: item2.id).qty)
       expect(page).to have_content(order.order_items.last.line_item_subtotal)
       expect(page).to have_link("#{item2.name}", :href=>item_path(item2))
-      expect(page).to have_content("Order Cancelled on #{order.cancelled_date.to_date} at #{order.cancelled_date.time}")
+      expect(page).to have_content("Cancelled on #{order.cancelled}")
     end
 
     it "can see the original price if item price changes" do
@@ -66,7 +66,7 @@ RSpec.feature "An existing user" do
       expect(page).to have_content(30.00)
 
       item.update(price: 12.00)
-      
+
       visit user_order_path(user, order)
 
       expect(page).to have_content(item.name)

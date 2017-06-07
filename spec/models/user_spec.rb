@@ -21,7 +21,7 @@ RSpec.describe User do
   
   it "can display full address" do
     user1 = create(:user_with_address)
-    expected = "#{user1.addresses.first.street_address}" + ' ' + "#{user1.addresses.first.city.name}" + ' ' + "#{user1.addresses.first.state.name}" + ' ' + "#{user1.addresses.first.zipcode.number}" 
+    expected = "#{user1.addresses.first.street_address}" + ' ' + "#{user1.addresses.first.city.name}" + ', ' + "#{user1.addresses.first.state.name}" + ' ' + "#{user1.addresses.first.zipcode.number}" 
     expect(user1.full_address).to eq(expected)
   end
   

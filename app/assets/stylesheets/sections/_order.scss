@@ -1,0 +1,29 @@
+.order-wrapper {
+  width: 95%;
+  border: 2px solid #dcdcdc;
+  float: left;
+  padding: 1%;
+  margin-bottom: 3%;
+  h1{
+    text-align: left;
+    padding-bottom: 2%;
+    margin-left: 0;
+    font-size: 1em;
+  }
+  .order-table-wrapper {
+    width: 97%;
+    margin-bottom: 2%;
+    float: left;
+  }
+}
+  .order-total {
+    margin-top: 2%;
+    margin-right: 5%;
+    float: right;
+    text-align: right;
+    line-height: 1.5;
+    font-size: 1.5em;
+    .price {
+      color: #ED1C39;
+    }
+  }

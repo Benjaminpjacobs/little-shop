@@ -4,19 +4,19 @@
   .error-message=render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
 
   =form_for @user do |f|
-    =f.label :email
+    =f.label :email, required: true
     =f.text_field :email
     %br
 
-    =f.label :first_name
+    =f.label :first_name, required: true
     =f.text_field :first_name
     %br
 
-    =f.label :last_name
+    =f.label :last_name, required: true
     =f.text_field :last_name
     %br
 
-    =f.label :password
+    =f.label :password, required: true
     =f.password_field :password
     %br
 

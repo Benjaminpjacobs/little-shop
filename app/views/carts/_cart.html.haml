@@ -1,9 +1,9 @@
-.main-wrapper
+.cart-wrapper
   -@cart.contents.each do |item_id, quantity|
     -item = Item.find_by(id: item_id)
     .cart-item
-      =image_tag(item.image)
-      %br
+      .item-image
+        =image_tag(item.image)
       .item-text
         %p=item.name
         %br
@@ -22,8 +22,8 @@
         =form_tag(cart_item_path(item_id: item.id), {method: :delete}) do
           =button_tag "Remove", type: :submit
         %br
-  %p
+  .cart-total
     Total:
     =number_to_currency(@cart.total_price)
-
-=render partial: current_guest
+    %br
+    =render partial: current_guest

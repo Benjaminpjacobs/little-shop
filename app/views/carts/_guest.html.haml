@@ -1,4 +1,4 @@
-%button.checkout
+%button.checkout.guest-checkout-links
   =link_to "Login", login_path(:current_path => request.path)
   or
   =link_to "Create Account", new_user_path(:current_path => request.path)

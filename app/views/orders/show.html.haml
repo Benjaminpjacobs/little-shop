@@ -1,23 +1,34 @@
-%table
-  -@order.order_items.each do |order_item|
-    -# -binding.pry
-    %tr
-      %th
-        Item Name
-      %th
-        Item Qty
-      %th
-        Subtotal
-    %tr
-      %td
-        =link_to order_item.item.name, item_path(order_item.item)
-      %td#qty
-        =order_item.qty
-      %td
-        =number_to_currency(order_item.line_item_subtotal)
-%p
-  Total:
-  =number_to_currency(@order.total)
-%p=render partial: "#{@order.status}"
+.order_wrapper
+  .order-table-wrapper
+    %table
+      %thead
+        %tr
+          %th
+            Item Image
+          %th
+            Item Name
+          %th
+            Item Qty
+          %th
+            Item Total
+      %tbody
+        -@order.order_items.each do |order_item|
+          %tr
+            %td
+              .table-image
+                =image_tag(order_item.item.image, class: "thumbnail")
+            %td
+              =link_to order_item.item.name, item_path(order_item.item)
+            %td#qty
+              =order_item.qty
+            %td
+              =number_to_currency(order_item.line_item_subtotal)
+  .order-total
+    %p
+      Total:
+      %span.price=number_to_currency(@order.total)
+      
+    %p #{@order.status.capitalize} on #{@order.send(@order.status.to_sym)}
+    -# %p=render partial: "#{@order.status}"
 
 

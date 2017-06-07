@@ -1,0 +1,28 @@
+.user-orders a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-orders p {
+    margin: 5px 0px;
+    padding: 5px 0px;
+}
+
+.user-order {
+    text-align: center;
+    padding: 20px;
+    margin: 0 10px;
+    float: left;
+    border: .5px solid whitesmoke;
+    border-radius: 5px;
+}
+
+.user-order:hover {
+    color: lightgray;
+}
+
+.user-order .title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}

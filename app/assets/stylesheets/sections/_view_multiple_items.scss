@@ -3,9 +3,12 @@
 }
 
 .item-preview {
+  text-align:center;
+  font-family: helvetica;
   display: block;
   float: left;
   width: 20%;
+  height: 358px;
   margin: 2.5%;
   padding: 2%;
   border: 2px solid #dcdcdc;
@@ -27,6 +30,12 @@
     text-align: left;
     line-height: 1.5;
     padding-top: 5%;
+    h2 {
+      font-size: 1em;
+      a:hover {
+        color: #a51226
+      }
+    }
   }
 }
 

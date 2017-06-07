@@ -12,10 +12,7 @@ class User < ApplicationRecord
 
   def full_address
     address = addresses.first
-    "#{address.street_address}" + ' ' +
-    "#{address.city.name}" + ' ' +
-    "#{address.state.name}" + ' ' +
-    "#{address.zipcode.number}"
+    "#{address.street_address} #{address.city.name}, #{address.state.name} #{address.zipcode.number}"
   end
 
   def address_status

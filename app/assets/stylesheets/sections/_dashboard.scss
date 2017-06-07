@@ -1,0 +1,92 @@
+.user-dashboard h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.user-dashboard h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.user-dashboard h4 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.user-dashboard a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ED1C39;
+    ;
+}
+
+.user-dashboard a:hover {
+    color: darkgray;
+}
+
+.table-heading {
+    margin: 10px 0px;
+    border-bottom: 1px solid black;
+    max-width: 65%;
+}
+
+.order-info td,
+th {
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    width: 200px;
+}
+
+.order-show thead {
+    border-bottom: 1px solid black;
+}
+
+.order-show tbody {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+
+.total {
+    margin-top: 10px;
+    padding-right: 30px;
+    text-align: right;
+}
+
+
+/*.status input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #ED1C39;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 10px 2px;
+    cursor: pointer;
+}*/
+
+.order-filter ul {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 10px;
+    overflow: hidden;
+    background: #FDCB44;
+    ;
+    max-width: 65%
+}
+
+.order-filter li {
+    text-align: center;
+    float: left;
+    margin: 10px 20px;
+}
+
+.order-info a {
+    margin: 0px 10px;
+}
+
+#all-orders {
+    /*float: right;*/
+}
