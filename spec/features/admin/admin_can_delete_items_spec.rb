@@ -14,9 +14,9 @@ RSpec.describe "As an admin" do
     click_on "View All Items"
 
     click_on "Edit"
+
     expect(page).to have_button("Delete Item")
     click_button "Delete Item"
-
     expect(page).to have_content("Item Annihilated!")
     expect(current_path).to eq(admin_items_path)
 
