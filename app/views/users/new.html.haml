@@ -4,6 +4,7 @@
   .error-message=render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
 
   =form_for @user do |f|
+    =f.hidden_field(:return, :value => @return_path)
     =f.label :email, required: true
     =f.text_field :email
     %br

@@ -11,7 +11,7 @@ class OrdersController < PrivateController
 
   def create
     if current_user.addresses.empty?
-      redirect_to new_users_address_path(:current_path => request.path)
+      redirect_to new_users_address_path(:return => return_path)
     else
       @order = current_user.orders.create
       @order.add_items(@cart)
@@ -28,4 +28,7 @@ class OrdersController < PrivateController
   def edit
   end
 
+  def return_path
+    params.require(:order).permit(:return)[:return]
+  end
 end

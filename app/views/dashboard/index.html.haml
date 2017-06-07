@@ -21,7 +21,7 @@
           %br
           =link_to "Edit Address", edit_users_address_path(address)
     %br
-    %p=link_to "Add Address", new_users_address_path
+    %p=link_to "Add Address", new_users_address_path(return: request.path)
     %br
     %p=link_to "View Orders", user_orders_path(current_user)
     %br
