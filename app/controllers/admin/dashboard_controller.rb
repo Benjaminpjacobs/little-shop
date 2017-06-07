@@ -3,8 +3,8 @@ class Admin::DashboardController < Admin::PrivateController
 
   def index
     @count = Order.status_count
-    if params.keys.include?("retrieve")
-      @orders = Order.retrieve(params.keys[1])
+    if params[:filter]
+      @orders = Order.retrieve(params[:filter])
       @count = Order.status_count
     end
   end

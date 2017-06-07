@@ -5,6 +5,6 @@
     .order-info
       =link_to order.id, admin_order_path(order)
       =order.user.full_name
-      =order.created_at.to_date
+      =order.updated_at
       =render partial: "paid", locals: {order: order} if @orders[:title] == "Paid"
       =render partial: "ordered", locals: {order: order} if @orders[:title] == "Ordered"
