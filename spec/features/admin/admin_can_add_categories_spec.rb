@@ -10,7 +10,6 @@ RSpec.describe "As an admin" do
 
     click_button "Create Category"
     expect(current_path).to eq(admin_categories_path)
-    save_and_open_page
     expect(page).to have_content("Created: Test Category")
     expect(page).to have_content("Test Category")
 
@@ -19,7 +18,6 @@ RSpec.describe "As an admin" do
 
     click_button "Create Category"
     expect(current_path).to eq(admin_categories_path)
-    save_and_open_page
     expect(page).to have_content("Created: Second Category")
     expect(page).to have_content("Test Category")
     expect(page).to have_content("Second Category")
