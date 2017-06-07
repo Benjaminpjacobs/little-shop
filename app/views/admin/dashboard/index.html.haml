@@ -6,22 +6,24 @@
     =current_user.email
     =link_to "Edit", edit_admin_user_path(current_user)
 
-  %h3
+  %h4
     =link_to "View All Items", admin_items_path
+  .order-filter
+    %ul
+      %li
+        %h4 Filters:
+      %li
+        =link_to "Ordered (#{@count[:ordered]})",'#', id: "ordered"
+    
+      %li
+        =link_to "Paid (#{@count[:paid]})", "#", id: "paid"
+    
+      %li
+        =link_to "Cancelled (#{@count[:cancelled]})", "#", id: "cancelled"
+    
+      %li
+        =link_to "Completed (#{@count[:completed]})", "#", id: "completed"
 
-  %ul.order-filter
-    %li
-      =link_to "Ordered (#{@count[:ordered]})",'#', id: "ordered"
-  
-    %li
-      =link_to "Paid (#{@count[:paid]})", "#", id: "paid"
-  
-    %li
-      =link_to "Cancelled (#{@count[:cancelled]})", "#", id: "cancelled"
-  
-    %li
-      =link_to "Completed (#{@count[:completed]})", "#", id: "completed"
-
-    %li
-      =link_to "Show All", "#", id: "all"
-  #all-orders
+      %li
+        =link_to "Show All", "#", id: "all"
+  .all-orders
