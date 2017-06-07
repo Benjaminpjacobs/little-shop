@@ -33,6 +33,10 @@ class Admin::ItemsController < Admin::PrivateController
     end
   end
 
+  def destroy
+
+  end
+
 
   private
 

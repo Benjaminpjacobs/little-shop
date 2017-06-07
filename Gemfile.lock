@@ -53,13 +53,13 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    aws-sdk (2.9.31)
-      aws-sdk-resources (= 2.9.31)
-    aws-sdk-core (2.9.31)
+    aws-sdk (2.9.32)
+      aws-sdk-resources (= 2.9.32)
+    aws-sdk-core (2.9.32)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.9.31)
-      aws-sdk-core (= 2.9.31)
+    aws-sdk-resources (2.9.32)
+      aws-sdk-core (= 2.9.32)
     aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -296,4 +296,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.0
