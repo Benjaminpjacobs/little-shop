@@ -1,3 +1,4 @@
 %h1 Edit Item
 =render partial: 'shared/errors', locals: { target: @item.errors } if @item.errors.any?
 =render partial: "form"
+=button_to "Delete Item", admin_item_path(@item), method: :delete

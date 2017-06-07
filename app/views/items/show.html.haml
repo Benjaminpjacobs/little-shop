@@ -1,10 +1,14 @@
-.item-show
-  %item-show-image=image_tag(@item.image)
-  .item-show-text
-    %h2
-      =@item.name
-    .item-description
-      %p=@item.description
-    %p=number_to_currency(@item.price)
-    .add-to-cart-button
-      =render partial: "item_status_#{@item.status}", :locals => {:item => @item}
+.item-wrapper
+  .item-show
+    .item-show-image
+      =image_tag(@item.image)
+    .item-show-text
+      %h2
+        =@item.name
+      .item-description
+        %p=@item.description
+        %br
+      .item-price
+        %p=number_to_currency(@item.price)
+      .add-to-cart-button
+        =render partial: "item_status_#{@item.status}", :locals => {:item => @item}

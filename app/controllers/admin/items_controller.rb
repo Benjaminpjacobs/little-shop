@@ -34,9 +34,11 @@ class Admin::ItemsController < Admin::PrivateController
   end
 
   def destroy
-
+    item = Item.find(params[:id])
+    item.destroy
+    flash[:success] = "Item Annihilated!"
+    redirect_to admin_items_path
   end
-
 
   private
 
