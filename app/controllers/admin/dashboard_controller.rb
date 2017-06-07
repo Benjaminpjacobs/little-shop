@@ -2,14 +2,11 @@ class Admin::DashboardController < Admin::PrivateController
   before_action :set_code, only: [:update]
 
   def index
-    @orders = Order.admin_orders
-    # @partial = "all"
-    binding.pry
-    if params[retrieve]
-      @orders = Order.admin_orders
-      @partial = params.keys[1]
+    @count = Order.status_count
+    if params.keys.include?("retrieve")
+      @orders = Order.retrieve(params.keys[1])
+      @count = Order.status_count
     end
-    
   end
 
   def update
@@ -18,7 +15,6 @@ class Admin::DashboardController < Admin::PrivateController
     redirect_to admin_dashboard_index_path
   end
   
-
   def set_code
     @status = params[:perform].to_sym
   end

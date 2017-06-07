@@ -18,15 +18,24 @@ class Order < ApplicationRecord
     end
   end
 
-  def self.admin_orders
+  def self.status_count
     {
-    ordered: Order.where(status: 0),
-    paid: Order.where(status: 1),
-    cancelled: Order.where(status: 2),
-    completed: Order.where(status: 3),
-    all: Order.all
+    ordered: Order.where(status: 0).count,
+    paid: Order.where(status: 1).count,
+    cancelled: Order.where(status: 2).count,
+    completed: Order.where(status: 3).count,
+    all: Order.count
     }
   end
+
+  def self.retrieve(key)
+    if key == "all"
+      {title: key.capitalize, results: Order.all}
+    else
+      {title: key.capitalize, results: Order.where(status: key)} 
+    end
+  end
+
 
   def update_date
     case status
