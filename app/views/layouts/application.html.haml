@@ -10,7 +10,8 @@
     = javascript_include_tag 'application'
   %body
     %nav
-      .site-id=image_tag("ready-player-one-featured.jpg")
+      .site-id
+        =link_to image_tag("ready-player-one-featured.jpg"), root_path
       %ul.user-tools
         %li.nav-link
           .cart
