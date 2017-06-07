@@ -1,4 +1,5 @@
 .center-container
   %h1 Edit Address
+  .error-message=render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
 
   =render partial: "form"

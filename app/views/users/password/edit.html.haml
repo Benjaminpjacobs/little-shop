@@ -6,13 +6,13 @@
   .reset-password-box
     =form_tag user_password_path, method: :put do
 
-      =label_tag(:old, "Old password")
+      =label_tag(:old, "Old password", required: true)
       =password_field_tag(:old)
       %br
-      =label_tag(:new, "New password")
+      =label_tag(:new, "New password", required: true)
       =password_field_tag(:new)
       %br
-      =label_tag(:confirm, "Confirm new password")
+      =label_tag(:confirm, "Confirm new password", required: true)
       =password_field_tag(:confirm)
       %br
       =submit_tag("Update Password")
