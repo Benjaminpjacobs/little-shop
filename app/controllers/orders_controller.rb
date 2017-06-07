@@ -16,10 +16,11 @@ class OrdersController < PrivateController
       @order = current_user.orders.create
       @order.add_items(@cart)
       session[:cart].clear
+      UserMailer.order_confirmation(current_user, @order)
       flash[:order_success] = "Order was successfully placed."
       redirect_to user_order_path(current_user, @order)
     end
-    
+
   end
 
   def destroy
