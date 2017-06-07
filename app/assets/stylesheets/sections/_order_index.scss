@@ -1,0 +1,22 @@
+.user-orders a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-order {
+    padding: 20px;
+    margin: 0 10px;
+    float: left;
+    border: .5px solid whitesmoke;
+    border-radius: 5px;
+}
+
+.user-order:hover {
+    color: lightgray;
+}
+
+.user-order .title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}

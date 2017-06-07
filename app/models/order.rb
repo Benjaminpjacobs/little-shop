@@ -46,4 +46,24 @@ class Order < ApplicationRecord
       {title: key.capitalize, results: Order.where(status: key)} 
     end
   end
+
+  def ordered
+    self.created_at
+  end
+
+
+  def paid
+    self.paid_date
+  end
+
+
+  def completed
+    self.completed_date
+  end
+
+
+  def cancelled
+    self.cancelled_date
+  end
+
 end

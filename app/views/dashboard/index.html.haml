@@ -11,9 +11,10 @@
         -current_user.addresses.each do |address|
           %p=address.street_address
           %p
-            =address.city.name
+            ="#{address.city.name}, "
             =address.state.name
           %p=address.zipcode.number
+          %br
           %p
             Type:
             =address.address_type.capitalize
