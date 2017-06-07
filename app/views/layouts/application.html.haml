@@ -32,3 +32,14 @@
           %div.flash=message
 
       = yield
+
+    %footer
+      %ul.user-tools
+        %li.foot-link
+          =link_to "View Cart", carts_path
+        %li.foot-link
+          =link_to "Our Inspiration", "https://en.wikipedia.org/wiki/Ready_Player_One"
+        %li.foot-link
+          =link_to "Get the Book", "http://www.tatteredcover.com/search/site/ready%20player%20one"
+        %li.foot-link
+          =link_to "About Us", "https://www.turing.io/"
