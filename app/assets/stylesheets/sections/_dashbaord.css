@@ -38,20 +38,25 @@ th {
     width: 200px;
 }
 
-.order-show thead{
-  border-bottom: 1px solid black;
-}
-.order-show tbody{
-  border-bottom: 1px solid black;
-  margin-bottom: 5px;
+.order-show thead {
+    border-bottom: 1px solid black;
 }
 
-.total{
-  margin-top: 10px;
-  padding-right: 30px;
-  text-align: right;
+.order-show tbody {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
 }
-.status input[type=button], input[type=submit], input[type=reset] {
+
+.total {
+    margin-top: 10px;
+    padding-right: 30px;
+    text-align: right;
+}
+
+
+/*.status input[type=button],
+input[type=submit],
+input[type=reset] {
     background-color: #ED1C39;
     border: none;
     color: white;
@@ -59,9 +64,9 @@ th {
     text-decoration: none;
     margin: 10px 2px;
     cursor: pointer;
-}
+}*/
 
-.order-filter {
+*/ .order-filter {
     /*border: 1px solid black;*/
 }
 

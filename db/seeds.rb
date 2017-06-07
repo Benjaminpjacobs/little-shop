@@ -6,7 +6,6 @@ weaponry = Category.create!(title: "Weaponry")
 transport = Category.create!(title: "Transport")
 supplies = Category.create!(title: "Supplies")
 
-
 admin = User.create(email: "d@d.com", first_name: "Don", last_name: "Quixote", password: "password", role: 1)
 user = User.create(email: "s@p.com", first_name: "Sancho", last_name: "Panza", password: "password", role: 0)
 
