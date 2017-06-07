@@ -19,7 +19,10 @@ h2 {
 }
 
 .main-wrapper {
+  width: 94%;
   margin: 3%;
+  min-height: 90%;
+  overflow: hidden;
 }
 
 .center-container {
@@ -71,3 +74,37 @@ input[type=submit] {
     padding: 0.5%;
   }
 }
+
+.thumbnail {
+  height: 50px;
+  padding-left: 2%;
+}
+
+table {
+  width: 95%;
+  text-align: left;
+}
+
+tr {
+  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+}
+
+td {
+  vertical-align: middle;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: #ED1C39;
+  }
+  a:hover {
+    color: #a51226;
+  }
+}
+
+.flash {
+  color: #006633;
+  position: absolute;
+  top: 100px;
+}
+

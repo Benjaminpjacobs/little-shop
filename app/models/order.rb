@@ -18,15 +18,6 @@ class Order < ApplicationRecord
     end
   end
 
-  def self.admin_orders
-    {
-    ordered: Order.where(status: 0),
-    paid: Order.where(status: 1),
-    cancelled: Order.where(status: 2),
-    completed: Order.where(status: 3)
-    }
-  end
-
   def update_date
     case status
     when 'paid'
@@ -38,13 +29,45 @@ class Order < ApplicationRecord
     end
   end
 
-  def self.status_code
+  def self.status_count
     {
-      paid: 1,
-      cancel: 2,
-      complete: 3,
+    ordered: Order.where(status: 0).count,
+    paid: Order.where(status: 1).count,
+    cancelled: Order.where(status: 2).count,
+    completed: Order.where(status: 3).count,
+    all: Order.count
     }
   end
 
+  def self.retrieve(key)
+    if key == "all"
+      {title: key.capitalize, results: Order.all}
+    else
+      {title: key.capitalize, results: Order.where(status: key)} 
+    end
+  end
+
+  def ordered
+    format_date_time(created_at)
+  end
+
+
+  def paid
+    format_date_time(paid_date)
+  end
+
+
+  def completed
+    format_date_time(completed_date)
+  end
+
+
+  def cancelled
+    format_date_time(cancelled_date)
+  end
+
+  def format_date_time(date_time)
+    date_time.strftime("%B%e, %Y at %I:%M:%S%P")
+  end
 
 end

@@ -1,11 +1,20 @@
 -if @orders.empty?
   =render partial: 'no_orders'
 -else
-  -@orders.each do |order|
-    %p
-    Order ID#:
-    =order.id
-    %p=number_to_currency(order.total)
-    %p=order.created_at
-    %p=order.status
-    %p=link_to "View Order", user_order_path(order.user, order)
+  .user-orders
+    -@orders.each do |order|
+      %a{:href => user_order_path(order.user, order)}
+        .user-order
+          %p.title 
+            Order ID#:
+            =order.id
+          %p
+            %span.title Total:
+            =number_to_currency(order.total)
+          %p.title Status: 
+          %p
+            =order.status.capitalize
+            on
+          %p
+            =order.send(order.status.to_sym)
+          -# %p=link_to "View Order", user_order_path(order.user, order)
