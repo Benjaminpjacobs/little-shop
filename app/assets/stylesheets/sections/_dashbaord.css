@@ -1,0 +1,60 @@
+.user-dashboard h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.user-dashboard h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.user-dashboard h4 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.user-dashboard a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-dashboard a:hover {
+    color: darkgray;
+}
+
+.table-heading {
+    margin: 10px 0px;
+    border-bottom: 1px solid black;
+    max-width: 30%
+}
+
+.order-info td {
+    margin: 10px;
+    padding: 10px;
+}
+
+.order-filter {
+    /*border: 1px solid black;*/
+}
+
+.order-filter ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: lightgray;
+    max-width: 40%
+}
+
+.order-filter li {
+    float: left;
+    margin: 5px 15px;
+}
+
+.order-info a {
+    margin: 0px 10px;
+}
+
+#all-orders {
+    /*float: right;*/
+}
