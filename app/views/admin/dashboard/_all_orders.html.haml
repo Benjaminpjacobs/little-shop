@@ -1,0 +1,19 @@
+.orders-table.all.show
+  %p.table-heading 
+    =@orders[:title]
+  %table
+    %thead
+      %tr
+        %th Order ID
+        %th User Name
+        %th Date
+        %th Actions
+    %tbody
+      -@orders[:results].each do |order|
+        %tr.order-info
+          %td=link_to order.id, admin_order_path(order)
+          %td=order.user.full_name
+          %td=order.updated_at
+          %td
+            =render partial: "paid", locals: {order: order} if @orders[:title] == "Paid"
+            =render partial: "ordered", locals: {order: order} if @orders[:title] == "Ordered"
