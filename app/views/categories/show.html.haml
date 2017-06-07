@@ -1,14 +1,14 @@
 %h1=@category.title
-
 .all-items
   -@items.each do |item|
     .item-preview
-      .item-thumb=image_tag(item.image)
+      .item-thumb=link_to(image_tag(item.image), item_path(item))
       .item-text
         %h2
-          =item.name
-        %p=item.description
-        %p=item.price
-        =button_to "Add to Cart", carts_path(item_id: item.id)
+          =link_to item.character_limit(item.name, 20), item_path(item)
+        %p=item.character_limit(item.description, 50)
+        %p=number_to_currency(item.price)
+        .add-to-cart-button
+          =button_to "Add to Cart", carts_path(item_id: item.id)
 
 =will_paginate @items

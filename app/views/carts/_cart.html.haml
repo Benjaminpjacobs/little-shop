@@ -1,22 +1,29 @@
-.cart
+.cart-wrapper
   -@cart.contents.each do |item_id, quantity|
     -item = Item.find_by(id: item_id)
     .cart-item
-      .item_thumb=image_tag(item.image)
-      %p=item.name
-      %p=number_to_currency(item.price)
-      %p=item.description
+      .item-image
+        =image_tag(item.image)
+      .item-text
+        %p=item.name
+        %br
+        %p="Individual Price: #{number_to_currency(item.price)}"
+        %br
+        %p="Description: #{item.description}."
+        %br
 
-    =form_tag(cart_item_path(item_id: item.id), {method: :put}) do
-      %p=label_tag "Qty: "
-      %p=number_field_tag :quantity, value = "#{quantity}"
-      %p=button_tag "Update Quantity", type: :submit
-      %p=number_to_currency(item.price*quantity)
-
-    =form_tag(cart_item_path(item_id: item.id), {method: :delete}) do
-      =button_tag "Remove", type: :submit
-  %p
+        =form_tag(cart_item_path(item_id: item.id), {method: :put}) do
+          %p=label_tag "Qty: "
+          %p=number_field_tag :quantity, value = "#{quantity}"
+          %p=button_tag "Update Quantity", type: :submit
+          %br
+          %p="Price for quantity: #{number_to_currency(item.price*quantity)}"
+          %br
+        =form_tag(cart_item_path(item_id: item.id), {method: :delete}) do
+          =button_tag "Remove", type: :submit
+        %br
+  .cart-total
     Total:
     =number_to_currency(@cart.total_price)
-
-=render partial: current_guest
+    %br
+    =render partial: current_guest
