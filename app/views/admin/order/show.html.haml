@@ -38,8 +38,8 @@
         =order_item.line_item_subtotal
       %td
         =@order.total
-  
+
 =form_for([:admin, @order]) do |f|
   =f.label :status
   =f.select(:status, [["Ordered", 0], ["Paid", 1],["Canceled", 2],["Completed", 3]], :selected => @order.status_before_type_cast)
-  =f.submit 
+  =f.submit
