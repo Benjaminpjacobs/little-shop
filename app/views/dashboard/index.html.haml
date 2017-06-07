@@ -2,8 +2,10 @@
   %h2
     =current_user.full_name
     's Dashboard
+  %br
   %section
     %p=current_user.email
+    %br
     .addresses
       -unless current_user.addresses.empty?
         -current_user.addresses.each do |address|
@@ -15,9 +17,13 @@
           %p
             Type:
             =address.address_type.capitalize
+          %br
           =link_to "Edit Address", edit_users_address_path(address)
-
+    %br
     %p=link_to "Add Address", new_users_address_path(current_path: request.path)
+    %br
     %p=link_to "View Orders", user_orders_path(current_user)
+    %br
     %p=link_to "Edit Profile", edit_user_path(current_user)
+    %br
     %p=link_to "Reset Password", edit_user_password_path(current_user)
