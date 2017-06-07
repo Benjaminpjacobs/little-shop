@@ -5,7 +5,6 @@ require 'spec_helper'
 require 'rspec/rails'
 
 require 'capybara/rails'
-require 'capybara/webkit/matchers'
 require 'shoulda-matchers'
 
 
@@ -20,10 +19,6 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 include ActionDispatch::TestProcess
 
-# Capybara.register_driver :selenium_chrome do |app|
-#   Capybara::Selenium::Driver.new(app, browser: :chrome)
-# end
-Capybara.javascript_driver = :webkit
 
 
 RSpec.configure do |config|
@@ -33,26 +28,6 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-  
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-  
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-  
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
-
   config.after(:all) do
     if Rails.env.test?
       test_uploads = Dir["#{Rails.root}/test_uploads"]

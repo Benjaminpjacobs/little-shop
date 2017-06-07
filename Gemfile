@@ -56,9 +56,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-state'
   gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
   gem 'nyan-cat-formatter'
-  gem 'database_cleaner'
 
 end

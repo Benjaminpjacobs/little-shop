@@ -18,6 +18,17 @@ class Order < ApplicationRecord
     end
   end
 
+  def update_date
+    case status
+    when 'paid'
+      self.update_attributes(:paid_date => updated_at) if paid_date.nil?
+    when 'cancelled'
+      self.update_attributes(:cancelled_date => updated_at) if cancelled_date.nil?
+    when 'completed'
+      self.update_attributes(:completed_date => updated_at) if completed_date.nil?
+    end
+  end
+
   def self.status_count
     {
     ordered: Order.where(status: 0).count,
@@ -35,26 +46,4 @@ class Order < ApplicationRecord
       {title: key.capitalize, results: Order.where(status: key)} 
     end
   end
-
-
-  def update_date
-    case status
-    when 'paid'
-      self.update_attributes(:paid_date => updated_at) if paid_date.nil?
-    when 'cancelled'
-      self.update_attributes(:cancelled_date => updated_at) if cancelled_date.nil?
-    when 'completed'
-      self.update_attributes(:completed_date => updated_at) if completed_date.nil?
-    end
-  end
-
-  def self.status_code
-    {
-      paid: 1,
-      cancel: 2,
-      complete: 3,
-    }
-  end
-
-
 end
