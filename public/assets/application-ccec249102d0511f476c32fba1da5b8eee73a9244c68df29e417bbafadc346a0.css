@@ -135,6 +135,22 @@ input[type=submit] {
   padding-left: 2%;
   vertical-align: middle;
 }
+
+/* line 62, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/_skeleton.scss */
+.cart-item {
+  display: flex;
+  border: 2px solid #dcdcdc;
+  padding: 1%;
+}
+/* line 66, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/_skeleton.scss */
+.cart-item img {
+  padding: 1%;
+}
+/* line 69, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/_skeleton.scss */
+.cart-item p {
+  display: inline-flex;
+  padding: 0.5%;
+}
 /* line 1, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/sections/_header.scss */
 nav {
   list-style-type: none;
@@ -473,6 +489,22 @@ input[type=submit] {
   font-size: .5em;
   padding-left: 2%;
   vertical-align: middle;
+}
+
+/* line 62, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/_skeleton.scss */
+.cart-item {
+  display: flex;
+  border: 2px solid #dcdcdc;
+  padding: 1%;
+}
+/* line 66, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/_skeleton.scss */
+.cart-item img {
+  padding: 1%;
+}
+/* line 69, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/_skeleton.scss */
+.cart-item p {
+  display: inline-flex;
+  padding: 0.5%;
 }
 
 /* line 1, /Users/ccorrigan/turing/2module/little-shop/app/assets/stylesheets/sections/_header.scss */
