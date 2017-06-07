@@ -9,6 +9,10 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
   enum status: [:available, :retired]
 
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%")
+  end
+
   def character_limit(text, num)
     if text.length <= num
       text

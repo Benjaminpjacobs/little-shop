@@ -1,14 +1,1 @@
-%h1 All Items
-.all-items
-  -@items.each do |item|
-    .item-preview
-      .item-thumb=link_to(image_tag(item.image), item_path(item))
-      .item-text
-        %h2
-          =link_to item.character_limit(item.name, 20), item_path(item)
-        %p=item.character_limit(item.description, 50)
-        %p=number_to_currency(item.price)
-        .add-to-cart-button
-          =render partial: "item_status_#{item.status}", :locals => {:item => item}
-
-=will_paginate @users
+=render partial: 'search_results'

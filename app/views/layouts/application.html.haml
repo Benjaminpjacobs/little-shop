@@ -16,10 +16,13 @@
         %li.nav-link
           .cart
             =link_to "View Cart", carts_path
-            -# =image_tag("glyphicons-203-shopping-cart.png")
-            -# =link_to(image_tag("glyphicons-203-shopping-cart.png"), carts_path)
         =render partial: "/layouts/#{current_guest}"
         %ul.browse-links
+          %li.nav-link.search
+            .search-container
+              =form_tag items_path, :method=>"get", :id=>"search-form" do
+                =text_field_tag :search, params[:search], placeholder: "Search items"
+                .btn=submit_tag "Search", :name=>nil
           -Category.all.each do |c|
             %li.nav-link=link_to "#{c.title}", category_path(c)
           %li.nav-link=link_to "All Items", items_path
