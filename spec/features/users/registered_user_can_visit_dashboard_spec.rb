@@ -7,7 +7,7 @@ RSpec.feature "A guest" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit root_path
       click_on ("#{user.first_name}")
-      
+
       expect(current_path).to eq(dashboard_index_path)
 
       expect(page).to_not have_content("Login")
@@ -17,7 +17,7 @@ RSpec.feature "A guest" do
       expect(page).to have_content(user.email)
     end
   end
-  
+
   context "as a guest user" do
     it "cannot see dashboard" do
       visit dashboard_index_path
