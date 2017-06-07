@@ -1,6 +1,7 @@
 %h1 Shopping Cart
+%br
 
 -if @cart.contents.empty?
-  =render partial: 'empty_cart' 
+  =render partial: 'empty_cart'
 -else
   =render partial: 'cart'

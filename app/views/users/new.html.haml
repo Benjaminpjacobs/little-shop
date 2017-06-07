@@ -1,26 +1,23 @@
-
-=render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
-
-
 .create-account-box.center-container
-  %h1
-    Create a New Account
-  .create-account-box
-    =form_for @user do |f|
-      =f.label :email
-      =f.text_field :email
-      %br
+  %h1 Create a New Account
 
-      =f.label :first_name
-      =f.text_field :first_name
-      %br
+  .error-message=render partial: 'shared/errors', locals: { target: @user.errors } if @user.errors.any?
 
-      =f.label :last_name
-      =f.text_field :last_name
-      %br
+  =form_for @user do |f|
+    =f.label :email
+    =f.text_field :email
+    %br
 
-      =f.label :password
-      =f.password_field :password
-      %br
+    =f.label :first_name
+    =f.text_field :first_name
+    %br
 
-      =f.submit "Create Account"
+    =f.label :last_name
+    =f.text_field :last_name
+    %br
+
+    =f.label :password
+    =f.password_field :password
+    %br
+
+    =f.submit "Create Account"
