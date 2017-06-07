@@ -8,15 +8,13 @@
           %p.title 
             Order ID#:
             =order.id
-          %br
           %p
             %span.title Total:
             =number_to_currency(order.total)
+          %p.title Status: 
           %p
-            %span.title Date:
+            =order.status.capitalize
+            on
+          %p
             =order.send(order.status.to_sym)
-          %br
-          %p
-            Status: 
-            =order.status
           -# %p=link_to "View Order", user_order_path(order.user, order)

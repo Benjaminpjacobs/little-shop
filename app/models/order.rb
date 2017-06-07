@@ -48,7 +48,7 @@ class Order < ApplicationRecord
   end
 
   def ordered
-    self.created_at
+    self.created_at.strftime("%B%e, %Y at %I:%M:%S%P")
   end
 
 
