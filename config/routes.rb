@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   put '/users/:id/password', to: 'users/password#update', as: "user_password"
   get '/users/:id/password', to: 'users/password#edit', as: "edit_user_password"
 
+  put '/admin/:id/password', to: 'admin/password#update', as: "admin_password"
+  get '/admin/:id/password', to: 'admin/password#edit', as: "edit_admin_password"
+
   namespace :admin do
     resources :dashboard, only: [:index, :update]
     resources :user, only: [:edit, :update, :index]

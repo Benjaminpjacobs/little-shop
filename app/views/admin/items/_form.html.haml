@@ -15,7 +15,7 @@
   =f.label :upload_your_file
   =f.file_field :image
 
-  =f.label :status
+  =f.label :status, required: true
   =f.select(:status, [["Available", 0], ["Retired", 1]])
   -# =render partial: "status"
   =f.submit

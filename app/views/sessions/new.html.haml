@@ -3,10 +3,10 @@
   .login-box
     =form_for(:session, url: login_path) do |f|
       =f.hidden_field :return_path, value: @return_path
-      =f.label :email
+      =f.label :email, required: true
       =f.text_field :email
       %br
-      =f.label :password
+      =f.label :password, required: true
       =f.password_field :password
       %br
       =f.submit "Login"
