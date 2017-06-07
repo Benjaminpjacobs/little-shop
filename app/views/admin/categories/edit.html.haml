@@ -1,0 +1,7 @@
+%h1 Admin: Edit Category
+=form_for([:admin, @category]) do |f|
+
+  =f.label :title
+  =f.text_field :title
+
+  =f.submit

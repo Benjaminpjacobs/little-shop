@@ -8,19 +8,22 @@
 
   %h4
     =link_to "View All Items", admin_items_path
+  %h4
+    =link_to "Add New Category", new_admin_category_path
+    
   .order-filter
     %ul
       %li
         %h4 Filters:
       %li
         =link_to "Ordered (#{@count[:ordered]})",'#', id: "ordered"
-    
+
       %li
         =link_to "Paid (#{@count[:paid]})", "#", id: "paid"
-    
+
       %li
         =link_to "Cancelled (#{@count[:cancelled]})", "#", id: "cancelled"
-    
+
       %li
         =link_to "Completed (#{@count[:completed]})", "#", id: "completed"
 

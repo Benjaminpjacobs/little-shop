@@ -1,8 +1,3 @@
 %h1 Admin: Create Category
 
-=form_for([:admin, @category]) do |f|
-
-  =f.label :title
-  =f.text_field :title
-
-  =f.submit
+=render partial: 'form'

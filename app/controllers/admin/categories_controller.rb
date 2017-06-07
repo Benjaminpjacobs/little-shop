@@ -18,6 +18,20 @@ class Admin::CategoriesController < Admin::PrivateController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find_by(title: params[:id].capitalize)
+    if @category.update(category_params)
+      flash[:success] = "Updated: #{@category.title}!"
+      redirect_to admin_categories_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def category_params
