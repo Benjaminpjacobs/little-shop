@@ -14,4 +14,8 @@ class Admin::DashboardController < Admin::PrivateController
     @order.update(status: Order.status_code[@status])
     redirect_to admin_dashboard_index_path
   end
+
+  def set_code
+    @status = params[:perform].to_sym
+  end
 end
