@@ -1,3 +1,8 @@
 .add-to-cart-button input {
   background-color: #FDCB44;
 }
+
+label[required=required]:before {
+  content: "* ";
+  color: red;
+}
