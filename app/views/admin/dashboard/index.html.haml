@@ -13,96 +13,17 @@
       %li
         %h4 Filters:
       %li
-        =link_to "Ordered (#{@orders[:ordered].count})", "#", class: "filter-link", id: "ordered"
+        =link_to "Ordered (#{@count[:ordered]})",'#', id: "ordered"
+    
       %li
-        =link_to "Paid (#{@orders[:paid].count})", "#", class: "filter-link", id: "paid"
+        =link_to "Paid (#{@count[:paid]})", "#", id: "paid"
+    
       %li
-        =link_to "Cancelled (#{@orders[:cancelled].count})", "#", class: "filter-link", id: "cancelled"
+        =link_to "Cancelled (#{@count[:cancelled]})", "#", id: "cancelled"
+    
       %li
-        =link_to "Completed (#{@orders[:completed].count})", "#", class: "filter-link", id: "completed"
+        =link_to "Completed (#{@count[:completed]})", "#", id: "completed"
+
       %li
-        =link_to "Show All (#{@orders[:all].count})", "#", class: "filter-link", id: "all"
-
-  #all-orders
-    .orders-table.ordered.hidden
-      %p.table-heading Ordered
-      %table
-        %thead
-          %tr
-            %th Order ID
-            %th User Name
-            %th Date
-            %th Actions
-        %tbody
-          -@orders[:ordered].each do |order|
-            %tr.order-info
-              %td=link_to order.id, admin_order_path(order.user, order)
-              %td=order.user.full_name
-              %td=order.created_at.to_date
-              %td
-                =link_to "Cancel", admin_dashboard_path(:id => order.id, :perform => 'cancel'), {method: :put}
-                =link_to "Paid", admin_dashboard_path(:id => order.id, :perform => 'paid'), {method: :put}
-
-    .orders-table.paid.hidden
-      %p.table-heading Paid
-      %table
-        %thead
-          %tr
-            %th Order ID
-            %th User Name
-            %th Date
-            %th Actions
-          %tbody
-            -@orders[:paid].each do |order|
-              %tr.order-info
-                %td=link_to order.id, admin_order_path(order)
-                %td=order.user.full_name
-                %td=order.created_at.to_date
-                %td
-                  =link_to "Cancel", admin_dashboard_path(:id => order.id, :perform => 'cancel'), {method: :put}
-                  =link_to "Completed", admin_dashboard_path(:id => order.id, :perform => 'complete'), {method: :put}
-
-    .orders-table.cancelled.hidden
-      %p.table-heading Cancelled
-      %table
-        %thead
-          %tr
-            %th Order ID
-            %th User Name
-            %th Date
-          %tbody  
-            -@orders[:cancelled].each do |order|
-              %tr.order-info
-                %td=link_to order.id, admin_order_path(order)
-                %td=order.user.full_name
-                %td=order.created_at.to_date
-
-    .orders-table.completed.hidden
-      %p.table-heading Completed
-      %table
-        %thead
-          %tr
-            %th Order ID
-            %th User Name
-            %th Date
-          %tbody  
-            -@orders[:completed].each do |order|
-              %tr.order-info
-                %td=link_to order.id, admin_order_path(order)
-                %td=order.user.full_name
-                %td=order.created_at.to_date
-
-    .orders-table.all.show
-      %p.table-heading All
-      %table
-        %thead
-          %tr
-            %th Order ID
-            %th User Name
-            %th Date
-          %tbody  
-            -@orders[:all].each do |order|
-              %tr.order-info
-                %td=link_to order.id, admin_order_path(order)
-                %td=order.user.full_name
-                %td=order.created_at.to_date
+        =link_to "Show All", "#", id: "all"
+  .all-orders
