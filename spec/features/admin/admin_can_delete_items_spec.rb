@@ -19,9 +19,5 @@ RSpec.describe "As an admin" do
     click_button "Delete Item"
     expect(page).to have_content("Item Annihilated!")
     expect(current_path).to eq(admin_items_path)
-
-
   end
 end
-
-# ## Ensure model test catches negative numbers for price
