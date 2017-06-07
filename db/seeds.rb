@@ -6,7 +6,6 @@ weaponry = Category.create!(title: "Weaponry")
 transport = Category.create!(title: "Transport")
 supplies = Category.create!(title: "Supplies")
 
-
 admin = User.create(email: "d@d.com", first_name: "Don", last_name: "Quixote", password: "password", role: 1)
 user = User.create(email: "s@p.com", first_name: "Sancho", last_name: "Panza", password: "password", role: 0)
 
@@ -29,3 +28,10 @@ end
 #   item = Item.create!(name: Faker::Commerce.unique.product_name, price: Faker::Commerce.price, description: Faker::Hipster.paragraph, image: File.new("#{Rails.root}/app/assets/images/gear.png"))
 #   item.categories << Category.all.sample
 # end
+
+10.times do |order|
+  user.orders.create(status: "ordered")
+  user.orders.create(status: "paid", paid_date: Time.at(rand * Time.now.to_i).to_date )
+  user.orders.create(status: "cancelled", cancelled_date: Time.at(rand * Time.now.to_i).to_date )
+  user.orders.create(status: "completed", completed_date: Time.at(rand * Time.now.to_i).to_date )
+end

@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -24,10 +26,12 @@
 @import 'sections/footer';
 @import 'sections/view_multiple_items';
 @import 'sections/view_single_item';
+@import 'sections/order_index';
+@import 'sections/dashboard';
 @import 'buttons';
 @import 'sections/cart';
 @import 'sections/order';
 
 #all-orders .hidden {
-  display: none;
+    display: none;
 }
