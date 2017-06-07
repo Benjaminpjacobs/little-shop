@@ -1,0 +1,31 @@
+.search-container {
+  width: 250px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.search-container input#search {
+  width: 140px;
+  height: 25px;
+  background: whitesmoke;
+  order: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 10px;
+  margin-right: 0px;
+  border-radius: 5px;
+}
+
+.search-container input[type=submit] {
+  padding: 5px 15px;
+  background: #fdcb44;
+  color: #ed1c39;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 27px;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
+  float: left;
+}
