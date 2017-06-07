@@ -31,6 +31,14 @@ class Users::AddressesController < ApplicationController
     end
   end
 
+  def destroy
+    address = Address.find(params[:id])
+    address.delete
+
+    flash[:success] = "Successfully Deleted Address!"
+    redirect_to dashboard_index_path
+  end
+
 
 private
 
