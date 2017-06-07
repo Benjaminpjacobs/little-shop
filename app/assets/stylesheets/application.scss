@@ -30,45 +30,7 @@
 @import 'sections/dashboard';
 @import 'buttons';
 @import 'sections/cart';
-.cart-item {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    .item-preview {
-        display: flex;
-        text-align: center;
-        width: 25%;
-        padding: 20;
-        .item-thumb {
-            width: 100%;
-        }
-    }
-}
-
-.item-preview {
-    text-align: center;
-    font-family: helvetica;
-}
-
-.btn-cart-add {
-    padding: 8%;
-    background-color: #33ffbb;
-    border: 10px;
-    color: #fff;
-    display: inline-block;
-    text-transform: uppercase;
-    font-weight: 700;
-    outline: none;
-    position: relative;
-    transition: all 0.3s;
-    border-radius: 12%;
-}
-
-.btn-cart-add:hover {
-    background: #ED1C39;
-    color: #fff;
-    text-decoration: none;
-}
+@import 'sections/order';
 
 #all-orders .hidden {
     display: none;
