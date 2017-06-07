@@ -1,52 +1,49 @@
-.item-show {
-  width: 60%;
+.item-wrapper {
+  width: 95%;
   border: 2px solid #dcdcdc;
-  overflow: hidden;
-  padding: 2%;
-  clear: both;
-}
-
-.item-show-image {
   float: left;
-  display: block;
-  max-height: 100%;
-  width: 30%;
-  box-sizing: border-box;
-  padding: 5%;
-  box-sizing: border-box;
-  border: 5px black solid;
-  overflow: hidden;
-  object-fit: contain;
+  padding: 1%;
+  margin-bottom: 3%;
+  h1{
+    text-align: left;
+    padding-bottom: 2%;
+    margin-left: 0;
+    font-size: 1em;
+  }
+  .item-show {
+    width: 97%;
+    margin-bottom: 2%;
+    float: left;
+  }
+  .item-show-image {
+    width: 25%;
+    box-sizing: border-box;
+  }
   img {
-    padding: 5%;
+    display: block;
+    float: left;
     max-width: 100%;
     max-height: 100%;
+  }
+  .item-show-text {
+    width: 75%;
+    box-sizing: border-box;
+    padding-left: 5%;
+    display: block;
     float: left;
+    h2 {
+      font-size: 1.5em;
+      padding-bottom: 3%;
+    }
+    .item-description {
+    font-size: 1.25em;
+    line-height: 1.25;
+    }
+    .item-price {
+      font-size: 1.5em;
+      color: #ED1C39;
+    }
   }
 }
 
-.item-show-text {
-  padding: 10%;
-  display: block;
-  width: 70%;
-  box-sizing: border-box;
-  float: left;
-  position: relative;
-  .add-to-cart-button input {
-    float: left;
-    margin-left: 0px;
-  }
-  h2 {
-    padding: 1%;
-  }
-  p {
-    padding: 1%;
-  }
-}
 
-.item-description {
-  height: 140px;
-  box-sizing: border-box;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
