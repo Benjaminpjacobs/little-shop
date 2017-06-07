@@ -48,22 +48,26 @@ class Order < ApplicationRecord
   end
 
   def ordered
-    self.created_at.strftime("%B%e, %Y at %I:%M:%S%P")
+    format_date_time(created_at)
   end
 
 
   def paid
-    self.paid_date
+    format_date_time(paid_date)
   end
 
 
   def completed
-    self.completed_date
+    format_date_time(completed_date)
   end
 
 
   def cancelled
-    self.cancelled_date
+    format_date_time(cancelled_date)
+  end
+
+  def format_date_time(date_time)
+    date_time.strftime("%B%e, %Y at %I:%M:%S%P")
   end
 
 end
