@@ -23,5 +23,3 @@ RSpec.describe "As an admin" do
 
   end
 end
-
-# ## Ensure model test catches negative numbers for price
