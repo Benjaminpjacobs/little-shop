@@ -15,7 +15,9 @@
 
 .user-dashboard a {
     text-decoration: none;
-    color: inherit;
+    font-variant: small-caps;
+    color: #ED1C39;
+    ;
 }
 
 .user-dashboard a:hover {
@@ -42,13 +44,14 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: lightgray;
+    background: #FDCB44;
+    ;
     max-width: 40%
 }
 
 .order-filter li {
     float: left;
-    margin: 5px 15px;
+    margin: 10px 15px;
 }
 
 .order-info a {

@@ -24,7 +24,7 @@
         =link_to "Show All (#{@orders[:all].count})", "#", class: "filter-link", id: "all"
 
   #all-orders
-    .orders-table.ordered.show
+    .orders-table.ordered.hidden
       %p.table-heading Ordered
       %table
         %thead
@@ -43,7 +43,7 @@
                 =link_to "Cancel", admin_dashboard_path(:id => order.id, :perform => 'cancel'), {method: :put}
                 =link_to "Paid", admin_dashboard_path(:id => order.id, :perform => 'paid'), {method: :put}
 
-    .orders-table.paid.show
+    .orders-table.paid.hidden
       %p.table-heading Paid
       %table
         %thead
@@ -62,7 +62,7 @@
                   =link_to "Cancel", admin_dashboard_path(:id => order.id, :perform => 'cancel'), {method: :put}
                   =link_to "Completed", admin_dashboard_path(:id => order.id, :perform => 'complete'), {method: :put}
 
-    .orders-table.cancelled.show
+    .orders-table.cancelled.hidden
       %p.table-heading Cancelled
       %table
         %thead
@@ -77,7 +77,7 @@
                 %td=order.user.full_name
                 %td=order.created_at.to_date
 
-    .orders-table.completed.show
+    .orders-table.completed.hidden
       %p.table-heading Completed
       %table
         %thead
