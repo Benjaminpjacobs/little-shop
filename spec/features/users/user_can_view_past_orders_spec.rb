@@ -13,11 +13,11 @@ RSpec.feature "An existing user" do
       visit user_orders_path(user)
 
       expect(page).to have_content(order1.total)
-      expect(page).to have_content(order1.created_at)
+      expect(page).to have_content(order1.ordered)
       expect(page).to have_content(order2.total)
-      expect(page).to have_content(order2.created_at)
+      expect(page).to have_content(order2.ordered)
       expect(page).to have_content(order3.total)
-      expect(page).to have_content(order3.created_at)
+      expect(page).to have_content(order3.ordered)
     end
   end
 
