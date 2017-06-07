@@ -36,5 +36,6 @@ Rails.application.routes.draw do
     resources :user, only: [:edit, :update, :index]
     resources :items
     resources :order, only: [:show, :create, :update]
+    resources :categories, only: [:create, :new, :index]
   end
 end
