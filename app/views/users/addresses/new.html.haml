@@ -7,7 +7,7 @@
   =form_for([:users, @address]) do |f|
     =f.hidden_field :current_path, value: @current_path
     %br
-    =f.label :street_address
+    =f.label :street_address, required: true
     =f.text_field :street_address
     %br
     =f.fields_for :city, @address.build_city do |city_fields|
@@ -22,7 +22,7 @@
       =zipcode_fields.label :zipcode
       =zipcode_fields.text_field :number
     %br
-    =f.label :address_type
+    =f.label :address_type, required: true
     =f.select(:address_type, [["Home", 0], ["Billing", 1]], :selected => "Home")
     %br
     =f.submit "Save Address"
