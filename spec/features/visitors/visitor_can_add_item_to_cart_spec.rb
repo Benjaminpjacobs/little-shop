@@ -6,7 +6,7 @@ RSpec.feature "When a visitor" do
       item1 = create(:item)
 
       visit items_path
-      click_on "Add to Cart"
+      click_button "Add to Cart"
       expect(current_path).to eq(items_path)
       click_on "View Cart"
       expect(current_path).to eq(carts_path)
@@ -17,7 +17,7 @@ RSpec.feature "When a visitor" do
       expect(page).to have_content(item1.price)
 
       visit items_path
-      click_on "Add to Cart"
+      click_button "Add to Cart"
       click_on "View Cart"
       expect(page).to have_content(item1.price*2)
 
