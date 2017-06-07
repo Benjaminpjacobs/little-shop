@@ -8,4 +8,12 @@ class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :orders, through: :order_items
   enum status: [:available, :retired]
+
+  def character_limit(text, num)
+    if text.length <= num
+      text
+    else
+      "#{text[0...num]}..."
+    end
+  end
 end
