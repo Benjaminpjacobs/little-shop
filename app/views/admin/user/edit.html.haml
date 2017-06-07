@@ -5,7 +5,7 @@
   %br
   =form_for([:admin, @user]) do |f|
     =f.label :email
-    =f.text_field :email
+    =f.text_field :email, type: "email"
     %br
     =f.label :first_name
     =f.text_field :first_name
@@ -14,3 +14,6 @@
     =f.text_field :last_name
     %br
     =f.submit "Update Profile"
+
+  .reset-password
+    =button_to "Reset Password", edit_admin_password_path(current_user), :method => :get
