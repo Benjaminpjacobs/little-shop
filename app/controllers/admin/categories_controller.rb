@@ -32,6 +32,13 @@ class Admin::CategoriesController < Admin::PrivateController
     end
   end
 
+  def destroy
+    category = Category.find_by(title: params[:id].capitalize)
+    category.destroy
+    flash[:success] = "Category Annihilated!"
+    redirect_to admin_categories_path
+  end
+
   private
 
   def category_params

@@ -8,3 +8,4 @@
     %li
       =category.title
       =link_to "Edit", edit_admin_category_path(category.id)
+      =link_to "Delete Category", admin_category_path(category), method: :delete
