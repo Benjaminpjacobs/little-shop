@@ -1,0 +1,26 @@
+footer {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ED1C39;
+    height: 5%;
+}
+
+.foot-link {
+    float: left;
+}
+
+.foot-link a {
+    display: flex;
+    color: #FDCB44;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.foot-link a:hover {
+    background-color: #FDCB44;
+    color: #ED1C39;
+}
