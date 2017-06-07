@@ -55,9 +55,10 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-state'
-  gem 'capybara', '~> 2.13'
-  gem "capybara-webkit"
+  gem 'capybara'
+  gem 'capybara-webkit'
   gem 'selenium-webdriver'
   gem 'nyan-cat-formatter'
+  gem 'database_cleaner'
 
 end
