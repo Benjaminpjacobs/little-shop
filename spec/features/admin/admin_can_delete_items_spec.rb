@@ -5,7 +5,7 @@ RSpec.describe "As an admin" do
     admin = create(:user, role: 1)
     item = create(:item)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     fill_in "Email", with: admin.email
     fill_in "Password", with: "password"
@@ -25,7 +25,7 @@ RSpec.describe "As an admin" do
     admin = create(:user, role: 1)
     item = create(:item)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     fill_in "Email", with: admin.email
     fill_in "Password", with: "password"

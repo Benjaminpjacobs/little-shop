@@ -8,7 +8,7 @@ RSpec.feature "When a user is logged in" do
   it "can logout" do
 
     user = create(:user)
-    visit root_path
+    visit items_path
     click_on "Login"
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"

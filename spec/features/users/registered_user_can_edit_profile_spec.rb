@@ -5,7 +5,7 @@ RSpec.feature "As registered user" do
 
     user = create(:user_with_address)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit root_path
+    visit items_path
     click_on ("#{user.first_name}")
 
     expect(current_path).to eq(dashboard_index_path)
