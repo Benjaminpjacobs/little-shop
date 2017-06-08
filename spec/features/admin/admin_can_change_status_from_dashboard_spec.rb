@@ -12,7 +12,7 @@ RSpec.describe "As an admin", :js => true do
     # expect(Order.where(status: "paid").count).to eq(0)
     # click_on "Ordered (1)"
     # click_on "Paid"
-    # visit root_path
+    # visit items_path
     # visit admin_dashboard_index_path
     # sleep(5)
     # expect(Order.where(status: "paid").count).to eq(1)
