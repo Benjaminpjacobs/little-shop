@@ -4,7 +4,7 @@ RSpec.feature "A visitor" do
   it "can create a new account" do
     user = build(:user)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     expect(current_path).to eq(login_path)
     click_on "Create Account"
@@ -26,7 +26,7 @@ RSpec.feature "A visitor" do
   it "shows errors if email is invalid" do
     user = build(:user)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     expect(current_path).to eq(login_path)
     click_on "Create Account"
@@ -43,7 +43,7 @@ RSpec.feature "A visitor" do
   it "shows errors if fields missing" do
     user = build(:user)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     expect(current_path).to eq(login_path)
     click_on "Create Account"
