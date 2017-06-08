@@ -1,5 +1,6 @@
 class Admin::ItemsController < Admin::PrivateController
   before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   def index
     @items = Item.all
   end
@@ -11,22 +12,16 @@ class Admin::ItemsController < Admin::PrivateController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:success] = "Item created!"
+      flash[:success] = 'Item created!'
       redirect_to admin_item_path(@item)
     else
       render :new
     end
   end
 
-  def show
-  end
-
-  def edit
-  end
-
   def update
     if @item.update(item_params)
-      flash[:success] = "Item updated!"
+      flash[:success] = 'Item updated!'
       redirect_to admin_item_path(@item)
     else
       render :edit
@@ -36,19 +31,18 @@ class Admin::ItemsController < Admin::PrivateController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    flash[:success] = "Item Annihilated!"
+    flash[:success] = 'Item Annihilated!'
     redirect_to admin_items_path
   end
 
   private
 
-  def item_params
-    p = params.require(:item).permit(:status, :name, :description, :price, :image, :category_list)
-    p[:status] = p[:status].to_i
-    p
-  end
+    def item_params
+      params.require(:item)[:status] = params.require(:item)[:status].to_i 
+      params.require(:item).permit(:status, :name, :description, :price, :image, :category_list)
+    end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+    def set_item
+      @item = Item.find(params[:id])
+    end
 end
