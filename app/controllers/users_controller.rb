@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver_later
       session[:user_id] = @user.id
       redirect_to return_params
     else
@@ -37,7 +38,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:return)[:return]
   end
 
-  # def redirect_path
-  #   carts_path 
-  # end
 end
