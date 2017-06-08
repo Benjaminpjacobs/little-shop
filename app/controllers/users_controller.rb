@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to return_params
     else
-      flash[:error] = @user.errors.full_messages
       render :new
     end
   end
