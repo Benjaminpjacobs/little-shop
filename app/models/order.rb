@@ -55,22 +55,17 @@ class Order < ApplicationRecord
     }
   end
 
-
-
   def ordered
     format_date_time(created_at)
   end
-
 
   def paid
     format_date_time(paid_date)
   end
 
-
   def completed
     format_date_time(completed_date)
   end
-
 
   def cancelled
     format_date_time(cancelled_date)
@@ -79,5 +74,4 @@ class Order < ApplicationRecord
   def format_date_time(date_time)
     date_time.strftime("%B%e, %Y at %I:%M:%S%P")
   end
-
 end
