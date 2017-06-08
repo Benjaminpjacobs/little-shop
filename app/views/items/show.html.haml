@@ -12,3 +12,13 @@
         %p=number_to_currency(@item.price)
       .add-to-cart-button
         =render partial: "item_status_#{@item.status}", :locals => {:item => @item}
+
+-# .category-preview
+  %h1 You may also like...
+  .all-items
+    -@item.categories.first.featured_category_items.each do |item|
+      .item-preview.cat-preview
+        .item-thumb=link_to(image_tag(item.image), item_path(item))
+        .item-text
+          %h2
+            =link_to item.character_limit(item.name, 20), item_path(item)

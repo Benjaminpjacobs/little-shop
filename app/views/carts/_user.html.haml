@@ -1,4 +1,5 @@
 .add-to-cart-button
   =form_for([current_user, current_user.orders.new]) do |f|
     =f.hidden_field :cart, value: @cart
+    =f.hidden_field :return, value: request.path
     =f.submit "Checkout"

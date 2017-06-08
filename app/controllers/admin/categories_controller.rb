@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::PrivateController
-
+  before_action :set_category, only: [:update, :destroy]
   def index
     @categories = Category.all
   end
@@ -23,7 +23,6 @@ class Admin::CategoriesController < Admin::PrivateController
   end
 
   def update
-    @category = Category.find_by(title: params[:id].capitalize)
     if @category.update(category_params)
       flash[:success] = "Updated: #{@category.title}!"
       redirect_to admin_categories_path
@@ -33,16 +32,18 @@ class Admin::CategoriesController < Admin::PrivateController
   end
 
   def destroy
-    category = Category.find_by(title: params[:id].capitalize)
-    category.destroy
-    flash[:success] = "Category Annihilated!"
+    @category.destroy
+    flash[:success] = 'Category Annihilated!'
     redirect_to admin_categories_path
   end
 
   private
 
-  def category_params
-    params.require(:category).permit(:title)
-  end
+    def category_params
+      params.require(:category).permit(:title)
+    end
 
+    def set_category
+      @category = Category.find_by(title: params[:id].capitalize)
+    end
 end

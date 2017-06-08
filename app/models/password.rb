@@ -25,5 +25,4 @@ class Password
     message << "Passwords Do Not Match" unless new_password
     message
   end
-
 end

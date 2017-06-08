@@ -4,7 +4,7 @@ RSpec.feature "A visitor" do
   it "can create a new account" do
     user = build(:user)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     expect(current_path).to eq(login_path)
     click_on "Create Account"
@@ -14,6 +14,7 @@ RSpec.feature "A visitor" do
     fill_in 'Last name', with: user.last_name
     fill_in 'Password', with: user.password
     click_button "Create Account"
+    click_on("Hello, #{user.first_name}")
 
     expect(current_path).to eq(dashboard_index_path)
     expect(page).to_not have_content("Login")
@@ -25,7 +26,7 @@ RSpec.feature "A visitor" do
   it "shows errors if email is invalid" do
     user = build(:user)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     expect(current_path).to eq(login_path)
     click_on "Create Account"
@@ -42,7 +43,7 @@ RSpec.feature "A visitor" do
   it "shows errors if fields missing" do
     user = build(:user)
 
-    visit root_path
+    visit items_path
     click_on "Login"
     expect(current_path).to eq(login_path)
     click_on "Create Account"

@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Thank you for your order,  #{@user.first_name}!
+    %p
+      We are processing it as fast as is digitally possible!
+    %br
+    %p
+      Here is an invoice for your records!
+
+    %table
+      %thead
+        %tr
+          %th
+            Item Name
+          %th
+            Item Qty
+          %th
+            Item Total
+      %tbody
+        -@order.order_items.each do |order_item|
+          %tr
+            %td
+              =order_item.item.name
+            %td#qty
+              =order_item.qty
+            %td
+              =number_to_currency(order_item.line_item_subtotal)
+  .order-total
+    %p
+      Total:
+      %span.price=number_to_currency(@order.total)

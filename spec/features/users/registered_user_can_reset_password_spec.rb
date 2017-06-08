@@ -5,7 +5,8 @@ RSpec.feature "As registered user" do
 
     user = create(:user)
 
-    visit login_path
+    visit items_path
+    click_on "Login"
 
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
@@ -26,7 +27,8 @@ RSpec.feature "As registered user" do
 
     click_on "Logout"
 
-    visit login_path
+    visit items_path
+    click_on "Login"
 
     fill_in "Email", with: user.email
     fill_in "Password", with: "pass"
@@ -38,7 +40,8 @@ RSpec.feature "As registered user" do
   it "needs old password to reset" do
     user = create(:user)
 
-    visit login_path
+    visit items_path
+    click_on "Login"
 
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"

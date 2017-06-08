@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Welcome to Ready Player One,  #{@user.first_name}!
+    %p
+    %br
+      You have successfully signed up to accessorize your avatar!
+    %br
+      Your username is: #{@user.email}
+    %br
+      To log on just follow this link: #{@url}
+    %br
+    %p
+      We look forward to customizing your experience!
+    %p
+      Sincerely, Ready Player One Team

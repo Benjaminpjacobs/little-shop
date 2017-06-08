@@ -12,8 +12,4 @@ class CartsController < ApplicationController
     @cart.remove_item(item_id)
     redirect_back(fallback_location: items_path)
   end
-
-  def index
-  end
-
 end

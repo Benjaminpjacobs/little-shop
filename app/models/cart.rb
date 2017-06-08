@@ -32,5 +32,4 @@ class Cart
   def update_quantity(id, qty)
     @contents[id] = qty
   end
-
 end

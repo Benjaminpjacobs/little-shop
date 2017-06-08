@@ -19,9 +19,7 @@ class Admin::OrderController < Admin::PrivateController
   private
   
     def order_params
-      p = params.require(:order).permit(:status)
-      p[:status] = p[:status].to_i
-      p
+      params.require(:order)[:status] = params.require(:order)[:status].to_i
+      params.require(:order).permit(:status)
     end
-
 end
