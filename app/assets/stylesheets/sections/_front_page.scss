@@ -1,0 +1,52 @@
+.wrap {
+  overflow: hidden;
+}
+
+.jumbotron {
+  width: 60%;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+
+  img {
+    max-height: 350px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  span {
+    float: right;
+    margin: 10px 0 0;
+
+    a {
+      color: #ED1C39;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #a51226;
+    }
+  }
+}
+
+p.cat-name a {
+  font-size: 25px;
+  text-decoration: none;
+  color: #ED1C39;
+  text-transform: uppercase;
+  margin-left: 2%;
+}
+
+p.cat-name a:hover {
+  color: #a51226;
+}
+
+.category-preview {
+  position: relative;
+}
+
+.item-preview.cat-preview {
+    width: 20%;
+    height: 275px;
+    margin: 8px 2% 2%;
+  }

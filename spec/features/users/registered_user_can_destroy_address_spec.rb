@@ -7,7 +7,7 @@ RSpec.feature 'As registered user' do
     user_address = user.addresses.first
     address = build(:address)
 
-    visit root_path
+    visit items_path
     click_on 'Login'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'password'

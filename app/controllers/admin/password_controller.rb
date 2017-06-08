@@ -8,7 +8,7 @@ class Admin::PasswordController < Admin::PrivateController
     confirm = Password.confirm_submission(password_params)
     if confirm === true
       current_user.update(password: password_params[:new])
-      flash[:success] = "Password Successfully Updated"
+      flash[:success] = 'Password Successfully Updated'
       redirect_to dashboard_index_path
     else
       @errors = confirm
@@ -21,5 +21,4 @@ class Admin::PasswordController < Admin::PrivateController
   def password_params
     params.permit(:old, :new, :confirm, :id)
   end
-
 end

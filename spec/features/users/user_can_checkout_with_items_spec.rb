@@ -34,7 +34,8 @@ RSpec.feature "As a user" do
       user = create(:user)
       address = build(:address)
       item = create(:item)
-      visit login_path
+      visit items_path
+      click_on "Login"
       fill_in "Email", with: user.email
       fill_in "Password", with: "password"
       # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

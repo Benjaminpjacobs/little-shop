@@ -1,5 +1,5 @@
 %button.checkout.guest-checkout-links
-  =link_to "Login", login_path(:current_path => request.path)
+  =link_to "Login", login_path(:return => request.path)
   or
-  =link_to "Create Account", new_user_path(:current_path => request.path)
+  =link_to "Create Account", new_user_path(:return => request.path)
   to Checkout
