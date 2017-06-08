@@ -1,11 +1,10 @@
 .center-container
   %h1 New Address
-
-  %p Please add an address to complete your order.
+  =render partial: 'complete_msg' if @return_path == carts_path
   .error-message=render partial: 'shared/errors', locals: { target: @address.errors } if @address.errors.any?
 
   =form_for([:users, @address]) do |f|
-    =f.hidden_field :current_path, value: @current_path
+    =f.hidden_field :return, value: @return_path
     %br
     =f.label :street_address, required: true
     =f.text_field :street_address
