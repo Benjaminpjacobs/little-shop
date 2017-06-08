@@ -11,4 +11,9 @@ class Category < ApplicationRecord
   def to_param
     "#{slug}"
   end
+
+  def featured_category_items
+    items.sample(4)
+  end
+
 end

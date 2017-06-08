@@ -1,0 +1,18 @@
+.wrap
+  .jumbotron
+    =link_to image_tag(@featured_item.image), item_path(@featured_item)
+    %br
+    %span
+      =link_to @featured_item.name, item_path(@featured_item)
+
+-@categories.each do |category|
+  %p.cat-name
+    =link_to category.title, category_path(category)
+  .category-preview
+    .all-items
+      -category.featured_category_items.each do |item|
+        .item-preview.cat-preview
+          .item-thumb=link_to(image_tag(item.image), item_path(item))
+          .item-text
+            %h2
+              =link_to item.character_limit(item.name, 20), item_path(item)
