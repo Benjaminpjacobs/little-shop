@@ -32,8 +32,8 @@
         -if !message.is_a?(Array)
           %div.flash=sanitize(message)
         -else
-          message.each do |message|
-          %div.flash=message
+          -message.each do |message|
+            %div.flash=message
 
       = yield
 

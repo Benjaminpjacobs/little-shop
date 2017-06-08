@@ -11,7 +11,7 @@ class Admin::PasswordController < Admin::PrivateController
       flash[:success] = 'Password Successfully Updated'
       redirect_to dashboard_index_path
     else
-      @errors = confirm
+      flash[:errors] = confirm
       render :edit
     end
   end
