@@ -7,7 +7,7 @@ RSpec.feature "as admin" do
   context "it can log in" do
     it "and can see admin dashboard" do
       admin = create(:user, role: 1)
-      visit root_path
+      visit items_path
       click_on "Login"
       fill_in "Email", with: admin.email
       fill_in "Password", with: "password"
