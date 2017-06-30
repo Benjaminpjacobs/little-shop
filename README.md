@@ -1,7 +1,8 @@
 # Ready Player One - Virutal Accessories for virtually everyone!
 
-## Description
 ![Alt text](https://raw.github.com/Benjaminpjacobs/little-shop/master/screen-shots/little-shop.png?raw=true "Optional Title")
+
+## Description
 
 Influenced by the book "Ready Player One", this little shop sells virtual items for the virtual world. 
 Hop on, check out some items, throw them in a cart! Try to check out without an account and you'll have
