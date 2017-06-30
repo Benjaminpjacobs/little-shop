@@ -2,6 +2,8 @@
 
 ## Description
 
+(Screen Shot)[https://raw.github.com/Benjaminpjacobs/little-shop/master/screen-shots/little-shop.png]
+
 Influenced by the book "Ready Player One", this little shop sells virtual items for the virtual world. 
 Hop on, check out some items, throw them in a cart! Try to check out without an account and you'll have
 to sign up! Once you do, you'll get an email confirmation. You can edit your profile, see your past orders and
