@@ -1,73 +1,44 @@
-# README
+# Ready Player One - Virutal Accessories for virtually everyone!
 
-LITTLE SHOP
+## Description
 
-The purpose of this project is to design and implement an e-commerce site.
-Our site is influenced by the book "Ready Player One", and as such, we sell
-virtual items for a virtual world. We have users, admins, and guests that
-can all access the application.
+Influenced by the book "Ready Player One", this little shop sells virtual items for the virtual world. 
+Hop on, check out some items, throw them in a cart! Try to check out without an account and you'll have
+to sign up! Once you do, you'll get an email confirmation. You can edit your profile, see your past orders and
+even add an address(in fact you'll have to if you want to finish your order).You can even change your password, but it you will need your old one to do it.
 
-The version of Rails we are using is 5.1.1. The styling was done primarily with
-SASS, and a bit of flexbox. Our database is accessed via Active Record queries.
-For this project, we used HAML instead of ERB.
-We have also implemented a bit of JQuery.
+If you're registered as an admin, you can do everything a user can do AND MORE! (like create, edit, update and delete items and see the entire order history.)
 
-PREREQUISITES
-Rails version 5.1.1
-site: http://installrails.com/
+## Stack
 
-Ruby version 2.4.1
-site: https://www.ruby-lang.org/en/documentation/installation/
+Ths shop is built with HAML, JQuery, SASS, CSS, Postgresql, Rails 5.1, Ruby version 2.4.1, AWS and Heroku.
 
-INSTALLING
-You can clone this app down onto your machine using the git clone command and copying and pasting the SSH key. From there you should work on installing bundle if you don't already have it on your machine.
+## Local Install
 
-We have a lot of gems in our Gemfile so instead of installing them one by one, the easiest way to get them all up and running at once is with bundle. The website is listed below. It is pretty informative on how to get bundle installed.
+  ### You Need:
+  * [Rails version 5.1](http://installrails.com/)
 
-http://bundler.io/
+  * [Ruby version 2.4.1](https://www.ruby-lang.org/en/documentation/installation/)
 
-Once you install bundle, just run the command "bundle" or "rake exec bundle install" in the console to get all the gems installed.
+To run locally: 
+  * clone this repo. 
+  * cd into it
+  * ```bundle```
+  *```rake db:setup```
+  *```rake db:seed```
+  *```rails server```
+  * go to ```localhost:30000``` and start shopping
 
-DATABASE CREATION AND INITIALIZATION
-To get the database set up correctly for the app follow these commands:
+## Deployment
+Live on heroku at [Ready Player One Shop](https://safe-bastion-43545.herokuapp.com/)
 
-rake db:setup
--this will migrate and seed the database
-
-rake db:test:prepare
--this will prepare your environment for running tests
-
-RUNNING THE TESTS
-For this app we are using RSpec 3.6. To run the test suite simply write rspec into your console and that will run all the tests.
-
-If you are looking only to run a handful of test or perhaps just a single test, follow the file tree down to your preferred specifications.
-
-SERVICES
-Heroku
-AWS S3 Bucket
-
-
-DEPLOYMENT
-For this app we deployed to Heroku. [Ready Player One Shop](https://safe-bastion-43545.herokuapp.com/)
-
-
-BUILT WITH
-Ruby on Rails version 5.1.1 - The framework for web app we used
-Ruby version 2.4.1 - The version of ruby we used to take care of the logic in our app.
-Active Record - The way we manipulated and made queries to the database.
-
-We used the following for styling:
-SASS
-Flex-box
-[HAML](http://haml.info/tutorial.html)
-
-AUTHORS
+## Contributers
+[-Ben Jacobs](https://www.linkedin.com/in/benjaminpjacobs)
 [-Sarah Kirk](http://www.linkedin.com/in/sarahelizabethkirk)
 [-Charlie Corrigan](https://www.linkedin.com/in/charliepscorrigan)
 [-Padraic O'neill](https://www.linkedin.com/in/padraiconeill)
-[-Ben Jacobs](https://www.linkedin.com/in/benjaminpjacobs)
 
-ACKNOWLEDGEMENTS
+
+## Acknowledgements 
 We were inspired by the book ["Ready Player One"](https://en.wikipedia.org/wiki/Ready_Player_One) by Ernest Cline.
 
-We would also like to thank the Stack Overflow community for being an abundant resource for all of our questions be it styling to rails errors.
