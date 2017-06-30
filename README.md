@@ -33,10 +33,10 @@ To run locally:
 Live on heroku at [Ready Player One Shop](https://safe-bastion-43545.herokuapp.com/)
 
 ## Contributers
-[-Ben Jacobs](https://www.linkedin.com/in/benjaminpjacobs)
-[-Sarah Kirk](http://www.linkedin.com/in/sarahelizabethkirk)
-[-Charlie Corrigan](https://www.linkedin.com/in/charliepscorrigan)
-[-Padraic O'neill](https://www.linkedin.com/in/padraiconeill)
+* [-Ben Jacobs](https://www.linkedin.com/in/benjaminpjacobs)
+* [-Sarah Kirk](http://www.linkedin.com/in/sarahelizabethkirk)
+* [-Charlie Corrigan](https://www.linkedin.com/in/charliepscorrigan)
+* [-Padraic O'neill](https://www.linkedin.com/in/padraiconeill)
 
 
 ## Acknowledgements 
